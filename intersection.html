@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حيث يلتقيان - AI Robotics Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- لوحة إمكانية الوصول -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <button id="accessibility-toggle" class="accessibility-toggle" aria-label="فتح إعدادات إمكانية الوصول">
+            <i class="fa-solid fa-universal-access"></i>
+        </button>
+
+        <div class="accessibility-options">
+            <h3>إعدادات الوصول</h3>
+
+            <div class="option-group">
+                <label>حجم الخط:</label>
+                <div class="buttons">
+                    <button id="font-decrease" class="font-btn">أ-</button>
+                    <button id="font-default" class="font-btn active">أ</button>
+                    <button id="font-increase" class="font-btn">أ+</button>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <label>تباين الألوان:</label>
+                <div class="buttons">
+                    <button id="contrast-default" class="contrast-btn active" data-theme="default">افتراضي</button>
+                    <button id="contrast-high" class="contrast-btn" data-theme="high-contrast">تباين عالي</button>
+                    <button id="contrast-dark" class="contrast-btn" data-theme="dark">مظلم</button>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <label>تباعد الأسطر:</label>
+                <div class="buttons">
+                    <button id="spacing-normal" class="spacing-btn active" data-spacing="normal">عادي</button>
+                    <button id="spacing-wide" class="spacing-btn" data-spacing="wide">واسع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الرأس -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+               <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-size: 1.5rem; font-weight: 800; white-space: nowrap;">
+                AI Robotics Tech
+            </a>
+            </div>
+            <nav class="nav">
+                <ul>
+                   <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                        <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                        <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                        <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                        <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                        <li><a href="science.html" class="nav-link active">AI في العلوم</a></li>
+                        <li><a href="tutorials.html" class="nav-link active">الشروحات</a></li>
+                        <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                        <li><a href="contact.html" class="nav-link"> بوابة التواصل</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <main>
+        <!-- قسم البطل: الذكاء الاصطناعي والروبوتات -->
+        <section class="hero-ai-space">
+            <!-- فيديو الخلفية -->
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="videos/tt.mp4" type="video/mp4" />
+                متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+
+            <!-- التظليل فوق الفيديو -->
+            <div class="overlay-ai"></div>
+
+            <!-- المحتوى فوق التظليل -->
+            <div class="container-ai-space">
+                <div class="hero-content-ai">
+                    <h1 class="hero-title-ais" data-aos="fade-up">حيث يلتقي الذكاء الاصطناعي مع الروبوتات المتقدمة</h1>
+                    <p class="hero-description-ais" data-aos="fade-up">
+                        اكتشف كيف يخلق التقاء هاتين التقنيتين المتقدمتين ثورة في الصناعة والطب والحياة اليومية
+                        وفتح آفاق جديدة لمستقبل الذكاء الآلي
+                    </p>
+                    <div class="hero-buttons-ais" data-aos="fade-up">
+                        <a href="#applications" class="btn-ais btn-primary-ais">التطبيقات المتقدمة</a>
+                        <a href="#case-studies" class="btn-ais btn-secondary-ais">دراسات الحالة</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم مقدمة التقاطع -->
+        <section class="intersection-intro">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">التقاء عصرين تقنيين</h2>
+                    <p>يجمع هذا التقاطع بين قوة التحليل الذكي للذكاء الاصطناعي والقدرات الفيزيائية المتقدمة للروبوتات</p>
+                </div>
+
+                <div class="convergence-grid">
+                    <div class="convergence-item" data-aos="zoom-in">
+                        <div class="convergence-icon"><i class="fa fa-brain"></i></div>
+                        <h3>التعلم الذاتي</h3>
+                        <p>روبوتات قادرة على التعلم من تجاربها وتحسين أدائها ذاتياً باستخدام خوارزميات الذكاء الاصطناعي</p>
+                    </div>
+                    <div class="convergence-item" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="convergence-icon"><i class="fa fa-eye"></i></div>
+                        <h3>الرؤية الحاسوبية</h3>
+                        <p>دمج أنظمة الرؤية المتقدمة مع قدرات الروبوتات للتعرف على الأشياء والبيئات</p>
+                    </div>
+                    <div class="convergence-item" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="convergence-icon"><i class="fa fa-handshake"></i></div>
+                        <h3>التفاعل البشري</h3>
+                        <p>روبوتات تفهم اللغة الطبيعية والإشارات البشرية وتتفاعل مع الناس بشكل طبيعي</p>
+                    </div>
+                    <div class="convergence-item" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="convergence-icon"><i class="fa fa-cogs"></i></div>
+                        <h3>التكيف البيئي</h3>
+                        <p>أنظمة روبوتية ذكية تتكيف مع التغيرات في البيئة المحيطة وتتخذ قرارات مستقلة</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الفيديوهات: الذكاء الاصطناعي والروبوتات -->
+        <section class="ai-space-videos">
+            <div class="container-videos">
+                <h2 class="section-title" data-aos="fade-up">رحلة بين الذكاء الاصطناعي والروبوتات</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                    شاهد كيف يلتقي الإبداع البشري بالتقنيات المستقبلية في عالم الآلات الذكية
+                </p>
+
+                <div class="videos-grid">
+                    <!-- فيديو الذكاء الاصطناعي -->
+                    <div class="video-card" data-aos="zoom-in-up">
+                        <div class="video-title">الذكاء الاصطناعي</div>
+                        <video controls muted poster="images/ai-preview.jpg">
+                            <source src="videos/Ai.mp4" type="video/mp4" />
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+
+                    <!-- فيديو الروبوتات -->
+                    <div class="video-card" data-aos="zoom-in-up" data-aos-delay="200">
+                        <div class="video-title">الروبوتات الذكية</div>
+                        <video controls muted poster="images/robotics-preview.jpg">
+                            <source src="videos/From KlickPin CF Advanced Robotics Laboratory _ Cinematic techniques Future gadgets Advanced robotics.mp4" type="video/mp4" />
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم التطبيقات المتقدمة -->
+        <section id="applications" class="advanced-applications">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">التطبيقات المتقدمة في تقاطع التقنيتين</h2>
+
+                <div class="applications-showcase">
+                    <!-- التطبيق الأول -->
+                    <div class="application-detail">
+                        <div class="app-content">
+                            <h3 data-aos="fade-left">الروبوتات الجراحية الذكية</h3>
+                            <p class="section-parag" data-aos="fade-left">
+                                أنظمة روبوتية متقدمة تستخدم الذكاء الاصطناعي لإجراء عمليات جراحية دقيقة للغاية،
+                                مع قدرة على التعلم من كل عملية لتحسين الأداء في المستقبل.
+                            </p>
+
+                            <div class="tech-features">
+                                <div class="tech-feature" data-aos="zoom-in">
+                                    <h4>التعرف على الأنسجة</h4>
+                                    <p>تمييز أنواع الأنسجة المختلفة وتجنب الأضرار غير المقصودة</p>
+                                </div>
+                                <div class="tech-feature" data-aos="zoom-in" data-aos-delay="100">
+                                    <h4>التخطيط الجراحي</h4>
+                                    <p>تحليل الصور الطبية وتخطيط المسار الأمثل للجراحة</p>
+                                </div>
+                                <div class="tech-feature" data-aos="zoom-in" data-aos-delay="200">
+                                    <h4>التعلم من الخبرة</h4>
+                                    <p>تحسين التقنيات الجراحية من خلال تحليل آلاف العمليات السابقة</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- الصورة -->
+                        <div class="app-visual" data-aos="fade-right">
+                            <img src="images/ww.jpg" alt="الروبوتات الجراحية الذكية" class="app-image" />
+                        </div>
+                    </div>
+
+                    <!-- التطبيق الثاني -->
+                    <div class="application-detail reverse">
+                        <div class="app-content">
+                            <h3 data-aos="fade-right">المصانع الذكية المستقلة</h3>
+                            <p class="section-parag" data-aos="fade-right">
+                                شبكات روبوتية ذكية تعمل بتناغم في مصانع المستقبل، قادرة على التكيف مع متطلبات الإنتاج
+                                وإدارة العمليات بشكل كامل دون تدخل بشري.
+                            </p>
+
+                            <div class="tech-features">
+                                <div class="tech-feature" data-aos="zoom-in">
+                                    <h4>التعاون الآلي</h4>
+                                    <p>تنسيق عمل مجموعات من الروبوتات لأداء مهام معقدة</p>
+                                </div>
+                                <div class="tech-feature" data-aos="zoom-in" data-aos-delay="100">
+                                    <h4>الصيانة التنبؤية</h4>
+                                    <p>التنبؤ بالأعطال قبل حدوثها وإجراء الصيانة الوقائية</p>
+                                </div>
+                                <div class="tech-feature" data-aos="zoom-in" data-aos-delay="200">
+                                    <h4>التكيف مع المنتجات</h4>
+                                    <p>إعادة التكوين الذاتي للتكيف مع خطوط إنتاج جديدة</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- الصورة -->
+                        <div class="app-visual" data-aos="fade-left">
+                            <img src="images/yy.jpg" alt="المصانع الذكية المستقلة" class="app-image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم دراسات الحالة -->
+        <section id="case-studies" class="case-studies">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">دراسات حالة حقيقية</h2>
+
+                <div class="cases-grid">
+                    <div class="case-card" data-aos="zoom-in">
+                        <div class="case-header">
+                            <div class="case-icon"><i class="fa fa-user-md"></i></div>
+                            <h3>Da Vinci Surgical System</h3>
+                        </div>
+                        <div class="case-content">
+                            <p>نظام روبوتي جراحي يستخدم الذكاء الاصطناعي لتحسين دقة الجراحين في العمليات المعقدة.</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <div class="stat-value">10M+</div>
+                                    <div class="stat-label">عملية جراحية</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="stat-value">99.9%</div>
+                                    <div class="stat-label">دقة في الحركة</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="case-header">
+                            <div class="case-icon"><i class="fa fa-industry"></i></div>
+                            <h3>مصنع تسلا الآلي</h3>
+                        </div>
+                        <div class="case-content">
+                            <p>شبكة روبوتات ذكية تدير خط إنتاج السيارات الكهربائية بكفاءة غير مسبوقة.</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <div class="stat-value">500+</div>
+                                    <div class="stat-label">روبوت متخصص</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="stat-value">95%</div>
+                                    <div class="stat-label">أتمتة العمليات</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="case-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="case-header">
+                            <div class="case-icon"><i class="fa fa-home"></i></div>
+                            <h3>روبوتات الخدمة المنزلية</h3>
+                        </div>
+                        <div class="case-content">
+                            <p>أنظمة روبوتية ذكية تتعلم عادات السكان وتتكيف لتقديم مساعدة شخصية.</p>
+                            <div class="case-stats">
+                                <div class="case-stat">
+                                    <div class="stat-value">50M+</div>
+                                    <div class="stat-label">منزل يستخدمها</div>
+                                </div>
+                                <div class="case-stat">
+                                    <div class="stat-value">85%</div>
+                                    <div class="stat-label">توفير في الوقت</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم التحديات والحلول -->
+        <section class="challenges-solutions">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">التحديات والحلول الذكية</h2>
+
+                <div class="challenges-grid">
+                    <div class="challenge-card" data-aos="zoom-in-up">
+                        <h3>التفاعل الآمن مع البشر</h3>
+                        <div class="challenge-desc">
+                            <p>ضمان سلامة البشر عند التعامل مع الروبوتات في بيئات العمل المشتركة</p>
+                        </div>
+                        <div class="solution">
+                            <h4>الحل بالذكاء الاصطناعي</h4>
+                            <p>أنظمة استشعار متقدمة وتعلم آلي للتنبؤ بالحركات البشرية وتجنب الاصطدام</p>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card" data-aos="zoom-in-up" data-aos-delay="100">
+                        <h3>التكيف مع البيئات غير المنظمة</h3>
+                        <div class="challenge-desc">
+                            <p>صعوبة عمل الروبوتات في بيئات غير منظمة ومتغيرة باستمرار</p>
+                        </div>
+                        <div class="solution">
+                            <h4>الحل بالذكاء الاصطناعي</h4>
+                            <p>خوارزميات تعلم تعززي تمكن الروبوتات من اكتشاف البيئة والتكيف معها</p>
+                        </div>
+                    </div>
+
+                    <div class="challenge-card" data-aos="zoom-in-up" data-aos-delay="200">
+                        <h3>اتخاذ القرارات الأخلاقية</h3>
+                        <div class="challenge-desc">
+                            <p>كيف تتصرف الروبوتات في مواقف تتطلب قرارات أخلاقية معقدة</p>
+                        </div>
+                        <div class="solution">
+                            <h4>الحل بالذكاء الاصطناعي</h4>
+                            <p>نماذج أخلاقية متقدمة وتعلم على سيناريوهات معقدة لاتخاذ قرارات مسؤولة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الأسئلة الشائعة (FAQ) -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">أسئلتكم عن الذكاء الاصطناعي والروبوتات</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                    لديك سؤال؟ اطرحه وسنجيب عليه في أقرب وقت ممكن!
+                </p>
+
+                <div class="faq-container">
+                    <!-- قسم الأسئلة الشائعة -->
+                    <div class="faq-questions" data-aos="fade-right">
+                        <h3>الأسئلة الشائعة</h3>
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>ما الفرق بين الذكاء الاصطناعي والروبوتات؟</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>الذكاء الاصطناعي هو البرنامج أو الخوارزمية التي تجعل الآلات "ذكية" وقادرة على التعلم واتخاذ القرارات. الروبوتات هي الآلات الفيزيائية التي يمكنها تنفيذ مهام في العالم الحقيقي. غالباً ما يجتمعان معاً لإنشاء روبوتات ذكية.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>هل ستحل الروبوتات محل الوظائف البشرية؟</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>ستحل الروبوتات محل بعض الوظائف المتكررة والميكانيكية، لكنها ستخلق أيضاً وظائف جديدة في مجالات مثل البرمجة والصيانة والإدارة. المستقبل هو تعاون بين البشر والآلات بدلاً من الاستبدال الكامل.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>ما هي تطبيقات الذكاء الاصطناعي في الروبوتات الطبية؟</span>
+                                    <i class="fas fa-chevral-down"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>تشمل: الجراحة الدقيقة، إعادة التأهيل، المساعدة في التشخيص، روبوتات التمريض، إدارة الأدوية، وتحليل الصور الطبية. كل هذه التطبيقات تحسن الدقة وتقلل الأخطاء البشرية.</p>
+                                </div>
+                            </div>
+
+                            <div class="faq-item">
+                                <button class="faq-question">
+                                    <span>كم من الوقت يستغرق تطوير روبوت ذكي؟</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="faq-answer">
+                                    <p>يعتمد على تعقيد المهمة: روبوت بسيط (6-12 شهر)، روبوت صناعي متوسط (1-2 سنة)، روبوت جراحي متقدم (3-5 سنوات)، روبوت اجتماعي معقد (5+ سنوات). التكلفة تتراوح من آلاف إلى ملايين الدولارات.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- قسم طرح سؤال جديد -->
+                    <div class="ask-question" data-aos="fade-left">
+                        <h3>اطرح سؤالك</h3>
+                        <p>هل لديك سؤال عن الذكاء الاصطناعي أو الروبوتات؟ اكتبه هنا وسنرد عليك!</p>
+                        
+                        <form id="question-form" class="question-form">
+                            <div class="form-group">
+                                <label for="user-name">الاسم (اختياري)</label>
+                                <input type="text" id="user-name" placeholder="اكتب اسمك">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="user-email">البريد الإلكتروني (لن نشاركه)</label>
+                                <input type="email" id="user-email" placeholder="example@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="question-category">نوع السؤال</label>
+                                <select id="question-category">
+                                    <option value="general">عام</option>
+                                    <option value="ai">الذكاء الاصطناعي</option>
+                                    <option value="robotics">الروبوتات</option>
+                                    <option value="intersection">التقاطع بينهما</option>
+                                    <option value="future">المستقبل</option>
+                                    <option value="ethics">الأخلاقيات</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="user-question">سؤالك</label>
+                                <textarea id="user-question" rows="5" placeholder="اكتب سؤالك هنا..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-question">
+                                <i class="fas fa-paper-plane"></i> إرسال السؤال
+                            </button>
+                        </form>
+                        
+                        <div class="question-tips">
+                            <h4>نصائح لطرح سؤال جيد:</h4>
+                            <ul>
+                                <li>كن محدداً في سؤالك</li>
+                                <li>اذكر أي خلفية تقنية إذا كان ذلك مناسباً</li>
+                                <li>يمكنك سؤال عن التطبيقات العملية</li>
+                                <li>لا تتردد في سؤال عن المستقبل والتوجهات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم المستقبل -->
+        <section class="future-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">رؤية المستقبل: عندما يذوب الحد بين التقنيتين</h2>
+                <p data-aos="fade-up">يتجه المستقبل نحو اندماج كامل بين الذكاء الاصطناعي والروبوتات، حيث تصبح الآلات كيانات ذكية مستقلة قادرة على التعلم والإبداع والعمل مع البشر بتناغم.</p>
+
+                <div class="future-content">
+                    <div class="future-image" data-aos="fade-left">
+                        <img src="images/ppp.jpg"مستقبل الذكاء الاصطناعي والروبوتات">
+                    </div>
+
+                    <div class="future-trends">
+                        <div class="trend-card" data-aos="zoom-in-up">
+                            <h3>الروبوتات الاجتماعية الذكية</h3>
+                            <p>شركاء روبوتيون يفهمون المشاعر ويتفاعلون بشكل طبيعي في المنازل والمؤسسات</p>
+                        </div>
+                        <div class="trend-card" data-aos="zoom-in-up" data-aos-delay="100">
+                            <h3>الروبوتات ذاتية التعلم</h3>
+                            <p>أنظمة روبوتية تتعلم مهارات جديدة دون برمجة، من خلال الملاحظة والمحاكاة</p>
+                        </div>
+                        <div class="trend-card" data-aos="zoom-in-up" data-aos-delay="200">
+                            <h3>التعاون البشري الآلي المتقدم</h3>
+                            <p>فرق عمل مختلطة من البشر والروبوتات تتعاون في حل مشاكل معقدة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        
+                        <span>AI Robotics Tech</span>
+                    </div>
+                    <p class="footer-description">منصة متخصصة في استكشاف التقاطع بين الذكاء الاصطناعي والروبوتات الذكية وآثارهما على مستقبل الصناعة والحياة اليومية</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="تابعنا على تويتر"><span class="icon"><i class="fab fa-twitter"></i></span></a>
+                        <a href="#" aria-label="تابعنا على فيسبوك"><span class="icon"><i class="fab fa-facebook"></i></span></a>
+                        <a href="#" aria-label="تابعنا على لينكد إن"><span class="icon"><i class="fab fa-linkedin"></i></span></a>
+                        <a href="#" aria-label="تابعنا على يوتيوب"><span class="icon"><i class="fab fa-youtube"></i></span></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                     <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link active">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link active">الشروحات</a></li>
+                      <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link"> بوابة التواصل</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>الموارد</h3>
+                    <ul>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="#">الأبحاث</a></li>
+                        <li><a href="#">الفعاليات</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>اشترك في نشرتنا</h3>
+                    <p>ابق على اطلاع بأحدث التطورات في الذكاء الاصطناعي والروبوتات</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">اشترك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Robotics Tech. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- نافذة تأكيد إرسال السؤال -->
+    <div id="confirmation-modal" class="confirmation-modal">
+        <div class="confirmation-content">
+            <div class="confirmation-header">
+                <h3>شكراً لك!</h3>
+                <button class="close-confirmation">&times;</button>
+            </div>
+            <div class="confirmation-body">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <p>تم استلام سؤالك بنجاح. سنقوم بالرد عليك في أقرب وقت ممكن عبر البريد الإلكتروني.</p>
+                <p class="confirmation-id">رقم السؤال: <span id="question-id">0000</span></p>
+            </div>
+            <div class="confirmation-footer">
+                <button class="btn btn-primary close-confirmation">حسناً</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    
+    <!-- مكتبة الانيميشن -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- JavaScript الخاص بقسم الأسئلة -->
+    <script>
+        // تهيئة AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // تفعيل/إلغاء تفعيل الأسئلة الشائعة
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // إغلاق جميع العناصر الأخرى
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // تبديل الحالة الحالية
+                item.classList.toggle('active');
+                
+                // تغيير الأيقونة
+                const icon = button.querySelector('i');
+                if (item.classList.contains('active')) {
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+
+        // إرسال نموذج السؤال
+        document.getElementById('question-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('user-name').value;
+            const email = document.getElementById('user-email').value;
+            const category = document.getElementById('question-category').value;
+            const question = document.getElementById('user-question').value;
+            
+            // توليد رقم عشوائي للسؤال
+            const questionId = 'Q' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('question-id').textContent = questionId;
+            
+            // هنا يمكنك إضافة كود إرسال البيانات إلى الخادم
+            // مثال: إرسال إلى API
+            /*
+            fetch('/api/submit-question', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    category: category,
+                    question: question,
+                    questionId: questionId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // عرض تأكيد النجاح
+                showConfirmationModal();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء إرسال السؤال. حاول مرة أخرى.');
+            });
+            */
+            
+            // عرض نافذة التأكيد (للتجربة)
+            showConfirmationModal();
+            
+            // إعادة تعيين النموذج
+            this.reset();
+        });
+
+        // عرض نافذة التأكيد
+        function showConfirmationModal() {
+            const modal = document.getElementById('confirmation-modal');
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // إغلاق نافذة التأكيد
+        document.querySelectorAll('.close-confirmation').forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.getElementById('confirmation-modal');
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // إغلاق النافذة عند النقر خارجها
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('confirmation-modal');
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // تحميل أسئلة إضافية من ملف JSON (مثال)
+        function loadMoreQuestions() {
+            // يمكن تحميل المزيد من الأسئلة من API
+            /*
+            fetch('/api/more-questions')
+                .then(response => response.json())
+                .then(questions => {
+                    // إضافة الأسئلة الجديدة إلى القائمة
+                });
+            */
+        }
+
+        // إضافة بعض الأسئلة المبدئية عند التحميل
+        document.addEventListener('DOMContentLoaded', () => {
+            // يمكنك إضافة المزيد من الوظائف هنا
+        });
+    </script>
+
+    <script src="js/animation.js"></script>
+</body>
+</html>

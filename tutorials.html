@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشروحات والدروس | AI Robotics Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* أنماط خاصة بصفحة الشروحات */
+        :root {
+            --transition: all 0.3s ease;
+        }
+
+        /* قسم الشروحات */
+        .tutorials-section {
+            padding: 100px 20px;
+            background: var(--bg-color);
+            min-height: 100vh;
+        }
+
+        .tutorials-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .tutorials-header h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .tutorials-header p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* شبكة الشروحات */
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .tutorial-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-color: rgba(0, 168, 255, 0.3);
+        }
+
+        .tutorial-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .tutorial-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tutorial-card:hover .tutorial-image img {
+            transform: scale(1.1);
+        }
+
+        .difficulty-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: white;
+            z-index: 2;
+        }
+
+        .difficulty-beginner {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .difficulty-intermediate {
+            background: linear-gradient(135deg, #f39c12, #f1c40f);
+        }
+
+        .difficulty-advanced {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .tutorial-content {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tutorial-category {
+            display: inline-block;
+            background: rgba(0, 168, 255, 0.1);
+            color: #00a8ff;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .tutorial-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+            line-height: 1.4;
+            flex: 1;
+        }
+
+        .tutorial-description {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 500;
+            flex: 2;
+        }
+
+        .tutorial-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 168, 255, 0.1);
+        }
+
+        .tutorial-duration {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .tutorial-duration i {
+            color: #00a8ff;
+        }
+
+        .tutorial-link {
+            background: linear-gradient(135deg, #0a3d62, #00a8ff);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tutorial-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 168, 255, 0.3);
+            background: linear-gradient(135deg, #00a8ff, #0a3d62);
+        }
+
+        /* التصفية */
+        .filters-section {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .filter-btn {
+            background: var(--card-bg);
+            border: 2px solid rgba(0, 168, 255, 0.2);
+            color: var(--text-color);
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: linear-gradient(135deg, #0a3d62, #00a8ff);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* إحصائيات */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            min-width: 150px;
+            border: 1px solid rgba(0, 168, 255, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #00a8ff;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* تحسينات للأنماط المختلفة */
+        body.high-contrast .tutorial-card {
+            border: 2px solid #00ffff;
+        }
+
+        body.dark .tutorial-description {
+            color: #ecf0f1;
+        }
+
+        body.small-font .tutorial-description {
+            font-size: 0.9rem;
+        }
+
+        body.large-font .tutorial-description {
+            font-size: 1.1rem;
+        }
+
+        body.larger-font .tutorial-description {
+            font-size: 1.2rem;
+        }
+
+        /* رسالة فارغة */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            grid-column: 1 / -1;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            color: rgba(0, 168, 255, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .no-results h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .no-results p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        /* تجاوب */
+        @media (max-width: 1200px) {
+            .tutorials-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tutorials-section {
+                padding: 60px 15px;
+            }
+
+            .tutorials-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .tutorials-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-btn {
+                width: 200px;
+            }
+
+            .stats-bar {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tutorials-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .tutorial-card {
+                margin: 0 10px;
+            }
+
+            .tutorial-content {
+                padding: 20px;
+            }
+
+            .tutorial-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- لوحة إمكانية الوصول -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <button id="accessibility-toggle" class="accessibility-toggle" aria-label="فتح إعدادات إمكانية الوصول">
+            <i class="fa-solid fa-universal-access"></i>
+        </button>
+        <div class="accessibility-options">
+            <h3>إعدادات الوصول</h3>
+            <div class="option-group">
+                <label>حجم الخط:</label>
+                <div class="buttons">
+                    <button id="font-decrease" class="font-btn">أ-</button>
+                    <button id="font-default" class="font-btn active">أ</button>
+                    <button id="font-increase" class="font-btn">أ+</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباين الألوان:</label>
+                <div class="buttons">
+                    <button id="contrast-default" class="contrast-btn active" data-theme="default">افتراضي</button>
+                    <button id="contrast-high" class="contrast-btn" data-theme="high-contrast">تباين عالي</button>
+                    <button id="contrast-dark" class="contrast-btn" data-theme="dark">مظلم</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباعد الأسطر:</label>
+                <div class="buttons">
+                    <button id="spacing-normal" class="spacing-btn active" data-spacing="normal">عادي</button>
+                    <button id="spacing-wide" class="spacing-btn" data-spacing="wide">واسع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الرأس -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span>AI Robotics Tech</span>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                    <li><a href="tools.html" class="nav-link">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link active">الشروحات</a></li>
+                    <li><a href="ai-lab.html" class="nav-link">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- قسم الشروحات -->
+    <section class="tutorials-section">
+        <div class="container">
+            <div class="tutorials-header" data-aos="fade-up">
+                <h1>📚 مكتبة الشروحات والدروس</h1>
+                <p>مجموعة مختارة من أفضل الشروحات العربية والعالمية عن الذكاء الاصطناعي والروبوتات. ابدأ رحلة التعلم
+                    الآن!</p>
+            </div>
+
+            <!-- الإحصائيات -->
+            <div class="stats-bar" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">درس متخصص</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">ساعة تعليمية</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">مستويات مختلفة</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">مجاني</div>
+                </div>
+            </div>
+
+            <!-- أزرار التصفية -->
+            <div class="filters-section" data-aos="fade-up" data-aos-delay="200">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">جميع الدروس</button>
+                    <button class="filter-btn" data-filter="ai">الذكاء الاصطناعي</button>
+                    <button class="filter-btn" data-filter="robotics">الروبوتات</button>
+                    <button class="filter-btn" data-filter="programming">البرمجة</button>
+                    <button class="filter-btn" data-filter="beginner">مبتدئ</button>
+                    <button class="filter-btn" data-filter="intermediate">متوسط</button>
+                    <button class="filter-btn" data-filter="advanced">متقدم</button>
+                </div>
+            </div>
+
+            <!-- شبكة الشروحات -->
+            <div class="tutorials-grid" id="tutorials-container">
+                <!-- سيتم إضافة الدروس هنا عبر JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>AI Robotics Tech</span>
+                    </div>
+                    <p class="footer-description">مكتبة شروحات تعليمية مجانية في مجال الذكاء الاصطناعي والروبوتات</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com/AlNaqiraSchool" aria-label="تابعنا على تويتر" target="_blank"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/alnaqira_school" aria-label="تابعنا على إنستغرام"
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/c/AlNaqiraSchool" aria-label="تابعنا على يوتيوب" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="mailto:stem@alnaqira.edu.kw" aria-label="راسلنا على البريد"><i
+                                class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                        <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                        <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                        <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                        <li><a href="tools.html" class="nav-link">أدوات الذكاء الاصطناعي</a></li>
+                        <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                        <li><a href="tutorials.html" class="nav-link active">الشروحات</a></li>
+                        <li><a href="ai-lab.html" class="nav-link">المختبر الافتراضي</a></li>
+                        <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>فئات الدروس</h3>
+                    <ul>
+                        <li><a href="#" data-filter="ai">الذكاء الاصطناعي</a></li>
+                        <li><a href="#" data-filter="robotics">الروبوتات</a></li>
+                        <li><a href="#" data-filter="programming">البرمجة</a></li>
+                        <li><a href="#" data-filter="beginner">دروس للمبتدئين</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>مصادر تعليمية</h3>
+                    <p>هل تريد إضافة شرح أو درس جديد؟</p>
+                    <a href="contact.html" class="btn btn-primary" style="margin-top: 10px; padding: 10px 20px;">
+                        <i class="fas fa-plus-circle"></i> اقترح درساً جديداً
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 مدرسة النقيرة الثانوية للبنات - جميع الحقوق محفوظة | مكتبة الشروحات التعليمية</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- مكتبة الانيميشن -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // تهيئة AOS للرسوم المتحركة
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // ========== بيانات الدروس ==========
+        const tutorialsData = [
+            {
+                id: 1,
+                title: "مقدمة في الذكاء الاصطناعي للمبتدئين",
+                description: "شرح بسيط ومبسط عن الذكاء الاصطناعي وأهم تطبيقاته في حياتنا اليومية.",
+                category: "ai",
+                difficulty: "beginner",
+                duration: "2 ساعة",
+                link: "https://www.youtube.com/watch?v=lvuhqwLwJZ4&list=PLXlHqMRg9lAa48zcXmM08DonedIxZcoz5",
+                image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                title: "تعلم بايثون للذكاء الاصطناعي - كورس كامل",
+                description: "دورة متكاملة لتعلم لغة Python من الصفر مع تطبيقات عملية في الذكاء الاصطناعي.",
+                category: "programming",
+                difficulty: "beginner",
+                duration: "12 ساعة",
+                link: "https://www.youtube.com/watch?v=t8pPdKYpowI",
+                image: "https://i.ytimg.com/vi/t8pPdKYpowI/maxresdefault.jpg"
+            },
+            {
+                id: 3,
+                title: "الروبوتات في الصناعة الحديثة",
+                description: "كيف غيرت الروبوتات الصناعية وجه المصانع العالمية وزادت الإنتاجية.",
+                category: "robotics",
+                difficulty: "intermediate",
+                duration: "3 ساعات",
+                link: "https://www.youtube.com/shorts/Zzhb30HuM4g?feature=share",
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 4,
+                title: "التعلم العميق Deep Learning",
+                description: "شرح مفصل للشبكات العصبية العميقة وتطبيقاتها في الرؤية الحاسوبية.",
+                category: "ai",
+                difficulty: "advanced",
+                duration: "8 ساعات",
+                link: "https://www.youtube.com/watch?v=aircAruvnKk",
+                image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 5,
+                title: "برمجة روبوتات LEGO Mindstorms EV3",
+                description: "كيف تبني وتبرمج الروبوتات باستخدام مجموعات LEGO التعليمية.",
+                category: "robotics",
+                difficulty: "beginner",
+                duration: "4 ساعات",
+                link: "https://www.youtube.com/watch?v=kBw-4G7tBH0",
+                image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 6,
+                title: "الذكاء الاصطناعي في التشخيص الطبي",
+                description: "كيف يساعد الذكاء الاصطناعي في تشخيص الأمراض واكتشاف الأدوية.",
+                category: "ai",
+                difficulty: "intermediate",
+                duration: "2.5 ساعة",
+                link: "https://www.youtube.com/watch?v=fZha087B3iE",
+                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 7,
+                title: "مقدمة في Arduino للروبوتات",
+                description: "تعلم أساسيات الإلكترونيات وبرمجة المتحكمات الدقيقة باستخدام Arduino.",
+                category: "robotics",
+                difficulty: "beginner",
+                duration: "6 ساعات",
+                link: "https://www.youtube.com/watch?v=RQkAWWaZAHI",
+                image: "https://th.bing.com/th/id/OIP.Q4--vdFfNKEpqRqBdTXLugHaD4?w=329&h=180&c=7&r=0&o=7&cb=ucfimg2&dpr=1.5&pid=1.7&rm=3&ucfimg=1"
+            },
+            {
+                id: 8,
+                title: "الشبكات العصبية الاصطناعية",
+                description: "فهم كيفية عمل الخلايا العصبية الاصطناعية وتطبيقاتها في التعلم الآلي.",
+                category: "ai",
+                difficulty: "intermediate",
+                duration: "5 ساعات",
+                link: "https://www.youtube.com/watch?v=xiFWo_T85Og",
+                image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 9,
+                title: "روبوتات الإنسان الآلي (Humanoid)",
+                description: "استكشاف أحدث تطورات الروبوتات التي تشبه البشر وتقلد حركاتهم.",
+                category: "robotics",
+                difficulty: "advanced",
+                duration: "3 ساعات",
+                link: "https://www.youtube.com/watch?v=fn3KWM1kuAw",
+                image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 10,
+                title: "معالجة اللغة الطبيعية (NLP)",
+                description: "كيف يفهم الحاسوب اللغات البشرية ويتفاعل معها باستخدام الذكاء الاصطناعي.",
+                category: "ai",
+                difficulty: "advanced",
+                duration: "7 ساعات",
+                link: "https://www.youtube.com/watch?v=VxCkJFo4JKM",
+                image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 11,
+                title: "الروبوتات الجراحية Da Vinci",
+                description: "كيف تعمل الروبوتات الجراحية المتطورة وتزيد من دقة العمليات الجراحية.",
+                category: "robotics",
+                difficulty: "intermediate",
+                duration: "2 ساعة",
+                link: "https://www.youtube.com/watch?v=0XdC1HUp-rU",
+                image: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 12,
+                title: "الرؤية الحاسوبية (Computer Vision)",
+                description: "كيف يرى الحاسوب الصور والفيديوهات ويتعرف على المحتوى باستخدام الذكاء الاصطناعي.",
+                category: "ai",
+                difficulty: "advanced",
+                duration: "9 ساعات",
+                link: "https://www.youtube.com/watch?v=2hXG8v8p0KM",
+                image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 13,
+                title: "روبوتات استكشاف الفضاء",
+                description: "كيف تعمل الروبوتات المستكشفة للكواكب والفضاء الخارجي.",
+                category: "robotics",
+                difficulty: "intermediate",
+                duration: "3.5 ساعة",
+                link: "https://www.youtube.com/watch?v=M4tdMR5HLtg",
+                image: "https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 14,
+                title: "التعلم المعزز (Reinforcement Learning)",
+                description: "كيف تتعلم الآلات من التجربة والخطأ مثل الكائنات الحية.",
+                category: "ai",
+                difficulty: "advanced",
+                duration: "6 ساعات",
+                link: "https://www.youtube.com/watch?v=JgvyzIkgxF0",
+                image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 15,
+                title: "تصميم الروبوتات باستخدام Fusion 360",
+                description: "تعلم تصميم الروبوتات ثلاثية الأبعاد باستخدام برنامج Fusion 360.",
+                category: "robotics",
+                difficulty: "intermediate",
+                duration: "8 ساعات",
+                link: "https://www.youtube.com/watch?v=tpcSMgjJxAM",
+                image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        // ========== لوحة إمكانية الوصول ==========
+        document.addEventListener('DOMContentLoaded', function () {
+            const accessibilityPanel = document.getElementById('accessibility-panel');
+            const accessibilityToggle = document.getElementById('accessibility-toggle');
+
+            // فتح/إغلاق لوحة الوصول
+            if (accessibilityToggle) {
+                accessibilityToggle.addEventListener('click', function () {
+                    accessibilityPanel.classList.toggle('open');
+                    this.setAttribute('aria-expanded', accessibilityPanel.classList.contains('open'));
+                });
+            }
+
+            // إعدادات حجم الخط
+            const fontDecrease = document.getElementById('font-decrease');
+            const fontDefault = document.getElementById('font-default');
+            const fontIncrease = document.getElementById('font-increase');
+
+            if (fontDecrease) {
+                fontDecrease.addEventListener('click', function () {
+                    setActiveButton(this, [fontDefault, fontIncrease]);
+                    document.body.classList.remove('large-font', 'larger-font');
+                    document.body.classList.add('small-font');
+                });
+            }
+
+            if (fontDefault) {
+                fontDefault.addEventListener('click', function () {
+                    setActiveButton(this, [fontDecrease, fontIncrease]);
+                    document.body.classList.remove('small-font', 'large-font', 'larger-font');
+                });
+            }
+
+            if (fontIncrease) {
+                fontIncrease.addEventListener('click', function () {
+                    setActiveButton(this, [fontDecrease, fontDefault]);
+                    document.body.classList.remove('small-font', 'larger-font');
+                    document.body.classList.add('large-font');
+                });
+            }
+
+            // إعدادات التباين
+            const contrastButtons = document.querySelectorAll('.contrast-btn');
+            contrastButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const theme = this.getAttribute('data-theme');
+                    setActiveButton(this, contrastButtons);
+
+                    // إزالة جميع سمات التباين
+                    document.body.classList.remove('high-contrast', 'dark');
+
+                    // إضافة السمة المختارة
+                    if (theme !== 'default') {
+                        document.body.classList.add(theme);
+                    }
+                });
+            });
+
+            // إعدادات التباعد
+            const spacingButtons = document.querySelectorAll('.spacing-btn');
+            spacingButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const spacing = this.getAttribute('data-spacing');
+                    setActiveButton(this, spacingButtons);
+
+                    // إزالة جميع سمات التباعد
+                    document.body.classList.remove('wide-spacing');
+
+                    // إضافة السمة المختارة
+                    if (spacing === 'wide') {
+                        document.body.classList.add('wide-spacing');
+                    }
+                });
+            });
+
+            // دالة لتعيين الزر النشط
+            function setActiveButton(activeButton, otherButtons) {
+                activeButton.classList.add('active');
+                otherButtons.forEach(btn => btn.classList.remove('active'));
+            }
+
+            // تحميل الدروس
+            loadTutorials();
+            setupFiltering();
+        });
+
+        // ========== تحميل وعرض الدروس ==========
+        function loadTutorials(filter = 'all') {
+            const container = document.getElementById('tutorials-container');
+            if (!container) return;
+
+            // تصفية الدروس
+            let filteredTutorials = tutorialsData;
+            if (filter !== 'all') {
+                filteredTutorials = tutorialsData.filter(tutorial =>
+                    tutorial.category === filter || tutorial.difficulty === filter
+                );
+            }
+
+            // عرض الدروس
+            if (filteredTutorials.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results" data-aos="fade-up">
+                        <i class="fas fa-search"></i>
+                        <h3>لا توجد دروس متاحة</h3>
+                        <p>جرب استخدام فلتر آخر أو عد لرؤية جميع الدروس</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = filteredTutorials.map((tutorial, index) => {
+                // تحديد فئة الصعوبة
+                let difficultyClass = '';
+                let difficultyText = '';
+
+                switch (tutorial.difficulty) {
+                    case 'beginner':
+                        difficultyClass = 'difficulty-beginner';
+                        difficultyText = 'مبتدئ';
+                        break;
+                    case 'intermediate':
+                        difficultyClass = 'difficulty-intermediate';
+                        difficultyText = 'متوسط';
+                        break;
+                    case 'advanced':
+                        difficultyClass = 'difficulty-advanced';
+                        difficultyText = 'متقدم';
+                        break;
+                }
+
+                // تحديد فئة المحتوى
+                let categoryText = '';
+                switch (tutorial.category) {
+                    case 'ai':
+                        categoryText = 'الذكاء الاصطناعي';
+                        break;
+                    case 'robotics':
+                        categoryText = 'الروبوتات';
+                        break;
+                    case 'programming':
+                        categoryText = 'البرمجة';
+                        break;
+                }
+
+                return `
+                    <div class="tutorial-card" data-aos="fade-up" data-aos-delay="${index * 100}" 
+                         data-category="${tutorial.category}" data-difficulty="${tutorial.difficulty}">
+                        <div class="tutorial-image">
+                            <img src="${tutorial.image}" alt="${tutorial.title}" loading="lazy">
+                            <div class="difficulty-badge ${difficultyClass}">${difficultyText}</div>
+                        </div>
+                        <div class="tutorial-content">
+                            <span class="tutorial-category">${categoryText}</span>
+                            <h3 class="tutorial-title">${tutorial.title}</h3>
+                            <p class="tutorial-description">${tutorial.description}</p>
+                            <div class="tutorial-meta">
+                                <div class="tutorial-duration">
+                                    <i class="fas fa-clock"></i>
+                                    <span>${tutorial.duration}</span>
+                                </div>
+                                <a href="${tutorial.link}" class="tutorial-link" target="_blank" rel="noopener">
+                                    <i class="fas fa-play-circle"></i> ابدأ التعلم
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            // إضافة تأثيرات AOS للدروس الجديدة
+            AOS.refresh();
+        }
+
+        // ========== نظام التصفية ==========
+        function setupFiltering() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // إزالة النشاط من جميع الأزرار
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // إضافة النشاط للزر المضغوط
+                    this.classList.add('active');
+
+                    // تطبيق التصفية
+                    const filter = this.getAttribute('data-filter');
+                    loadTutorials(filter);
+                });
+            });
+
+            // إضافة أحداث التصفية للروابط في الفوتر
+            document.querySelectorAll('a[data-filter]').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const filter = this.getAttribute('data-filter');
+
+                    // تحديث أزرار التصفية
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    const targetButton = document.querySelector(`.filter-btn[data-filter="${filter}"]`);
+                    if (targetButton) {
+                        targetButton.classList.add('active');
+                    }
+
+                    // تطبيق التصفية
+                    loadTutorials(filter);
+
+                    // التمرير لأعلى الصفحة
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

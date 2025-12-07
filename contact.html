@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا | الذكاء الاصطناعي والروبوتات</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --transition: all 0.3s ease;
+        }
+
+        /* قسم اتصل بنا */
+        .contact-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            min-height: calc(100vh - 200px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #0a3d62, #00a8ff);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* معلومات الاتصال */
+        .contact-info {
+            background: white;
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0a3d62, #00a8ff);
+        }
+
+        .school-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .school-logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #0a3d62, #00a8ff);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 168, 255, 0.3);
+        }
+
+        .school-name {
+            font-size: 1.8rem;
+            color: #0a3d62;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .school-tagline {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 1px solid #e9ecef;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateX(-5px);
+            border-color: #00a8ff;
+            background: #f0f9ff;
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.1);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0a3d62, #00a8ff);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .contact-content {
+            flex: 1;
+        }
+
+        .contact-title {
+            font-size: 1.1rem;
+            color: #0a3d62;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .contact-value {
+            color: #495057;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-value a {
+            color: #00a8ff;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-value a:hover {
+            color: #0a3d62;
+            text-decoration: underline;
+        }
+
+        .social-media {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #f1f3f5;
+        }
+
+        .social-title {
+            font-size: 1.2rem;
+            color: #0a3d62;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .twitter {
+            background: #1DA1F2;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+        }
+
+        .youtube {
+            background: #FF0000;
+        }
+
+        .email {
+            background: #34A853;
+        }
+
+        /* نموذج الاتصال */
+        .contact-form-section {
+            background: white;
+            border-radius: 25px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #00a8ff, #0a3d62);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            color: #0a3d62;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 576px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-label {
+            color: #0a3d62;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: #f8f9fa;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #00a8ff;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.1);
+        }
+
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: #adb5bd;
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 150px;
+            line-height: 1.6;
+        }
+
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%230a3d62' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 20px center;
+            padding-left: 50px;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 3px;
+            cursor: pointer;
+            accent-color: #00a8ff;
+        }
+
+        .form-checkbox label {
+            color: #495057;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .form-checkbox a {
+            color: #00a8ff;
+            text-decoration: none;
+        }
+
+        .form-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            flex: 1;
+            padding: 17px 30px;
+            background: linear-gradient(135deg, #0a3d62, #00a8ff);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 168, 255, 0.3);
+            background: linear-gradient(135deg, #00a8ff, #0a3d62);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .reset-btn {
+            padding: 17px 30px;
+            background: #f8f9fa;
+            color: #495057;
+            border: 2px solid #e9ecef;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .reset-btn:hover {
+            background: #e9ecef;
+            border-color: #dee2e6;
+        }
+
+        /* نافذة التأكيد */
+        .confirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .confirmation-modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .confirmation-content {
+            background: white;
+            border-radius: 25px;
+            width: 90%;
+            max-width: 500px;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            animation: slideUp 0.4s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .confirmation-icon {
+            font-size: 4rem;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        .confirmation-title {
+            font-size: 1.8rem;
+            color: #0a3d62;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .confirmation-message {
+            color: #495057;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+
+        .confirmation-id {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border: 2px dashed #00a8ff;
+        }
+
+        .confirmation-id strong {
+            color: #0a3d62;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .confirmation-id span {
+            color: #00a8ff;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .confirmation-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .close-confirmation {
+            flex: 1;
+            padding: 15px 30px;
+            background: #0a3d62;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-confirmation:hover {
+            background: #00a8ff;
+            transform: translateY(-3px);
+        }
+
+        /* الأنيميشن */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* تحسينات للأنماط المختلفة */
+        body.high-contrast .contact-item,
+        body.high-contrast .contact-form-section,
+        body.high-contrast .contact-info {
+            border: 3px solid #00ffff;
+        }
+
+        body.dark .contact-info,
+        body.dark .contact-form-section {
+            background: #1a1a2e;
+            border-color: #16213e;
+        }
+
+        body.dark .contact-item {
+            background: #16213e;
+            border-color: #0f3460;
+        }
+
+        body.dark .form-input,
+        body.dark .form-select,
+        body.dark .form-textarea {
+            background: #16213e;
+            border-color: #0f3460;
+            color: #ecf0f1;
+        }
+
+        /* تجاوب */
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 60px 15px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .contact-info,
+            .contact-form-section {
+                padding: 40px 30px;
+            }
+
+            .school-name {
+                font-size: 1.6rem;
+            }
+
+            .form-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .contact-info,
+            .contact-form-section {
+                padding: 30px 20px;
+            }
+
+            .contact-item {
+                padding: 15px;
+            }
+
+            .form-buttons,
+            .confirmation-buttons {
+                flex-direction: column;
+            }
+
+            .submit-btn,
+            .reset-btn,
+            .close-confirmation {
+                width: 100%;
+            }
+        }
+        /* إضافة في أي مكان في ملف style.css */
+.nav ul {
+    gap: 8px !important; /* تقليل المسافة بين الأزرار */
+}
+
+.nav-link {
+    padding: 6px 10px !important; /* تقليل الحشو الداخلي */
+    font-size: 0.9rem !important; /* تصغير الخط قليلاً */
+    white-space: nowrap; /* منع التفاف النص */
+}
+    </style>
+</head>
+
+<body>
+    <!-- لوحة إمكانية الوصول -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <button id="accessibility-toggle" class="accessibility-toggle" aria-label="فتح إعدادات إمكانية الوصول">
+            <i class="fa-solid fa-universal-access"></i>
+        </button>
+        <div class="accessibility-options">
+            <h3>إعدادات الوصول</h3>
+            <div class="option-group">
+                <label>حجم الخط:</label>
+                <div class="buttons">
+                    <button id="font-decrease" class="font-btn">أ-</button>
+                    <button id="font-default" class="font-btn active">أ</button>
+                    <button id="font-increase" class="font-btn">أ+</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباين الألوان:</label>
+                <div class="buttons">
+                    <button id="contrast-default" class="contrast-btn active" data-theme="default">افتراضي</button>
+                    <button id="contrast-high" class="contrast-btn" data-theme="high-contrast">تباين عالي</button>
+                    <button id="contrast-dark" class="contrast-btn" data-theme="dark">مظلم</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباعد الأسطر:</label>
+                <div class="buttons">
+                    <button id="spacing-normal" class="spacing-btn active" data-spacing="normal">عادي</button>
+                    <button id="spacing-wide" class="spacing-btn" data-spacing="wide">واسع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- الرأس -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-size: 1.5rem; font-weight: 800; white-space: nowrap;">
+                AI Robotics Tech
+            </a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                     <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link active">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link active">الشروحات</a></li>
+                      <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link"> بوابة التواصل</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- قسم اتصل بنا -->
+    <section class="contact-section">
+        <h1 class="section-title" data-aos="fade-up"> مدرسة النقيرة الثانوية للبنات,  بوابة التواصل  </h1>
+
+        <div class="container contact-container">
+            <!-- معلومات الاتصال -->
+            <div class="contact-info" data-aos="fade-right">
+                <div class="school-header">
+                    <div class="school-logo">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h2 class="school-name">مشروع الذكاء الاصطناعي والروبوتات</h2>
+                    <p class="school-tagline">نحو مستقبل رقمي متميز للجيل القادم</p>
+                </div>
+
+                <div class="contact-details">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3 class="contact-title">العنوان</h3>
+                            <div class="contact-value">
+                                محافظة عمان - منطقة النقيرة<br>
+                                شارع المدرسة - بجانب مركز النقيرة الصحي<br>
+                                الاردن
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3 class="contact-title">الهواتف</h3>
+                            <div class="contact-value">
+                                الهاتف: <a href="tel:+965XXXXXXX">+965 XXXX XXX</a><br>
+                                الفاكس: +965 XXXX XXX<br>
+                                الإدارة: <a href="tel:+965XXXXXXX">+965 XXXX XXX</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3 class="contact-title">البريد الإلكتروني</h3>
+                            <div class="contact-value">
+                                <a href="mailto:ai@school.edu.kw">ai@school.edu.kw</a><br>
+                                <a href="mailto:stem@school.edu.kw">stem@school.edu.kw</a><br>
+                                <a href="mailto:info@school.edu.kw">info@school.edu.kw</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h3 class="contact-title">ساعات العمل</h3>
+                            <div class="contact-value">
+                                الأحد - الخميس: 7:00 صباحاً - 2:00 مساءً<br>
+                                الجمعة والسبت: مغلق<br>
+                                العطل الرسمية: حسب إعلان الوزارة
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-media" data-aos="fade-up" data-aos-delay="500">
+                    <h3 class="social-title">تابعنا على وسائل التواصل</h3>
+                    <div class="social-icons">
+                        <a href="https://twitter.com/AI_Robotics" class="social-icon twitter" target="_blank"
+                            aria-label="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://instagram.com/ai_robotics_school" class="social-icon instagram" target="_blank"
+                            aria-label="إنستغرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com/c/AI_Robotics" class="social-icon youtube" target="_blank"
+                            aria-label="يوتيوب">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="mailto:ai@school.edu.kw" class="social-icon email" aria-label="البريد الإلكتروني">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نموذج الاتصال -->
+            <div class="contact-form-section" data-aos="fade-left">
+                <div class="form-header">
+                    <h2>تواصل معنا</h2>
+                    <p> نرحب بجميع استفساراتكم واقتراحاتكم.
+                        يرجى تعبئة النموذج التالي وسيتم الرد عليكم في أقرب وقت ممكن.</p>
+                </div>
+
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-user"></i> الاسم الأول
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-input" id="firstName" name="firstName"
+                                placeholder="أدخل اسمك الأول" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-user"></i> اسم العائلة
+                                <span class="required">*</span>
+                            </label>
+                            <input type="text" class="form-input" id="lastName" name="lastName"
+                                placeholder="أدخل اسم العائلة" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-envelope"></i> البريد الإلكتروني
+                                <span class="required">*</span>
+                            </label>
+                            <input type="email" class="form-input" id="email" name="email"
+                                placeholder="example@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-phone"></i> رقم الهاتف
+                            </label>
+                            <input type="tel" class="form-input" id="phone" name="phone" placeholder="+965 XXXXXXX">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-graduation-cap"></i> الصف الدراسي
+                            <span class="required">*</span>
+                        </label>
+                        <select class="form-select" id="grade" name="grade" required>
+                            <option value="" disabled selected>اختر صفك الدراسي</option>
+                            <option value="grade10">الصف العاشر</option>
+                            <option value="grade11">الصف الحادي عشر</option>
+                            <option value="grade12">الصف الثاني عشر</option>
+                            <option value="teacher">معلم/ة</option>
+                            <option value="parent">ولي أمر</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-tag"></i> نوع الاستفسار
+                            <span class="required">*</span>
+                        </label>
+                        <select class="form-select" id="inquiryType" name="inquiryType" required>
+                            <option value="" disabled selected>اختر نوع استفسارك</option>
+                            <option value="technical">استفسار فني عن الموقع</option>
+                            <option value="educational">استفسار تعليمي</option>
+                            <option value="project">مشروع تعليمي</option>
+                            <option value="suggestion">مقترح أو فكرة</option>
+                            <option value="problem">مشكلة تقنية</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-comment-alt"></i> الرسالة
+                            <span class="required">*</span>
+                        </label>
+                        <textarea class="form-textarea" id="message" name="message" placeholder="اكتب رسالتك هنا..."
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">
+                                أرغب في الاشتراك في النشرة البريدية للحصول على آخر التحديثات والدروس الجديدة
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">
+                                أوافق على <a href="#" target="_blank">شروط الخصوصية</a> و
+                                <a href="#" target="_blank">سياسة الاستخدام</a>
+                                <span class="required">*</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-buttons">
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                        </button>
+                        <button type="reset" class="reset-btn">
+                            <i class="fas fa-redo"></i> إعادة تعيين
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- نافذة التأكيد -->
+    <div id="confirmationModal" class="confirmation-modal">
+        <div class="confirmation-content">
+            <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2 class="confirmation-title">تم إرسال رسالتك بنجاح!</h2>
+            <p class="confirmation-message">
+                شكراً لتواصلك معنا. لقد استلمنا رسالتك وسنرد عليك في أقرب وقت ممكن.
+                <br>
+                احتفظ برقم المرجع للمتابعة.
+            </p>
+
+            <div class="confirmation-id">
+                <strong>رقم المرجع:</strong>
+                <span id="referenceNumber">AI-2024-0000</span>
+            </div>
+
+            <div class="confirmation-buttons">
+                <button type="button" class="close-confirmation" id="closeConfirmation">
+                    <i class="fas fa-times"></i> إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>الذكاء الاصطناعي والروبوتات</span>
+                    </div>
+                    <p class="footer-description">مشروع تعليمي لنشر المعرفة في مجال الذكاء الاصطناعي والروبوتات</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com/AI_Robotics" aria-label="تابعنا على تويتر" target="_blank"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/ai_robotics_school" aria-label="تابعنا على إنستغرام"
+                            target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/c/AI_Robotics" aria-label="تابعنا على يوتيوب" target="_blank"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="mailto:ai@school.edu.kw" aria-label="راسلنا على البريد"><i
+                                class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                     <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link">الشروحات</a></li>
+                    <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>معلومات الاتصال</h3>
+                    <ul>
+                        <li><i class="fas fa-school"></i> المشروع التعليمي</li>
+                        <li><i class="fas fa-map-marker-alt"></i> محافظة الأحمدي - الكويت</li>
+                        <li><i class="fas fa-phone"></i> +965 XXXX XXX</li>
+                        <li><i class="fas fa-envelope"></i> ai@school.edu.kw</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>الاشتراك في النشرة</h3>
+                    <p>ابق على اطلاع بأحدث مشاريعنا ودروسنا التعليمية</p>
+                    <form class="newsletter-form" id="footerNewsletter">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">اشترك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 مشروع الذكاء الاصطناعي والروبوتات - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- مكتبة الانيميشن -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // تهيئة AOS للرسوم المتحركة
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // ========== لوحة إمكانية الوصول ==========
+        document.addEventListener('DOMContentLoaded', function () {
+            const accessibilityPanel = document.getElementById('accessibility-panel');
+            const accessibilityToggle = document.getElementById('accessibility-toggle');
+
+            // فتح/إغلاق لوحة الوصول
+            accessibilityToggle.addEventListener('click', function () {
+                accessibilityPanel.classList.toggle('open');
+            });
+
+            // تغيير حجم الخط
+            document.getElementById('font-decrease').addEventListener('click', function () {
+                document.body.classList.remove('large-font', 'larger-font');
+                setActiveButton(this, 'font-btn');
+            });
+
+            document.getElementById('font-default').addEventListener('click', function () {
+                document.body.classList.remove('large-font', 'larger-font');
+                setActiveButton(this, 'font-btn');
+            });
+
+            document.getElementById('font-increase').addEventListener('click', function () {
+                document.body.classList.remove('large-font', 'larger-font');
+                document.body.classList.add('large-font');
+                setActiveButton(this, 'font-btn');
+            });
+
+            // تغيير التباين
+            const contrastButtons = document.querySelectorAll('.contrast-btn');
+            contrastButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const theme = this.getAttribute('data-theme');
+                    document.body.classList.remove('high-contrast', 'dark');
+                    if (theme !== 'default') {
+                        document.body.classList.add(theme);
+                    }
+                    setActiveButton(this, 'contrast-btn');
+                });
+            });
+
+            // تغيير تباعد الأسطر
+            document.getElementById('spacing-normal').addEventListener('click', function () {
+                document.body.classList.remove('wide-spacing');
+                setActiveButton(this, 'spacing-btn');
+            });
+
+            document.getElementById('spacing-wide').addEventListener('click', function () {
+                document.body.classList.add('wide-spacing');
+                setActiveButton(this, 'spacing-btn');
+            });
+
+            function setActiveButton(activeButton, buttonClass) {
+                const buttons = document.querySelectorAll(`.${buttonClass}`);
+                buttons.forEach(btn => btn.classList.remove('active'));
+                activeButton.classList.add('active');
+            }
+
+            // ========== القائمة المتنقلة ==========
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('.nav');
+
+            menuToggle.addEventListener('click', function () {
+                nav.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+
+            // إغلاق القائمة عند النقر على رابط
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+
+            // ========== زر العودة للأعلى ==========
+            const backToTopButton = document.getElementById('back-to-top');
+
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 300) {
+                    backToTopButton.style.display = 'flex';
+                } else {
+                    backToTopButton.style.display = 'none';
+                }
+            });
+
+            backToTopButton.addEventListener('click', function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // ========== نموذج الاتصال ==========
+            const contactForm = document.getElementById('contactForm');
+            const confirmationModal = document.getElementById('confirmationModal');
+            const closeConfirmation = document.getElementById('closeConfirmation');
+            const referenceNumberSpan = document.getElementById('referenceNumber');
+
+            // توليد رقم مرجعي عشوائي
+            function generateReferenceNumber() {
+                const timestamp = Date.now().toString().slice(-6);
+                const random = Math.floor(1000 + Math.random() * 9000);
+                return `AI-${new Date().getFullYear()}-${timestamp}${random}`;
+            }
+
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // إظهار زر الإرسال كنشط
+                const submitBtn = document.getElementById('submitBtn');
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري الإرسال...';
+
+                // محاكاة إرسال البيانات
+                setTimeout(() => {
+                    // توليد رقم مرجعي جديد
+                    const refNumber = generateReferenceNumber();
+                    referenceNumberSpan.textContent = refNumber;
+
+                    // إظهار نافذة التأكيد
+                    confirmationModal.classList.add('show');
+
+                    // إعادة تعيين النموذج
+                    contactForm.reset();
+
+                    // استعادة زر الإرسال
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> إرسال الرسالة';
+                }, 1500);
+            });
+
+            // إغلاق نافذة التأكيد
+            closeConfirmation.addEventListener('click', function () {
+                confirmationModal.classList.remove('show');
+            });
+
+            // إغلاق النافذة عند النقر خارجها
+            confirmationModal.addEventListener('click', function (e) {
+                if (e.target === confirmationModal) {
+                    confirmationModal.classList.remove('show');
+                }
+            });
+
+            // ========== نموذج النشرة البريدية ==========
+            const footerNewsletter = document.getElementById('footerNewsletter');
+            footerNewsletter.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]');
+                alert(`شكراً للاشتراك! تم إرسال رابط التأكيد إلى ${emailInput.value}`);
+                emailInput.value = '';
+            });
+
+            // ========== تحسين إمكانية الوصول ==========
+            // إضافة أريا-ليبل للقائمة المتنقلة
+            menuToggle.setAttribute('aria-label', 'فتح/إغلاق القائمة');
+
+            // إضافة التنقل باللوحة المفاتيح للنماذج
+            const formInputs = contactForm.querySelectorAll('input, select, textarea');
+            formInputs.forEach((input, index) => {
+                input.addEventListener('keydown', function (e) {
+                    if (e.key === 'Tab' && !e.shiftKey && index === formInputs.length - 1) {
+                        e.preventDefault();
+                        formInputs[0].focus();
+                    }
+                });
+            });
+
+            // حفظ الإعدادات في التخزين المحلي
+            function saveAccessibilitySettings() {
+                const settings = {
+                    fontSize: document.body.classList.contains('large-font') ? 'large' :
+                        document.body.classList.contains('larger-font') ? 'larger' : 'normal',
+                    theme: document.body.classList.contains('high-contrast') ? 'high-contrast' :
+                        document.body.classList.contains('dark') ? 'dark' : 'default',
+                    spacing: document.body.classList.contains('wide-spacing') ? 'wide' : 'normal'
+                };
+                localStorage.setItem('accessibilitySettings', JSON.stringify(settings));
+            }
+
+            // تحميل الإعدادات المحفوظة
+            function loadAccessibilitySettings() {
+                const savedSettings = localStorage.getItem('accessibilitySettings');
+                if (savedSettings) {
+                    const settings = JSON.parse(savedSettings);
+
+                    // تطبيق حجم الخط
+                    document.body.classList.remove('large-font', 'larger-font');
+                    if (settings.fontSize === 'large') {
+                        document.body.classList.add('large-font');
+                        setActiveButton(document.getElementById('font-increase'), 'font-btn');
+                    } else if (settings.fontSize === 'larger') {
+                        document.body.classList.add('larger-font');
+                    } else {
+                        setActiveButton(document.getElementById('font-default'), 'font-btn');
+                    }
+
+                    // تطبيق الثيم
+                    document.body.classList.remove('high-contrast', 'dark');
+                    if (settings.theme !== 'default') {
+                        document.body.classList.add(settings.theme);
+                    }
+                    const activeThemeBtn = document.querySelector(`[data-theme="${settings.theme}"]`);
+                    if (activeThemeBtn) setActiveButton(activeThemeBtn, 'contrast-btn');
+
+                    // تطبيق التباعد
+                    document.body.classList.remove('wide-spacing');
+                    if (settings.spacing === 'wide') {
+                        document.body.classList.add('wide-spacing');
+                        setActiveButton(document.getElementById('spacing-wide'), 'spacing-btn');
+                    } else {
+                        setActiveButton(document.getElementById('spacing-normal'), 'spacing-btn');
+                    }
+                }
+            }
+
+            // تحميل الإعدادات عند فتح الصفحة
+            loadAccessibilitySettings();
+
+            // حفظ الإعدادات عند تغييرها
+            const allAccessibilityButtons = document.querySelectorAll('.font-btn, .contrast-btn, .spacing-btn');
+            allAccessibilityButtons.forEach(button => {
+                button.addEventListener('click', saveAccessibilitySettings);
+            });
+
+            // ========== تأثير اهتزاز عند الخطأ في النموذج ==========
+            contactForm.addEventListener('invalid', function (e) {
+                e.target.classList.add('shake');
+                setTimeout(() => e.target.classList.remove('shake'), 500);
+            }, true);
+
+            // إضافة CSS للاهتزاز
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+                .shake {
+                    animation: shake 0.5s ease;
+                    border-color: #e74c3c !important;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+
+</html>

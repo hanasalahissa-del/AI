@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أدوات الذكاء الاصطناعي - AI Robotics Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- رابط الايقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- مكتبة AOS للانيميشن -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- خطوط Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* تنسيقات إضافية خاصة بصفحة الأدوات */
+        .ai-tools-page {
+            padding-top: 100px;
+            padding-bottom: 80px;
+            background: var(--bg-color);
+            min-height: 100vh;
+        }
+
+        .tools-hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 0 20px;
+        }
+
+        .tools-hero h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .tools-hero p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border-radius: 50px;
+            border: 2px solid var(--secondary-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.3);
+        }
+
+        .search-container button {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .search-container button:hover {
+            background: var(--primary-color);
+        }
+
+        /* تصميم كل أداة في DIV منفصل */
+        .tools-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tool-div {
+            background: var(--card-bg);
+            border-radius: 20px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            border: 2px solid rgba(0, 168, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .tool-div:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        .tool-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 30px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .tool-icon-large {
+            font-size: 3.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .tool-title-section {
+            flex: 1;
+        }
+
+        .tool-title {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .tool-category {
+            display: inline-block;
+            background: white;
+            color: var(--secondary-color);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .tool-body {
+            padding: 40px;
+        }
+
+        .tool-description {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .tool-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .feature-item {
+            background: rgba(0, 168, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            border-right: 4px solid var(--secondary-color);
+        }
+
+        .feature-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .feature-item p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .tool-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .detail-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg-color);
+            border-radius: 12px;
+        }
+
+        .detail-label {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .detail-value {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .rating-stars {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        .tool-footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            justify-content: center;
+        }
+
+        .website-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: 2px solid var(--secondary-color);
+        }
+
+        .website-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .video-btn {
+            background: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .video-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* رسالة عدم وجود نتائج */
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-color);
+            font-size: 1.4rem;
+            display: none;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        /* التصميم المتجاوب */
+        @media (max-width: 992px) {
+            .tool-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+
+            .tool-icon-large {
+                width: 80px;
+                height: 80px;
+                font-size: 2.8rem;
+            }
+
+            .tool-title {
+                font-size: 1.8rem;
+            }
+
+            .tool-body {
+                padding: 30px;
+            }
+
+            .tool-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .tools-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .tool-title {
+                font-size: 1.6rem;
+            }
+
+            .tool-description {
+                font-size: 1.1rem;
+            }
+
+            .tool-footer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .action-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tools-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .tool-body {
+                padding: 20px;
+            }
+
+            .tool-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- لوحة إمكانية الوصول -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <button id="accessibility-toggle" class="accessibility-toggle" aria-label="فتح إعدادات إمكانية الوصول">
+            <i class="fa-solid fa-universal-access"></i>
+        </button>
+        <div class="accessibility-options">
+            <h3>إعدادات الوصول</h3>
+            <div class="option-group">
+                <label>حجم الخط:</label>
+                <div class="buttons">
+                    <button id="font-decrease" class="font-btn">أ-</button>
+                    <button id="font-default" class="font-btn active">أ</button>
+                    <button id="font-increase" class="font-btn">أ+</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباين الألوان:</label>
+                <div class="buttons">
+                    <button id="contrast-default" class="contrast-btn active" data-theme="default">افتراضي</button>
+                    <button id="contrast-high" class="contrast-btn" data-theme="high-contrast">تباين عالي</button>
+                    <button id="contrast-dark" class="contrast-btn" data-theme="dark">مظلم</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباعد الأسطر:</label>
+                <div class="buttons">
+                    <button id="spacing-normal" class="spacing-btn active" data-spacing="normal">عادي</button>
+                    <button id="spacing-wide" class="spacing-btn" data-spacing="wide">واسع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الرأس -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"
+                    style="text-decoration: none; color: var(--primary-color); font-size: 1.5rem; font-weight: 800; white-space: nowrap;">
+                    AI Robotics Tech
+                </a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                    <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link">الشروحات</a></li>
+                    <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- محتوى صفحة الأدوات -->
+    <main class="ai-tools-page">
+        <div class="container">
+            <section class="tools-hero" data-aos="fade-up">
+                <h1>أدوات الذكاء الاصطناعي المتقدمة</h1>
+                <p>اكتشف مجموعة متنوعة من أدوات الذكاء الاصطناعي التي تساعدك في مجالات الكتابة، التصميم، البرمجة، إنشاء
+                    الفيديوهات والمزيد. اختر الأداة المناسبة لمشروعك القادم.</p>
+
+                <div class="search-container">
+                    <input type="text" id="tool-search" placeholder="ابحث عن أداة محددة...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+            </section>
+
+            <section class="tools-section" id="tools-section">
+                <!-- تمت إضافة جميع الأدوات في DIVs منفصلة -->
+                <!-- أداة 1: ChatGPT -->
+                <div class="tool-div" data-aos="fade-up" data-tool="chatgpt"
+                    data-tags="كتابة محادثة ترجمة برمجة مساعدة">
+                    <div class="tool-header">
+                        <div class="tool-icon-large">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <div class="tool-title-section">
+                            <h2 class="tool-title">ChatGPT</h2>
+                            <span class="tool-category">أداة كتابة ومحادثة</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            أداة محادثة ذكية تعمل بالذكاء الاصطناعي تساعد في كتابة المحتوى، الإجابة على الأسئلة، الترجمة
+                            بين اللغات، كتابة الأكواد البرمجية وحل المشاكل الرياضية. تم تطويرها بواسطة OpenAI وتستخدم
+                            تقنية GPT المتقدمة.
+                        </p>
+
+                        <div class="tool-features-grid">
+                            <div class="feature-item">
+                                <h4><i class="fas fa-edit"></i> إنشاء محتوى نصي</h4>
+                                <p>القدرة على كتابة مقالات، قصص، إعلانات ونصوص أخرى بجودة عالية</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-language"></i> الترجمة بين اللغات</h4>
+                                <p>ترجمة النصوص بين أكثر من 50 لغة بدقة عالية</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-code"></i> كتابة أكواد برمجية</h4>
+                                <p>مساعدة المطورين في كتابة وتصحيح الأكواد البرمجية</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-graduation-cap"></i> مساعدة تعليمية</h4>
+                                <p>شرح المفاهيم العلمية والإجابة على الأسئلة التعليمية</p>
+                            </div>
+                        </div>
+
+                        <div class="tool-details">
+                            <div class="detail-item">
+                                <span class="detail-label">التصنيف</span>
+                                <span class="detail-value">كتابة ومحادثة</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">السعر</span>
+                                <span class="detail-value">مجاني + إصدار مدفوع</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">التقييم</span>
+                                <div class="detail-value">
+                                    <div class="rating-stars">★★★★★</div>
+                                    4.8/5
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">المطور</span>
+                                <span class="detail-value">OpenAI</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-footer">
+                            <a href="https://chat.openai.com" target="_blank" class="action-btn website-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                            <a href="https://youtube.com/shorts/uNKjFFR-nuc?si=SB4yFmEhlaZXTZD6" target="_blank"
+                                class="action-btn video-btn">
+                                <i class="fab fa-youtube"></i>
+                                شاهد شرح الفيديو
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أداة 2: Midjourney -->
+                <div class="tool-div" data-aos="fade-up" data-aos-delay="100" data-tool="midjourney"
+                    data-tags="تصميم صور فن رسم إبداع">
+                    <div class="tool-header">
+                        <div class="tool-icon-large">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="tool-title-section">
+                            <h2 class="tool-title">Midjourney</h2>
+                            <span class="tool-category">أداة تصميم وصور</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            أداة متقدمة لإنشاء صور فنية رقمية باستخدام الذكاء الاصطناعي من خلال أوامر نصية. تتيح
+                            للمستخدمين تحويل الأفكار إلى صور فنية عالية الجودة بأنماط مختلفة.
+                        </p>
+
+                        <div class="tool-features-grid">
+                            <div class="feature-item">
+                                <h4><i class="fas fa-image"></i> إنشاء صور من النصوص</h4>
+                                <p>تحويل الأوصاف النصية إلى صور فنية عالية الجودة</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-brush"></i> أنماط فنية متنوعة</h4>
+                                <p>دعم أنماط فنية مختلفة مثل الرسم الزيتي، الكاريكاتير، الأنيمي</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-expand-alt"></i> دقة عالية</h4>
+                                <p>إنتاج صور بدقة 4K وأعلى للاستخدامات المهنية</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-sliders-h"></i> تخصيص النتائج</h4>
+                                <p>إمكانية تعديل ومعايرة النتائج للحصول على الصورة المطلوبة</p>
+                            </div>
+                        </div>
+
+                        <div class="tool-details">
+                            <div class="detail-item">
+                                <span class="detail-label">التصنيف</span>
+                                <span class="detail-value">تصميم وصور</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">السعر</span>
+                                <span class="detail-value">اشتراك شهري</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">التقييم</span>
+                                <div class="detail-value">
+                                    <div class="rating-stars">★★★★☆</div>
+                                    4.7/5
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">المطور</span>
+                                <span class="detail-value">Midjourney Inc.</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-footer">
+                            <a href="https://www.midjourney.com" target="_blank" class="action-btn website-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                            <a href="https://youtu.be/Kbhsd_6hYBA?si=Pc9KXzHMeGHRWeUC" target="_blank"
+                                class="action-btn video-btn">
+                                <i class="fab fa-youtube"></i>
+                                شاهد شرح الفيديو
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أداة 3: Canva AI -->
+                <div class="tool-div" data-aos="fade-up" data-aos-delay="200" data-tool="canva"
+                    data-tags="تصميم عروض تقديمية قوالب شرائح عرض">
+                    <div class="tool-header">
+                        <div class="tool-icon-large">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="tool-title-section">
+                            <h2 class="tool-title">Canva AI</h2>
+                            <span class="tool-category">أداة تصميم وعروض تقديمية</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            منصة تصميم متكاملة مع ميزات ذكاء اصطناعي تساعد في إنشاء عروض تقديمية احترافية، بوسترات،
+                            شعارات، تصاميم وسائط اجتماعية وغيرها من التصاميم بسهولة.
+                        </p>
+
+                        <div class="tool-features-grid">
+                            <div class="feature-item">
+                                <h4><i class="fas fa-desktop"></i> تصميم عروض تقديمية</h4>
+                                <p>إنشاء عروض تقديمية احترافية بذكاء اصطناعي</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-magic"></i> إنشاء صور ذكية</h4>
+                                <p>توليد صور فريدة باستخدام الذكاء الاصطناعي</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-layer-group"></i> قوالب جاهزة</h4>
+                                <p>آلاف القوالب المصممة مسبقاً لجميع الاستخدامات</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-font"></i> محرر نصي ذكي</h4>
+                                <p>تحسين النصوص وتنسيقها تلقائياً</p>
+                            </div>
+                        </div>
+
+                        <div class="tool-details">
+                            <div class="detail-item">
+                                <span class="detail-label">التصنيف</span>
+                                <span class="detail-value">تصميم وعروض</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">السعر</span>
+                                <span class="detail-value">مجاني + إصدار مدفوع</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">التقييم</span>
+                                <div class="detail-value">
+                                    <div class="rating-stars">★★★★☆</div>
+                                    4.4/5
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">المطور</span>
+                                <span class="detail-value">Canva Pty Ltd</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-footer">
+                            <a href="https://www.canva.com/ai-tools/" target="_blank" class="action-btn website-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                            <a href="https://youtube.com/shorts/YYBEtfy73Ko?si=cb1p83FMYAqYU_L9 target="_blank"
+                                class="action-btn video-btn">
+                                <i class="fab fa-youtube"></i>
+                                شاهد شرح الفيديو
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أداة 4: Beautiful.AI -->
+                <div class="tool-div" data-aos="fade-up" data-aos-delay="300" data-tool="beautifulai"
+                    data-tags="تصميم عروض تقديمية شرائح عرض تقديمي">
+                    <div class="tool-header">
+                        <div class="tool-icon-large">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <div class="tool-title-section">
+                            <h2 class="tool-title">Beautiful.AI</h2>
+                            <span class="tool-category">أداة عروض تقديمية ذكية</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            أداة لإنشاء عروض تقديمية ذكية تتكيف تلقائياً مع المحتوى وتضمن التصميم الأمثل. تقوم بتعديل
+                            التصميم تلقائياً عند إضافة أو حذف المحتوى.
+                        </p>
+
+                        <div class="tool-features-grid">
+                            <div class="feature-item">
+                                <h4><i class="fas fa-robot"></i> تصميم تلقائي للعروض</h4>
+                                <p>تكيف التصميم تلقائياً مع المحتوى المضاف</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-brain"></i> قوالب ذكية</h4>
+                                <p>قوالب تصميم ذكية تتكيف مع احتياجاتك</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-chart-bar"></i> تكامل مع البيانات</h4>
+                                <p>إدراج المخططات والرسوم البيانية تلقائياً</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-users"></i> تعاون في الوقت الحقيقي</h4>
+                                <p>العمل مع الفريق على نفس العرض التقديمي</p>
+                            </div>
+                        </div>
+
+                        <div class="tool-details">
+                            <div class="detail-item">
+                                <span class="detail-label">التصنيف</span>
+                                <span class="detail-value">عروض تقديمية</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">السعر</span>
+                                <span class="detail-value">اشتراك شهري</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">التقييم</span>
+                                <div class="detail-value">
+                                    <div class="rating-stars">★★★★☆</div>
+                                    4.3/5
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">المطور</span>
+                                <span class="detail-value">Beautiful.AI</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-footer">
+                            <a href="https://www.beautiful.ai" target="_blank" class="action-btn website-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                            <a href="https://youtube.com/shorts/JzzRxZ5RuTQ?si=-halvtjOtHn3-ypU" target="_blank"
+                                class="action-btn video-btn">
+                                <i class="fab fa-youtube"></i>
+                                شاهد شرح الفيديو
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أداة 5: GitHub Copilot -->
+                <div class="tool-div" data-aos="fade-up" data-aos-delay="400" data-tool="copilot"
+                    data-tags="برمجة كود مطور مساعد إكمال">
+                    <div class="tool-header">
+                        <div class="tool-icon-large">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="tool-title-section">
+                            <h2 class="tool-title">GitHub Copilot</h2>
+                            <span class="tool-category">مساعد برمجي ذكي</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            مساعد برمجي ذكي يساعد المطورين في كتابة أكواد برمجية بسرعة وكفاءة. يعمل كمساعد ثنائي في بيئة
+                            التطوير يقترح أكواد كاملة وسطور برمجية ذكية.
+                        </p>
+
+                        <div class="tool-features-grid">
+                            <div class="feature-item">
+                                <h4><i class="fas fa-bolt"></i> إكمال تلقائي للكود</h4>
+                                <p>اقتراح أكواد كاملة بناءً على السياق</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-globe"></i> دعم لغات متعددة</h4>
+                                <p>دعم أكثر من 30 لغة برمجة شائعة</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fab fa-microsoft"></i> تكامل مع VS Code</h4>
+                                <p>تكامل كامل مع محرر VS Code وغيره من IDEs</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-chart-line"></i> تحسين الإنتاجية</h4>
+                                <p>زيادة إنتاجية المطورين بنسبة تصل إلى 55%</p>
+                            </div>
+                        </div>
+
+                        <div class="tool-details">
+                            <div class="detail-item">
+                                <span class="detail-label">التصنيف</span>
+                                <span class="detail-value">برمجة وتطوير</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">السعر</span>
+                                <span class="detail-value">اشتراك شهري</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">التقييم</span>
+                                <div class="detail-value">
+                                    <div class="rating-stars">★★★★☆</div>
+                                    4.6/5
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">المطور</span>
+                                <span class="detail-value">GitHub (Microsoft)</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-footer">
+                            <a href="https://github.com/features/copilot" target="_blank"
+                                class="action-btn website-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                            <a href="https://youtu.be/ujQZ6yQB6oY?si=xHwqJPbbyyIr5V1V" target="_blank"
+                                class="action-btn video-btn">
+                                <i class="fab fa-youtube"></i>
+                                شاهد شرح الفيديو
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- أداة 6: Synthesia -->
+                <div class="tool-div" data-aos="fade-up" data-aos-delay="500" data-tool="synthesia"
+                    data-tags="فيديو عروض تعليمي تقديمي مذيع">
+                    <div class="tool-header">
+                        <div class="tool-icon-large">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="tool-title-section">
+                            <h2 class="tool-title">Synthesia</h2>
+                            <span class="tool-category">منصة فيديوهات تعليمية</span>
+                        </div>
+                    </div>
+
+                    <div class="tool-body">
+                        <p class="tool-description">
+                            منصة لإنشاء فيديوهات تعليمية وتقديمية باستخدام مذيعين افتراضيين مدعومين بالذكاء الاصطناعي.
+                            تحول النصوص إلى فيديوهات احترافية بأصوات ومظهر بشري واقعي.
+                        </p>
+
+                        <div class="tool-features-grid">
+                            <div class="feature-item">
+                                <h4><i class="fas fa-user-circle"></i> مذيعين افتراضيين</h4>
+                                <p>أكثر من 140 مذيع افتراضي متعدد الجنسيات</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-language"></i> دعم لغات متعددة</h4>
+                                <p>دعم 120+ لغة ولهجة مختلفة</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-user-edit"></i> تخصيص المظهر</h4>
+                                <p>تخصيص ملابس وخلفيات المذيعين الافتراضيين</p>
+                            </div>
+                            <div class="feature-item">
+                                <h4><i class="fas fa-play-circle"></i> سهولة الاستخدام</h4>
+                                <p>واجهة بسيطة لإنشاء فيديوهات في دقائق</p>
+                            </div>
+                        </div>
+
+                        <div class="tool-details">
+                            <div class="detail-item">
+                                <span class="detail-label">التصنيف</span>
+                                <span class="detail-value">فيديو وتعليم</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">السعر</span>
+                                <span class="detail-value">اشتراك شهري</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">التقييم</span>
+                                <div class="detail-value">
+                                    <div class="rating-stars">★★★★☆</div>
+                                    4.6/5
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">المطور</span>
+                                <span class="detail-value">Synthesia Ltd</span>
+                            </div>
+                        </div>
+
+                        <div class="tool-footer">
+                            <a href="https://www.synthesia.io" target="_blank" class="action-btn website-btn">
+                                <i class="fas fa-external-link-alt"></i>
+                                زيارة الموقع الرسمي
+                            </a>
+                            <a href="https://youtube.com/shorts/eP4oID3TJIo?si=gSBzTcUUvjQvEIp2" target="_blank"
+                                class="action-btn video-btn">
+                                <i class="fab fa-youtube"></i>
+                                شاهد شرح الفيديو
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- رسالة عدم وجود نتائج -->
+                <div class="no-results" id="no-results">
+                    <i class="fas fa-search"></i>
+                    <h3>لم يتم العثور على نتائج للبحث</h3>
+                    <p>حاول استخدام كلمات بحث مختلفة أو تصفح جميع الأدوات المتاحة</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>AI Robotics Tech</span>
+                    </div>
+                    <p class="footer-description">منصة متخصصة في استكشاف التقاطع بين الذكاء الاصطناعي والروبوتات الذكية
+                        وآثارهما على مستقبل الصناعة والحياة اليومية</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="تابعنا على تويتر"><span class="icon"><i
+                                    class="fab fa-twitter"></i></span></a>
+                        <a href="#" aria-label="تابعنا على فيسبوك"><span class="icon"><i
+                                    class="fab fa-facebook"></i></span></a>
+                        <a href="#" aria-label="تابعنا على لينكد إن"><span class="icon"><i
+                                    class="fab fa-linkedin"></i></span></a>
+                        <a href="#" aria-label="تابعنا على يوتيوب"><span class="icon"><i
+                                    class="fab fa-youtube"></i></span></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                        <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                        <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                        <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                        <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                        <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                        <li><a href="tutorials.html" class="nav-link">الشروحات</a></li>
+                        <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                        <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                    </ul>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>الموارد</h3>
+                    <ul>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="#">الأبحاث</a></li>
+                        <li><a href="#">الفعاليات</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>اشترك في نشرتنا</h3>
+                    <p>ابق على اطلاع بأحدث التطورات في الذكاء الاصطناعي والروبوتات</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">اشترك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Robotics Tech. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- مكتبة AOS للانيميشن -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- JavaScript الخاص بصفحة الأدوات -->
+    <script>
+        // تهيئة AOS للرسوم المتحركة
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // عناصر DOM
+        const toolDivs = document.querySelectorAll('.tool-div');
+        const searchInput = document.getElementById('tool-search');
+        const searchButton = document.getElementById('search-btn');
+        const noResults = document.getElementById('no-results');
+        const toolsSection = document.getElementById('tools-section');
+
+        // دالة للبحث عن الأدوات
+        function searchTools(query) {
+            const normalizedQuery = query.toLowerCase().trim();
+
+            // إذا كان البحث فارغاً، عرض جميع الأدوات
+            if (!normalizedQuery) {
+                toolDivs.forEach(div => {
+                    div.style.display = 'block';
+                });
+                noResults.style.display = 'none';
+                return;
+            }
+
+            let foundResults = false;
+
+            // البحث في كل أداة
+            toolDivs.forEach(div => {
+                const toolName = div.getAttribute('data-tool').toLowerCase();
+                const toolTags = div.getAttribute('data-tags').toLowerCase();
+                const toolTitle = div.querySelector('.tool-title').textContent.toLowerCase();
+                const toolDescription = div.querySelector('.tool-description').textContent.toLowerCase();
+
+                // البحث في الاسم، العلامات، العنوان، والوصف
+                const matches =
+                    toolName.includes(normalizedQuery) ||
+                    toolTags.includes(normalizedQuery) ||
+                    toolTitle.includes(normalizedQuery) ||
+                    toolDescription.includes(normalizedQuery);
+
+                if (matches) {
+                    div.style.display = 'block';
+                    foundResults = true;
+
+                    // تسليط الضوء على النص المطابق (اختياري)
+                    highlightText(div, normalizedQuery);
+                } else {
+                    div.style.display = 'none';
+                }
+            });
+
+            // عرض رسالة عدم وجود نتائج إذا لم يتم العثور على شيء
+            if (!foundResults) {
+                noResults.style.display = 'block';
+                // وضع رسالة عدم النتائج في نهاية القسم
+                toolsSection.appendChild(noResults);
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // دالة لتسليط الضوء على النص المطابق (مبسطة)
+        function highlightText(element, query) {
+            // يمكن إضافة تسليط ضوء هنا إذا أردت
+            // هذه نسخة مبسطة
+            const spans = element.querySelectorAll('span, p, h2, h3, h4');
+            spans.forEach(span => {
+                const text = span.textContent;
+                if (text.toLowerCase().includes(query.toLowerCase())) {
+                    span.style.backgroundColor = '#FFF3CD';
+                    span.style.color = '#856404';
+                    span.style.padding = '2px 5px';
+                    span.style.borderRadius = '3px';
+                }
+            });
+        }
+
+        // دالة لمسح تسليط الضوء
+        function clearHighlight() {
+            const highlighted = document.querySelectorAll('[style*="background-color"]');
+            highlighted.forEach(el => {
+                el.style.backgroundColor = '';
+                el.style.color = '';
+                el.style.padding = '';
+                el.style.borderRadius = '';
+            });
+        }
+
+        // إضافة حدث البحث عند النقر على زر البحث
+        searchButton.addEventListener('click', function () {
+            clearHighlight();
+            searchTools(searchInput.value);
+        });
+
+        // إضافة حدث البحث عند الضغط على Enter
+        searchInput.addEventListener('keyup', function (event) {
+            if (event.key === 'Enter') {
+                clearHighlight();
+                searchTools(this.value);
+            }
+        });
+
+        // إضافة حدث البحث أثناء الكتابة (بحث فوري)
+        let searchTimeout;
+        searchInput.addEventListener('input', function () {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                clearHighlight();
+                searchTools(this.value);
+            }, 300); // تأخير 300 مللي ثانية للبحث الفوري
+        });
+
+        // تفعيل القائمة المتنقلة
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.nav');
+
+        if (menuToggle) {
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+        }
+
+        // تفعيل لوحة إمكانية الوصول
+        const accessibilityPanel = document.getElementById('accessibility-panel');
+        const accessibilityToggle = document.getElementById('accessibility-toggle');
+
+        if (accessibilityToggle) {
+            accessibilityToggle.addEventListener('click', () => {
+                accessibilityPanel.classList.toggle('open');
+            });
+        }
+
+        // إعدادات إمكانية الوصول
+        const setupAccessibility = () => {
+            document.getElementById('font-decrease')?.addEventListener('click', () => {
+                document.body.classList.remove('large-font', 'larger-font');
+            });
+
+            document.getElementById('font-default')?.addEventListener('click', () => {
+                document.body.classList.remove('large-font', 'larger-font');
+                document.body.classList.add('large-font');
+            });
+
+            document.getElementById('font-increase')?.addEventListener('click', () => {
+                document.body.classList.remove('large-font', 'larger-font');
+                document.body.classList.add('larger-font');
+            });
+
+            document.getElementById('spacing-normal')?.addEventListener('click', () => {
+                document.body.classList.remove('wide-spacing');
+            });
+
+            document.getElementById('spacing-wide')?.addEventListener('click', () => {
+                document.body.classList.add('wide-spacing');
+            });
+
+            // أحداث أزرار التباين
+            const contrastButtons = document.querySelectorAll('.contrast-btn');
+            contrastButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const theme = this.getAttribute('data-theme');
+
+                    // إزالة جميع سمات التباين
+                    document.body.classList.remove('high-contrast', 'dark');
+
+                    // إضافة النشاط للزر المضغوط
+                    contrastButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // تطبيق السمات المختارة
+                    if (theme !== 'default') {
+                        document.body.classList.add(theme);
+                    }
+                });
+            });
+        };
+
+        // تفعيل إمكانيات الوصول بعد تحميل الصفحة
+        window.addEventListener('DOMContentLoaded', setupAccessibility);
+
+        // أمثلة بحث للاختبار
+        console.log('يمكنك البحث عن:');
+        console.log('- "chatgpt" للعثور على أداة ChatGPT');
+        console.log('- "عروض" للعثور على أدوات العروض التقديمية');
+        console.log('- "تصميم" للعثور على أدوات التصميم');
+        console.log('- "برمجة" للعثور على أدوات البرمجة');
+        console.log('- "فيديو" للعثور على أدوات الفيديو');
+    </script>
+</body>
+
+</html>

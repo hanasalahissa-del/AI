@@ -1,0 +1,2544 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الذكاء الاصطناعي في العلوم | AI Robotics Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* إضافة الأنماط الجديدة */
+        :root {
+            --transition: all 0.3s ease;
+            --font-family: 'Tajawal', sans-serif;
+        }
+        
+        /* تحسينات الخطوط لجميع أنماط الوصول */
+        body {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            letter-spacing: 0.3px;
+        }
+        
+        /* أحجام الخطوط لأنماط الوصول المختلفة */
+        body.small-font {
+            font-size: 14px;
+        }
+        
+        body.large-font {
+            font-size: 18px;
+        }
+        
+        body.larger-font {
+            font-size: 20px;
+        }
+        
+        /* تحسين التباعد للقراءة */
+        body.wide-spacing {
+            line-height: 2;
+            letter-spacing: 0.5px;
+        }
+        
+        /* تحسين التباين للأنماط المختلفة */
+        body.high-contrast * {
+            text-shadow: 0 0 1px #000;
+        }
+        
+        body.dark .science-card p,
+        body.dark .experiment-item p,
+        body.dark .robot-item p,
+        body.dark .quiz-option .option-text,
+        body.dark .result-message p,
+        body.dark .recommendations li {
+            color: #ecf0f1 !important;
+            opacity: 0.95;
+        }
+        
+        body.high-contrast .science-card p,
+        body.high-contrast .experiment-item p,
+        body.high-contrast .robot-item p,
+        body.high-contrast .quiz-option .option-text,
+        body.high-contrast .result-message p,
+        body.high-contrast .recommendations li {
+            color: #ffffff !important;
+            text-shadow: 0 0 2px #000;
+            font-weight: 500;
+        }
+        
+        /* قسم الذكاء الاصطناعي في العلوم */
+        .ai-science-section {
+            padding: 100px 20px;
+            background: var(--bg-color);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .science-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .science-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .science-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: inherit;
+        }
+
+        .science-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .science-icon {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .science-card:hover .science-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .science-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .science-card p {
+            color: var(--text-color);
+            line-height: 1.7;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        /* ألوان خاصة لكل مجال علمي */
+        .chemistry-card {
+            border-top-color: #9b59b6;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(248, 245, 255, 0.9));
+        }
+
+        .chemistry-card .science-icon {
+            color: #9b59b6;
+        }
+
+        .biology-card {
+            border-top-color: #27ae60;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 255, 244, 0.9));
+        }
+
+        .biology-card .science-icon {
+            color: #27ae60;
+        }
+
+        .environment-card {
+            border-top-color: #3498db;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(240, 249, 255, 0.9));
+        }
+
+        .environment-card .science-icon {
+            color: #3498db;
+        }
+
+        .space-card {
+            border-top-color: #e74c3c;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 245, 245, 0.9));
+        }
+
+        .space-card .science-icon {
+            color: #e74c3c;
+        }
+
+        /* لعبة اختيار الروبوت المناسب */
+        .interactive-game-section {
+            padding: 100px 20px;
+            background: #122b5c;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .interactive-game-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, rgba(0, 168, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .game-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .experiments-container, .robots-container {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .experiment-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .experiment-item.hover {
+            border-color: #00a8ff;
+            background: rgba(0, 168, 255, 0.15);
+            transform: scale(1.02);
+        }
+
+        .experiment-item.correct {
+            border-color: #27ae60;
+            background: rgba(39, 174, 96, 0.2);
+        }
+
+        .experiment-item.incorrect {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.2);
+        }
+
+        .experiment-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #00a8ff;
+        }
+
+        .experiment-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: white;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .experiment-item p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .robots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .robot-item {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00a8ff;
+            border-radius: 12px;
+            padding: 25px 15px;
+            cursor: grab;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .robot-item.dragging {
+            opacity: 0.5;
+            transform: scale(0.95);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .robot-item.dropped {
+            opacity: 0.6;
+            cursor: default;
+            border-style: dashed;
+        }
+
+        .robot-icon {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: #00a8ff;
+            transition: transform 0.3s ease;
+        }
+
+        .robot-item:hover .robot-icon {
+            transform: scale(1.1);
+        }
+
+        .robot-item h4 {
+            font-size: 1.1rem;
+            color: white;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .robot-item p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .game-feedback {
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            display: none;
+            animation: slideIn 0.5s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-feedback.show {
+            display: block;
+        }
+
+        .feedback-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .feedback-icon {
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .feedback-text {
+            flex: 1;
+            text-align: right;
+        }
+
+        .feedback-text h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: white;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .feedback-text p {
+            color: rgba(255, 255, 255, 0.95);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .game-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #00a8ff;
+            margin-bottom: 5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        /* قسم الاختبار التعليمي */
+        .educational-quiz {
+            padding: 100px 20px;
+            background: var(--bg-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .educational-quiz::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(0, 168, 255, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(0, 168, 255, 0.2);
+        }
+
+        .quiz-progress {
+            flex: 1;
+            margin-left: 30px;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background: rgba(0, 168, 255, 0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00a8ff, #0a3d62);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 5px;
+        }
+
+        .progress-text {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .quiz-score {
+            background: linear-gradient(135deg, #0a3d62, #00a8ff);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.3);
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .question-area {
+            margin-bottom: 40px;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        .options-container {
+            display: grid;
+            gap: 15px;
+        }
+
+        .quiz-option {
+            background: var(--bg-color);
+            border: 2px solid rgba(0, 168, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: right;
+        }
+
+        .quiz-option:hover {
+            border-color: #00a8ff;
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.1);
+            background: rgba(0, 168, 255, 0.05);
+        }
+
+        .quiz-option.selected {
+            border-color: #00a8ff;
+            background: rgba(0, 168, 255, 0.1);
+        }
+
+        .quiz-option.correct {
+            border-color: #27ae60;
+            background: rgba(39, 174, 96, 0.15);
+        }
+
+        .quiz-option.incorrect {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.15);
+        }
+
+        .option-letter {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00a8ff, #0a3d62);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            box-shadow: 0 3px 8px rgba(0, 168, 255, 0.3);
+        }
+
+        .option-text {
+            flex: 1;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 40px;
+        }
+
+        .quiz-controls .btn {
+            padding: 12px 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .result-area {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .result-area.show {
+            display: block;
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, #0a3d62, #00a8ff);
+            border-radius: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+
+        .result-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .final-score {
+            font-size: 4rem;
+            font-weight: 800;
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            line-height: 1;
+        }
+
+        .result-message {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-message h4 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .result-message p {
+            color: var(--text-color);
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .recommendations {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(0, 168, 255, 0.2);
+        }
+
+        .recommendations h5 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .recommendations ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .recommendations li {
+            padding: 12px 0;
+            padding-right: 35px;
+            position: relative;
+            color: var(--text-color);
+            border-bottom: 1px dashed rgba(0, 168, 255, 0.2);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .recommendations li:last-child {
+            border-bottom: none;
+        }
+
+        .recommendations li::before {
+            content: '→';
+            position: absolute;
+            right: 0;
+            color: #00a8ff;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* قسم المساعد الذكي */
+        .ai-assistant-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #0b1736, #122b5c);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-assistant-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0, 168, 255, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .assistant-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .assistant-avatar {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #00a8ff, #0a3d62);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+        }
+
+        .assistant-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .assistant-info p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .chat-box {
+            height: 350px;
+            overflow-y: auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            margin-bottom: 25px;
+            scroll-behavior: smooth;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .message {
+            margin-bottom: 20px;
+            max-width: 85%;
+            animation: messageSlide 0.3s ease;
+        }
+
+        @keyframes messageSlide {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .user-message {
+            margin-left: auto;
+            text-align: left;
+        }
+
+        .bot-message {
+            margin-right: auto;
+            text-align: right;
+        }
+
+        .message-content {
+            display: inline-block;
+            padding: 15px 20px;
+            border-radius: 20px;
+            line-height: 1.6;
+            font-weight: 500;
+            font-size: 1rem;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        .user-message .message-content {
+            background: linear-gradient(135deg, #00a8ff, #0a3d62);
+            color: white;
+            border-bottom-left-radius: 5px;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .bot-message .message-content {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-bottom-right-radius: 5px;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .bot-message .message-content strong {
+            color: #00a8ff;
+            font-weight: 700;
+        }
+
+        .message-time {
+            display: block;
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 5px;
+            font-weight: 400;
+        }
+
+        .user-message .message-time {
+            text-align: left;
+        }
+
+        .bot-message .message-time {
+            text-align: right;
+        }
+
+        .chat-input-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            color: white;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: #00a8ff;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.2);
+        }
+
+        .chat-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+        }
+
+        .send-button {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, #00a8ff, #0a3d62);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+        }
+
+        .send-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 168, 255, 0.6);
+        }
+
+        .quick-questions {
+            text-align: center;
+        }
+
+        .quick-questions p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .question-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .question-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .question-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 50px;
+        }
+
+        .question-btn:hover {
+            background: rgba(0, 168, 255, 0.3);
+            border-color: #00a8ff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.3);
+        }
+
+        /* تحسين الخطوط لأنماط الوصول المختلفة */
+        body.high-contrast .chat-input,
+        body.high-contrast .question-btn,
+        body.high-contrast .send-button {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        body.high-contrast .chat-input {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        body.dark .chat-input {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark .question-btn {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        body.small-font .message-content,
+        body.small-font .question-btn,
+        body.small-font .chat-input {
+            font-size: 0.9rem;
+        }
+
+        body.large-font .message-content,
+        body.large-font .question-btn,
+        body.large-font .chat-input {
+            font-size: 1.1rem;
+        }
+
+        body.larger-font .message-content,
+        body.larger-font .question-btn,
+        body.larger-font .chat-input {
+            font-size: 1.2rem;
+        }
+
+        /* الأنيميشن */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* زر العودة للأعلى */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00a8ff, #0a3d62);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 168, 255, 0.4);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .back-to-top.show {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 168, 255, 0.6);
+        }
+
+        /* تجاوب */
+        @media (max-width: 992px) {
+            .science-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .quiz-container, .assistant-container {
+                padding: 30px;
+            }
+            
+            .result-header {
+                padding: 30px;
+            }
+            
+            .final-score {
+                font-size: 3rem;
+            }
+            
+            .game-container {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .science-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .game-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quiz-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .quiz-progress {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .quiz-controls, .result-actions {
+                flex-direction: column;
+            }
+            
+            .question-text {
+                font-size: 1.3rem;
+            }
+            
+            .chat-box {
+                height: 300px;
+            }
+            
+            .message {
+                max-width: 90%;
+            }
+            
+            .ai-science-section,
+            .interactive-game-section,
+            .educational-quiz,
+            .ai-assistant-section {
+                padding: 70px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ai-science-section,
+            .interactive-game-section,
+            .educational-quiz,
+            .ai-assistant-section {
+                padding: 50px 10px;
+            }
+            
+            .game-container,
+            .quiz-container,
+            .assistant-container {
+                padding: 20px;
+            }
+            
+            .science-card {
+                padding: 25px 20px;
+            }
+            
+            .science-icon {
+                font-size: 2.8rem;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .quiz-option {
+                padding: 15px;
+                gap: 15px;
+            }
+            
+            .option-letter {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .chat-input-container {
+                flex-direction: column;
+            }
+            
+            .send-button {
+                width: 100%;
+                height: 50px;
+                border-radius: 25px;
+                margin-top: 10px;
+            }
+            
+            .question-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* تحسينات للقراءة */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* تحسينات للتظليل في أنماط الوصول المختلفة */
+        body.high-contrast .section-title {
+            color: #00ffff;
+            text-shadow: 0 0 5px #000;
+        }
+
+        body.dark .section-title {
+            color: #ffffff;
+        }
+
+        body.high-contrast .section-subtitle {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        body.dark .section-subtitle {
+            color: #ecf0f1;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- لوحة إمكانية الوصول -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <button id="accessibility-toggle" class="accessibility-toggle" aria-label="فتح إعدادات إمكانية الوصول">
+            <i class="fa-solid fa-universal-access"></i>
+        </button>
+        <div class="accessibility-options">
+            <h3>إعدادات الوصول</h3>
+            <div class="option-group">
+                <label>حجم الخط:</label>
+                <div class="buttons">
+                    <button id="font-decrease" class="font-btn">أ-</button>
+                    <button id="font-default" class="font-btn active">أ</button>
+                    <button id="font-increase" class="font-btn">أ+</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباين الألوان:</label>
+                <div class="buttons">
+                    <button id="contrast-default" class="contrast-btn active" data-theme="default">افتراضي</button>
+                    <button id="contrast-high" class="contrast-btn" data-theme="high-contrast">تباين عالي</button>
+                    <button id="contrast-dark" class="contrast-btn" data-theme="dark">مظلم</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباعد الأسطر:</label>
+                <div class="buttons">
+                    <button id="spacing-normal" class="spacing-btn active" data-spacing="normal">عادي</button>
+                    <button id="spacing-wide" class="spacing-btn" data-spacing="wide">واسع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- زر العودة للأعلى -->
+    <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- الرأس -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-size: 1.5rem; font-weight: 800; white-space: nowrap;">
+                AI Robotics Tech
+            </a>
+               
+            </div>
+            <nav class="nav">
+                <ul>
+                   <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                     <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link active">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link active">الشروحات</a></li>
+                      <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link"> بوابة التواصل</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero-ai">
+        <div class="container-ai">
+            <div class="hero-content">
+                <h1 class="hero-title">الذكاء الاصطناعي في العلوم</h1>
+                <p class="hero-description">
+                    استكشف كيف يغير الذكاء الاصطناعي والروبوتات مجالات العلوم المختلفة. من المختبرات الكيميائية إلى الفضاء الخارجي، 
+                    ومن غرف العمليات الجراحية إلى مراكز مراقبة البيئة، تتعاون التكنولوجيا المتقدمة مع العلوم لخلق مستقبل أفضل للبشرية.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#science-cards" class="btn btn-primary">استكشاف المجالات العلمية</a>
+                    <a href="#interactive-game" class="btn btn-secondary">جرب اللعبة التفاعلية</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/فف.webp" alt="الذكاء الاصطناعي في العلوم">
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم البطاقات العلمية -->
+    <section id="science-cards" class="ai-science-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">الذكاء الاصطناعي والروبوتات في فروع العلوم</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                اكتشف كيف تساهم الروبوتات والذكاء الاصطناعي في تطور المجالات العلمية المختلفة
+            </p>
+            
+            <div class="science-grid">
+                <!-- كيمياء -->
+                <div class="science-card chemistry-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="science-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>الكيمياء</h3>
+                    <p>روبوتات المختبرات تقيس المواد بدقة متناهية وتُجري تجارب متكررة بتكرارية عالية.</p>
+                    <p>الذكاء الاصطناعي يحلل ملايين المركبات الكيميائية لاكتشاف أدوية جديدة في وقت قياسي.</p>
+                </div>
+
+                <!-- بيولوجيا -->
+                <div class="science-card biology-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="science-icon">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3>الأحياء (البيولوجيا)</h3>
+                    <p>روبوتات الجراحة الطبية (مثل Da Vinci) تُجري عمليات دقيقة تخفض نسبة المضاعفات.</p>
+                    <p>AI يحلل صور الأشعة والتحاليل الطبية بسرعة ودقة تفوق القدرات البشرية.</p>
+                </div>
+
+                <!-- بيئة -->
+                <div class="science-card environment-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="science-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>العلوم البيئية</h3>
+                    <p>روبوتات تعمل تحت الماء وفي الجو تجمع بيانات بيئية من مناطق خطرة.</p>
+                    <p>AI يتنبأ بالتلوث وتغير المناخ ويُخطط لاستراتيجيات حماية فعالة.</p>
+                </div>
+
+                <!-- فضاء -->
+                <div class="science-card space-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="science-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <h3>الفضاء والفلك</h3>
+                    <p>روبوتات المستكشفات (مثل Curiosity على المريخ) تبحث عن علامات الحياة.</p>
+                    <p>AI يحلل صور النجوم والكوايكب ويكتشف مجرات جديدة في الكون البعيد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- اللعبة التفاعلية -->
+    <section id="interactive-game" class="interactive-game-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">لعبة: اختار الروبوت المناسب للتجربة العلمية</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                ساعد العلماء في اختيار الروبوت المناسب لكل تجربة علمية - اسحب وأفلت الروبوت على التجربة المناسبة
+            </p>
+            
+            <div class="game-container" data-aos="fade-up">
+                <div class="game-grid">
+                    <!-- التجارب -->
+                    <div class="experiments-container">
+                        <h3><i class="fas fa-vial"></i> التجارب العلمية:</h3>
+                        
+                        <div class="experiment-item" id="experiment1" data-correct="robot-lab">
+                            <div class="experiment-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <h4>تجربة في المختبر (كيمياء)</h4>
+                            <p>تحتاج إلى قياس مواد كيميائية بدقة نانوية وإجراء تحاليل متكررة لساعات طويلة.</p>
+                        </div>
+                        
+                        <div class="experiment-item" id="experiment2" data-correct="robot-surgical">
+                            <div class="experiment-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h4>عملية جراحية (أحياء/طب)</h4>
+                            <p>تتطلب دقة متناهية وثبات اليد خلال جراحة معقدة في منطقة حساسة من الجسم.</p>
+                        </div>
+                        
+                        <div class="experiment-item" id="experiment3" data-correct="robot-space">
+                            <div class="experiment-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h4>استكشاف كوكب (فضاء)</h4>
+                            <p>تحتاج إلى التحمل في ظروف قاسية وجمع عينات من سطح الكوكب ونقلها للتحليل.</p>
+                        </div>
+                    </div>
+
+                    <!-- الروبوتات -->
+                    <div class="robots-container">
+                        <h3><i class="fas fa-robot"></i> الروبوتات المتاحة:</h3>
+                        <p>اسحب الروبوت إلى التجربة المناسبة:</p>
+                        <div class="robots-grid">
+                            <div class="robot-item" id="robot-surgical" draggable="true">
+                                <div class="robot-icon">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <h4>روبوت جراحي</h4>
+                                <p>دقة ميكرونية في الجراحة</p>
+                            </div>
+                            
+                            <div class="robot-item" id="robot-lab" draggable="true">
+                                <div class="robot-icon">
+                                    <i class="fas fa-flask"></i>
+                                </div>
+                                <h4>روبوت مختبر</h4>
+                                <p>قياس وتحليل دقيق</p>
+                            </div>
+                            
+                            <div class="robot-item" id="robot-space" draggable="true">
+                                <div class="robot-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>روبوت مستكشف فضاء</h4>
+                                <p>تحمل الظروف القاسية</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- النتيجة -->
+                <div class="game-feedback" id="game-feedback">
+                    <div class="feedback-content">
+                        <div class="feedback-icon" id="feedback-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="feedback-text">
+                            <h4 id="feedback-title">تمت المطابقة بنجاح!</h4>
+                            <p id="feedback-message">لقد نجحت في مطابقة الروبوت المناسب مع التجربة العلمية الصحيحة.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="game-stats">
+                        <div class="stat">
+                            <div class="stat-value" id="correct-matches">0</div>
+                            <div class="stat-label">مطابقة صحيحة</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="total-attempts">0</div>
+                            <div class="stat-label">محاولة</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value" id="accuracy-rate">0%</div>
+                            <div class="stat-label">دقة</div>
+                        </div>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <button id="reset-game" class="btn btn-primary" style="background: #00a8ff; color: white; border: none; padding: 12px 30px; border-radius: 25px; cursor: pointer; font-size: 1rem; font-weight: 600;">
+                            <i class="fas fa-redo"></i> إعادة اللعبة
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم الاختبار التعليمي -->
+    <section class="educational-quiz">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">اختبار: أين يوجد الذكاء الاصطناعي في درس العلوم؟</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                اختبر معلوماتك حول تطبيقات الذكاء الاصطناعي في المواد العلمية المدرسية
+            </p>
+            
+            <div class="quiz-container" data-aos="fade-up">
+                <div class="quiz-header">
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="quiz-progress-bar"></div>
+                        </div>
+                        <div class="progress-text">السؤال <span id="current-question-num">1</span> من 4</div>
+                    </div>
+                    <div class="quiz-score">النقاط: <span id="quiz-score-value">0</span></div>
+                </div>
+                
+                <div class="question-area" id="question-area">
+                    <!-- سيتم تحميل الأسئلة هنا -->
+                </div>
+                
+                <div class="result-area" id="result-area">
+                    <!-- سيتم عرض النتائج هنا -->
+                </div>
+                
+                <div class="quiz-controls">
+                    <button id="prev-question-btn" class="btn btn-secondary" disabled>
+                        <i class="fas fa-arrow-right"></i> السابق
+                    </button>
+                    <button id="next-question-btn" class="btn btn-primary">
+                        التالي <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button id="submit-quiz-btn" class="btn btn-primary" style="display: none;">
+                        <i class="fas fa-paper-plane"></i> عرض النتيجة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المساعد الذكي -->
+    <section class="ai-assistant-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">اسأل المساعد الذكي عن العلوم</h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                مساعد ذكي متخصص في ربط الذكاء الاصطناعي بمجالات العلوم المختلفة
+            </p>
+            
+            <div class="assistant-container" data-aos="fade-up">
+                <div class="chat-header">
+                    <div class="assistant-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="assistant-info">
+                        <h3>مساعد العلوم الذكي</h3>
+                        <p>متخصص في الذكاء الاصطناعي والروبوتات في العلوم</p>
+                    </div>
+                </div>
+                
+                <div class="chat-box" id="chat-box">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            <strong>مرحباً! 👋 أنا مساعدك الذكي المتخصص في الذكاء الاصطناعي والروبوتات في العلوم.</strong>
+                            <br><br>🎯 <strong>كيف يمكنني مساعدتك؟</strong>
+                            <br>• اسألني عن أي مجال علمي: كيمياء، طب، فضاء، بيئة
+                            <br>• استفسر عن دور الروبوتات في العلوم
+                            <br>• تعرف على مستقبل الذكاء الاصطناعي في البحث العلمي
+                            <br>• احصل على شرح مفصل لأي مفهوم
+                            <br><br>💡 <strong>مثال:</strong> "كيف يساعد الذكاء الاصطناعي في الطب؟"
+                            <br>أو ببساطة قل: "ما فهمت" وسأشرح أكثر! 😊
+                        </div>
+                        <span class="message-time">الآن</span>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <input type="text" class="chat-input" id="chat-input" placeholder="اكتب سؤالك هنا عن الذكاء الاصطناعي في العلوم..." autocomplete="off">
+                    <button class="send-button" id="send-button">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                
+                <div class="quick-questions">
+                    <p>جرب هذه الأسئلة:</p>
+                    <div class="question-buttons">
+                        <button class="question-btn" data-question="كيف يساعد الذكاء الاصطناعي في الطب؟">
+                            <i class="fas fa-user-md"></i> الذكاء الاصطناعي في الطب
+                        </button>
+                        <button class="question-btn" data-question="ما دور الروبوتات في الكيمياء؟">
+                            <i class="fas fa-flask"></i> الروبوتات في الكيمياء
+                        </button>
+                        <button class="question-btn" data-question="كيف يستخدم الذكاء الاصطناعي في الفضاء؟">
+                            <i class="fas fa-rocket"></i> AI في الفضاء
+                        </button>
+                        <button class="question-btn" data-question="ما فهمت">
+                            <i class="fas fa-question-circle"></i> ما فهمت 🤔
+                        </button>
+                        <button class="question-btn" data-question="اشرح اكثر">
+                            <i class="fas fa-book-open"></i> اشرح أكثر 📚
+                        </button>
+                        <button class="question-btn" data-question="مستقبل الذكاء الاصطناعي في العلوم">
+                            <i class="fas fa-chart-line"></i> المستقبل 🚀
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>AI Robotics Tech</span>
+                    </div>
+                    <p class="footer-description">منصة تعليمية تربط بين العلوم والتكنولوجيا لخلق مستقبل أفضل للأجيال القادمة</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="تابعنا على تويتر"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="تابعنا على فيسبوك"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="تابعنا على لينكد إن"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="تابعنا على يوتيوب"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="ai.html">الذكاء الاصطناعي</a></li>
+                        <li><a href="robotics.html">الروبوتات</a></li>
+                        <li><a href="intersection.html">حيث يلتقيان</a></li>
+                        <li><a href="science.html" class="active">AI في العلوم</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>الموارد التعليمية</h3>
+                    <ul>
+                       <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                     <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link">الشروحات</a></li>
+                    <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>اشترك في نشرتنا</h3>
+                    <p>ابق على اطلاع بأحدث التطورات في العلوم والتكنولوجيا</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">اشترك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Robotics Tech. جميع الحقوق محفوظة. | هذا الموقع جزء من مشروع تعليمي STEM</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- مكتبة الانيميشن -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- JavaScript الرئيسي -->
+    <script>
+        // تهيئة AOS للرسوم المتحركة
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // ========== لوحة إمكانية الوصول ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const accessibilityPanel = document.getElementById('accessibility-panel');
+            const accessibilityToggle = document.getElementById('accessibility-toggle');
+            const accessibilityOptions = document.querySelector('.accessibility-options');
+            
+            // فتح/إغلاق لوحة الوصول
+            accessibilityToggle.addEventListener('click', function() {
+                accessibilityPanel.classList.toggle('open');
+                this.setAttribute('aria-expanded', accessibilityPanel.classList.contains('open'));
+            });
+            
+            // إعدادات حجم الخط
+            const fontDecrease = document.getElementById('font-decrease');
+            const fontDefault = document.getElementById('font-default');
+            const fontIncrease = document.getElementById('font-increase');
+            
+            fontDecrease.addEventListener('click', function() {
+                setActiveButton(this, [fontDefault, fontIncrease]);
+                document.body.classList.remove('large-font', 'larger-font');
+                document.body.classList.add('small-font');
+            });
+            
+            fontDefault.addEventListener('click', function() {
+                setActiveButton(this, [fontDecrease, fontIncrease]);
+                document.body.classList.remove('small-font', 'large-font', 'larger-font');
+            });
+            
+            fontIncrease.addEventListener('click', function() {
+                setActiveButton(this, [fontDecrease, fontDefault]);
+                document.body.classList.remove('small-font', 'larger-font');
+                document.body.classList.add('large-font');
+            });
+            
+            // إعدادات التباين
+            const contrastButtons = document.querySelectorAll('.contrast-btn');
+            contrastButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const theme = this.getAttribute('data-theme');
+                    setActiveButton(this, contrastButtons);
+                    
+                    // إزالة جميع سمات التباين
+                    document.body.classList.remove('high-contrast', 'dark');
+                    
+                    // إضافة السمة المختارة
+                    if (theme !== 'default') {
+                        document.body.classList.add(theme);
+                    }
+                });
+            });
+            
+            // إعدادات التباعد
+            const spacingButtons = document.querySelectorAll('.spacing-btn');
+            spacingButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const spacing = this.getAttribute('data-spacing');
+                    setActiveButton(this, spacingButtons);
+                    
+                    // إزالة جميع سمات التباعد
+                    document.body.classList.remove('wide-spacing');
+                    
+                    // إضافة السمة المختارة
+                    if (spacing === 'wide') {
+                        document.body.classList.add('wide-spacing');
+                    }
+                });
+            });
+            
+            // دالة لتعيين الزر النشط
+            function setActiveButton(activeButton, otherButtons) {
+                activeButton.classList.add('active');
+                otherButtons.forEach(btn => btn.classList.remove('active'));
+            }
+            
+            // إغلاق لوحة الوصول عند النقر خارجها
+            document.addEventListener('click', function(event) {
+                if (!accessibilityPanel.contains(event.target) && 
+                    !accessibilityToggle.contains(event.target) &&
+                    accessibilityPanel.classList.contains('open')) {
+                    accessibilityPanel.classList.remove('open');
+                    accessibilityToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // ========== زر العودة للأعلى ==========
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // ========== لعبة سحب وإفلات الروبوتات ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const robotItems = document.querySelectorAll('.robot-item');
+            const experimentItems = document.querySelectorAll('.experiment-item');
+            const gameFeedback = document.getElementById('game-feedback');
+            const feedbackIcon = document.getElementById('feedback-icon');
+            const feedbackTitle = document.getElementById('feedback-title');
+            const feedbackMessage = document.getElementById('feedback-message');
+            const correctMatchesEl = document.getElementById('correct-matches');
+            const totalAttemptsEl = document.getElementById('total-attempts');
+            const accuracyRateEl = document.getElementById('accuracy-rate');
+            const resetGameBtn = document.getElementById('reset-game');
+            
+            let draggedRobot = null;
+            let correctMatches = 0;
+            let totalAttempts = 0;
+            let gameCompleted = false;
+            
+            // إعداد السحب للروبوتات
+            robotItems.forEach(robot => {
+                robot.addEventListener('dragstart', function(e) {
+                    if (this.classList.contains('dropped')) return;
+                    
+                    draggedRobot = this;
+                    setTimeout(() => this.classList.add('dragging'), 0);
+                    e.dataTransfer.setData('text/plain', this.id);
+                });
+                
+                robot.addEventListener('dragend', function() {
+                    this.classList.remove('dragging');
+                    draggedRobot = null;
+                });
+            });
+            
+            // إعداد الإفلات للتجارب
+            experimentItems.forEach(experiment => {
+                experiment.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    if (this.classList.contains('correct') || gameCompleted) return;
+                    this.classList.add('hover');
+                });
+                
+                experiment.addEventListener('dragleave', function() {
+                    this.classList.remove('hover');
+                });
+                
+                experiment.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('hover');
+                    
+                    if (this.classList.contains('correct') || gameCompleted || !draggedRobot) return;
+                    
+                    const correctRobotId = this.getAttribute('data-correct');
+                    const droppedRobotId = draggedRobot.id;
+                    
+                    totalAttempts++;
+                    totalAttemptsEl.textContent = totalAttempts;
+                    
+                    if (droppedRobotId === correctRobotId) {
+                        // الإجابة الصحيحة
+                        this.classList.add('correct');
+                        draggedRobot.classList.add('dropped');
+                        correctMatches++;
+                        correctMatchesEl.textContent = correctMatches;
+                        
+                        // تحديث نسبة الدقة
+                        const accuracy = Math.round((correctMatches / totalAttempts) * 100);
+                        accuracyRateEl.textContent = accuracy + '%';
+                        
+                        // عرض رسالة النجاح
+                        showFeedback(true, 'تمت المطابقة بنجاح!', 'لقد اخترت الروبوت المناسب لهذه التجربة العلمية.');
+                        
+                        // التحقق من اكتمال اللعبة
+                        if (correctMatches === experimentItems.length) {
+                            gameCompleted = true;
+                            showCompletionMessage();
+                        }
+                    } else {
+                        // الإجابة الخاطئة
+                        this.classList.add('incorrect');
+                        showFeedback(false, 'المطابقة غير صحيحة', 'هذا الروبوت غير مناسب لهذه التجربة. حاول مرة أخرى!');
+                        
+                        // إزالة التصنيف الخاطئ بعد ثانية
+                        setTimeout(() => {
+                            this.classList.remove('incorrect');
+                        }, 1000);
+                    }
+                    
+                    // تحديث نسبة الدقة
+                    const accuracy = Math.round((correctMatches / totalAttempts) * 100);
+                    accuracyRateEl.textContent = accuracy + '%';
+                    
+                    draggedRobot = null;
+                });
+            });
+            
+            // عرض رسالة التغذية الراجعة
+            function showFeedback(isCorrect, title, message) {
+                if (isCorrect) {
+                    feedbackIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
+                    feedbackIcon.style.color = '#27ae60';
+                } else {
+                    feedbackIcon.innerHTML = '<i class="fas fa-times-circle"></i>';
+                    feedbackIcon.style.color = '#e74c3c';
+                }
+                
+                feedbackTitle.textContent = title;
+                feedbackMessage.textContent = message;
+                gameFeedback.classList.add('show');
+                
+                // إخفاء الرسالة بعد 3 ثواني (ماعدا في حالة اكتمال اللعبة)
+                if (!gameCompleted) {
+                    setTimeout(() => {
+                        gameFeedback.classList.remove('show');
+                    }, 3000);
+                }
+            }
+            
+            // عرض رسالة اكتمال اللعبة
+            function showCompletionMessage() {
+                feedbackIcon.innerHTML = '<i class="fas fa-trophy"></i>';
+                feedbackIcon.style.color = '#f1c40f';
+                feedbackTitle.textContent = '🎉 مبروك! لقد أكملت اللعبة بنجاح!';
+                feedbackMessage.innerHTML = `
+                    لقد نجحت في مطابقة جميع الروبوتات مع التجارب العلمية المناسبة!<br><br>
+                    <small>تذكر: لكل مجال علمي روبوتات خاصة تدعمه، وغالبًا تستخدم الذكاء الاصطناعي في اتخاذ القرار أو تحليل البيانات.</small>
+                `;
+                gameFeedback.classList.add('show');
+            }
+            
+            // إعادة تعيين اللعبة
+            resetGameBtn.addEventListener('click', function() {
+                robotItems.forEach(robot => {
+                    robot.classList.remove('dropped', 'dragging');
+                });
+                
+                experimentItems.forEach(experiment => {
+                    experiment.classList.remove('correct', 'incorrect', 'hover');
+                });
+                
+                gameFeedback.classList.remove('show');
+                gameCompleted = false;
+                correctMatches = 0;
+                totalAttempts = 0;
+                
+                correctMatchesEl.textContent = '0';
+                totalAttemptsEl.textContent = '0';
+                accuracyRateEl.textContent = '0%';
+            });
+        });
+
+        // ========== اختبار العلوم التعليمي ==========
+        const quizData = [
+            {
+                question: "في درس الجهاز الهضمي: كيف يمكن استخدام الذكاء الاصطناعي في المستشفيات لدراسة عمل الجهاز الهضمي؟",
+                options: [
+                    "روبوت جراحي يمكنه إجراء عمليات دقيقة ومراقبة عمل الجهاز الهضمي",
+                    "لعبة فيديو تعليمية عن الجهاز الهضمي",
+                    "تطبيق طقس لمراقبة درجة الحرارة"
+                ],
+                correct: 0,
+                explanation: "روبوت جراحي مدعوم بالذكاء الاصطناعي يمكنه إجراء عمليات دقيقة ومراقبة عمل الجهاز الهضمي باستخدام كاميرات دقيقة وأجهزة استشعار."
+            },
+            {
+                question: "في درس الفضاء: أيّة عبارة صحيحة عن استخدام الذكاء الاصطناعي في استكشاف الفضاء؟",
+                options: [
+                    "المركبات الفضائية تستخدم الذكاء الاصطناعي لتحليل الصور القادمة من الكواكب الأخرى",
+                    "الذكاء الاصطناعي لا يستخدم في الفضاء لأنه لا يوجد إنترنت",
+                    "الروبوتات الفضائية تعمل بدون أي تكنولوجيا ذكية وتعتمد على التحكم اليدوي فقط"
+                ],
+                correct: 0,
+                explanation: "نعم! المركبات الفضائية الحديثة مثل مركبات المريخ تستخدم الذكاء الاصطناعي لتحليل الصور والبيانات من الكواكب الأخرى بشكل مستقل."
+            },
+            {
+                question: "في العلوم البيئية: كيف يساعد الذكاء الاصطناعي في حماية البيئة والتنبؤ بالتغيرات المناخية؟",
+                options: [
+                    "تحليل كميات هائلة من بيانات التلوث والتنبؤ بالتغيرات المناخية",
+                    "تصميم ألعاب الكترونية عن البيئة",
+                    "إدارة حسابات التواصل الاجتماعي للمنظمات البيئية"
+                ],
+                correct: 0,
+                explanation: "الذكاء الاصطناعي يحلل كميات هائلة من البيانات البيئية من الأقمار الصناعية والمحطات الأرضية للتنبؤ بالتغيرات المناخية وتخطيط استراتيجيات الحماية الفعالة."
+            },
+            {
+                question: "في الكيمياء: ما دور الروبوتات المدعومة بالذكاء الاصطناعي في المختبرات الكيميائية الحديثة؟",
+                options: [
+                    "إجراء تجارب متكررة بدقة عالية وتحليل النتائج تلقائياً",
+                    "طهي الطعام في مطاعم المختبرات",
+                    "تنظيف الأرضيات والنوافذ في المعامل"
+                ],
+                correct: 0,
+                explanation: "روبوتات المختبرات المدعومة بالذكاء الاصطناعي تقوم بإجراء تجارب كيميائية متكررة بدقة متناهية وتحليل النتائج تلقائياً، مما يسرع عملية الاكتشاف العلمي."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let userScore = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+
+        // تحميل السؤال الحالي
+        function loadCurrentQuestion() {
+            const quiz = quizData[currentQuestionIndex];
+            const questionArea = document.getElementById('question-area');
+            
+            questionArea.innerHTML = `
+                <div class="question-text">${quiz.question}</div>
+                <div class="options-container">
+                    ${quiz.options.map((option, index) => `
+                        <div class="quiz-option ${userAnswers[currentQuestionIndex] === index ? 'selected' : ''}" data-index="${index}">
+                            <div class="option-letter">${String.fromCharCode(65 + index)}</div>
+                            <div class="option-text">${option}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            // تحديث معلومات التقدم
+            document.getElementById('current-question-num').textContent = currentQuestionIndex + 1;
+            document.getElementById('quiz-progress-bar').style.width = `${((currentQuestionIndex + 1) / quizData.length) * 100}%`;
+            document.getElementById('quiz-score-value').textContent = userScore;
+            
+            // تحديث حالة الأزرار
+            document.getElementById('prev-question-btn').disabled = currentQuestionIndex === 0;
+            document.getElementById('next-question-btn').style.display = 
+                currentQuestionIndex === quizData.length - 1 ? 'none' : 'block';
+            document.getElementById('submit-quiz-btn').style.display = 
+                currentQuestionIndex === quizData.length - 1 ? 'block' : 'none';
+            
+            // إضافة أحداث النقر للخيارات
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    if (this.classList.contains('correct') || this.classList.contains('incorrect')) return;
+                    
+                    // إزالة التحديد من جميع الخيارات
+                    document.querySelectorAll('.quiz-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // تحديد الخيار الحالي
+                    this.classList.add('selected');
+                    userAnswers[currentQuestionIndex] = parseInt(this.getAttribute('data-index'));
+                    
+                    // التحقق من الإجابة إذا كان المستخدم يريد
+                    const selectedIndex = userAnswers[currentQuestionIndex];
+                    const isCorrect = selectedIndex === quiz.correct;
+                    
+                    // تلوين الخيارات
+                    document.querySelectorAll('.quiz-option').forEach((opt, idx) => {
+                        if (idx === quiz.correct) {
+                            opt.classList.add('correct');
+                        } else if (idx === selectedIndex && !isCorrect) {
+                            opt.classList.add('incorrect');
+                        }
+                        opt.style.pointerEvents = 'none';
+                    });
+                    
+                    // تحديث النتيجة إذا كانت الإجابة صحيحة ولم تحسب من قبل
+                    if (isCorrect && !quiz.answered) {
+                        userScore++;
+                        document.getElementById('quiz-score-value').textContent = userScore;
+                        quiz.answered = true;
+                    }
+                });
+            });
+        }
+
+        // عرض النتائج
+        function showResults() {
+            const questionArea = document.getElementById('question-area');
+            const quizControls = document.querySelector('.quiz-controls');
+            const resultArea = document.getElementById('result-area');
+            
+            questionArea.style.display = 'none';
+            quizControls.style.display = 'none';
+            
+            // حساب النتيجة النهائية
+            const finalScore = userScore;
+            const totalQuestions = quizData.length;
+            const percentage = Math.round((finalScore / totalQuestions) * 100);
+            
+            // تحديد الرسالة المناسبة
+            let message = '';
+            let emoji = '';
+            
+            if (percentage >= 90) {
+                message = 'ممتاز! 🎉 أنت خبير في تطبيقات الذكاء الاصطناعي في العلوم!';
+                emoji = '🏆';
+            } else if (percentage >= 70) {
+                message = 'جيد جداً! 👍 لديك معرفة ممتازة بتطبيقات الذكاء الاصطناعي في العلوم';
+                emoji = '⭐';
+            } else if (percentage >= 50) {
+                message = 'جيد! 💡 لديك فهم جيد للعلاقة بين الذكاء الاصطناعي والعلوم';
+                emoji = '✅';
+            } else {
+                message = 'حاول مرة أخرى! 📚 استمر في التعلم عن الذكاء الاصطناعي في العلوم';
+                emoji = '📖';
+            }
+            
+            resultArea.innerHTML = `
+                <div class="result-header">
+                    <h3 class="result-title">نتيجة الاختبار ${emoji}</h3>
+                    <div class="final-score">${finalScore}/${totalQuestions}</div>
+                    <p>لقد أجبت بشكل صحيح على ${finalScore} من ${totalQuestions} أسئلة</p>
+                </div>
+                
+                <div class="result-message">
+                    <h4>${message}</h4>
+                    <p>لقد حصلت على ${percentage}% في هذا الاختبار. ${finalScore === totalQuestions ? 'إجاباتك كلها صحيحة! مبروك!' : ''}</p>
+                    
+                    <div class="recommendations">
+                        <h5>توصيات للتعلم:</h5>
+                        <ul>
+                            <li>استكشف قسم "الذكاء الاصطناعي في العلوم" في موقعنا لتعميق معرفتك</li>
+                            <li>جرب اللعبة التفاعلية لمطابقة الروبوتات مع التجارب العلمية المناسبة</li>
+                            <li>اسأل المساعد الذكي عن أي مجال علمي يهمك أو تستصعبه</li>
+                            <li>تابع آخر التطورات في مجال الذكاء الاصطناعي والروبوتات في العلوم</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="result-actions">
+                    <button id="retry-quiz-btn" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> إعادة الاختبار
+                    </button>
+                    <button id="review-answers-btn" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i> مراجعة الإجابات
+                    </button>
+                </div>
+            `;
+            
+            resultArea.classList.add('show');
+            
+            // إضافة أحداث للأزرار الجديدة
+            document.getElementById('retry-quiz-btn').addEventListener('click', retryQuiz);
+            document.getElementById('review-answers-btn').addEventListener('click', reviewAnswers);
+        }
+
+        // إعادة الاختبار
+        function retryQuiz() {
+            currentQuestionIndex = 0;
+            userScore = 0;
+            userAnswers.fill(null);
+            
+            // إعادة تعيين جميع الأسئلة
+            quizData.forEach(quiz => {
+                quiz.answered = false;
+            });
+            
+            const questionArea = document.getElementById('question-area');
+            const quizControls = document.querySelector('.quiz-controls');
+            const resultArea = document.getElementById('result-area');
+            
+            questionArea.style.display = 'block';
+            quizControls.style.display = 'flex';
+            resultArea.classList.remove('show');
+            resultArea.innerHTML = '';
+            
+            loadCurrentQuestion();
+        }
+
+        // مراجعة الإجابات
+        function reviewAnswers() {
+            const resultArea = document.getElementById('result-area');
+            
+            let reviewHTML = '<div class="result-message"><h4>مراجعة الإجابات:</h4>';
+            
+            quizData.forEach((quiz, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === quiz.correct;
+                
+                reviewHTML += `
+                    <div class="question-review" style="margin-bottom: 25px; padding-bottom: 25px; border-bottom: 1px dashed rgba(0, 168, 255, 0.3);">
+                        <h5 style="color: var(--primary-color); margin-bottom: 10px; font-weight: 700;">سؤال ${index + 1}: ${quiz.question}</h5>
+                        <p style="font-weight: 600; margin-bottom: 5px;"><strong>إجابتك:</strong> ${userAnswer !== null ? quiz.options[userAnswer] : 'لم تجب'}</p>
+                        <p style="font-weight: 600; margin-bottom: 10px;"><strong>الإجابة الصحيحة:</strong> ${quiz.options[quiz.correct]}</p>
+                        <p style="background: ${isCorrect ? 'rgba(39, 174, 96, 0.15)' : 'rgba(231, 76, 60, 0.15)'}; padding: 12px; border-radius: 8px; margin-top: 10px; border-left: 4px solid ${isCorrect ? '#27ae60' : '#e74c3c'};">
+                            <strong style="color: ${isCorrect ? '#27ae60' : '#e74c3c'};">${isCorrect ? '✅ صحيحة' : '❌ غير صحيحة'}:</strong><br>
+                            ${quiz.explanation}
+                        </p>
+                    </div>
+                `;
+            });
+            
+            reviewHTML += '</div>';
+            
+            // استبدال محتوى منطقة المراجعة
+            const reviewSection = document.querySelector('.result-message');
+            if (reviewSection) {
+                reviewSection.innerHTML = reviewHTML;
+            }
+        }
+
+        // تحميل السؤال الأول عند بدء الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCurrentQuestion();
+            
+            // أحداث أزرار التنقل
+            document.getElementById('next-question-btn').addEventListener('click', function() {
+                if (currentQuestionIndex < quizData.length - 1) {
+                    currentQuestionIndex++;
+                    loadCurrentQuestion();
+                }
+            });
+            
+            document.getElementById('prev-question-btn').addEventListener('click', function() {
+                if (currentQuestionIndex > 0) {
+                    currentQuestionIndex--;
+                    loadCurrentQuestion();
+                }
+            });
+            
+            document.getElementById('submit-quiz-btn').addEventListener('click', showResults);
+        });
+
+        // ========== المساعد الذكي المحسّن ==========
+        // دالة الحصول على رد البوت
+        function getBotReply(message) {
+            const lowerMsg = message.toLowerCase().trim();
+            
+            // قائمة الكلمات المفتاحية والأسئلة الشائعة مع ردود مفصلة
+            const responses = {
+                // أسئلة عامة
+                'مرحبا': {
+                    response: `مرحباً بك! 👋 أنا مساعدك الذكي في عالم العلوم والتكنولوجيا. 
+                    <br><br>✨ <strong>كيف يمكنني مساعدتك اليوم؟</strong>
+                    <br>يمكنني الإجابة على أسئلتك عن:
+                    <br>• الذكاء الاصطناعي في العلوم المختلفة
+                    <br>• تطبيقات الروبوتات في المجالات العلمية
+                    <br>• المستقبل التكنولوجي للعلوم
+                    <br>• أو أي استفسار علمي آخر!`,
+                    followUp: 'هل تريد معرفة المزيد عن مجال معين؟'
+                },
+                
+                'ما فهمت': {
+                    response: `أتفهم أن الشرح قد يكون معقداً! 😊 دعني أشرح بطريقة أوضح:
+                    <br><br>📚 <strong>أنا هنا لربط الذكاء الاصطناعي والروبوتات بالعلوم التي تدرسها</strong>
+                    <br><br>على سبيل المثال:
+                    <br>🔬 <strong>في الكيمياء:</strong> الذكاء الاصطناعي يساعد في اكتشاف أدوية جديدة
+                    <br>🩺 <strong>في الطب:</strong> الروبوتات تجري عمليات جراحية دقيقة
+                    <br>🛰️ <strong>في الفضاء:</strong> الذكاء الاصطناعي يحلل صور الكواكب
+                    <br>🌳 <strong>في البيئة:</strong> يساعد في مراقبة التلوث وحماية الطبيعة
+                    <br><br>💡 <strong>جرب أن تسألني:</strong> "كيف يساعد الذكاء الاصطناعي في الطب؟"`,
+                    followUp: 'هل هذا الشرح أوضح؟ أو هل تريد مثالاً على مجال محدد؟'
+                },
+                
+                'اشرح اكثر': {
+                    response: `بالتأكيد! سأشرح بمزيد من التفصيل: 
+                    <br><br>🎯 <strong>الذكاء الاصطناعي في العلوم ليس مجرد تقنية، بل هو ثورة في البحث العلمي!</strong>
+                    <br><br>1️⃣ <strong>في البحث العلمي:</strong>
+                    <br>   • يحلل البيانات العلمية بسرعة خارقة
+                    <br>   • يتنبأ بنتائج التجارب قبل إجرائها
+                    <br>   • يكتشف أنماطاً خفية في البيانات
+                    <br><br>2️⃣ <strong>في التعليم العلمي:</strong>
+                    <br>   • يخلق تجارب علمية افتراضية آمنة
+                    <br>   • يقدم شرحاً شخصياً لكل طالب
+                    <br>   • يحول البيانات المعقدة إلى رسومات بسيطة
+                    <br><br>3️⃣ <strong>في التطبيقات العملية:</strong>
+                    <br>   • روبوتات المختبرات تعمل 24/7
+                    <br>   • أنظمة ذكية تراقب البيئة باستمرار
+                    <br>   • أدوات تشخيص طبية دقيقة جداً`,
+                    followUp: 'هل تريد أن أشرح مجالاً محدداً بتفصيل أكثر؟'
+                },
+                
+                // الكيمياء
+                'كيمياء': {
+                    response: `🧪 <strong>الذكاء الاصطناعي في الكيمياء - ثورة في عالم الجزيئات!</strong>
+                    <br><br>🔍 <strong>كيف يعمل:</strong>
+                    <br>1. <strong>اكتشاف الأدوية:</strong> يحلل ملايين المركبات الكيميائية في ثوانٍ
+                    <br>2. <strong>روبوتات المختبر:</strong> تجري 1000 تجربة في وقت التجربة الواحدة
+                    <br>3. <strong>التنبؤ بالتفاعلات:</strong> يتوقع نتائج التفاعلات الكيميائية قبل حدوثها
+                    <br>4. <strong>تصميم المواد:</strong> يصمم مواد جديدة بخصائص محددة
+                    <br><br>🎯 <strong>مثال عملي:</strong>
+                    <br>شركة DeepMind طورت AlphaFold الذي يتنبأ بتركيب البروتينات - وهذا قد يساعد في اكتشاف أدوية لأمراض مستعصية!
+                    <br><br>💡 <strong>لطلاب الكيمياء:</strong> تخيل أن لديك مساعد ذكي يحلل تجاربك وينبهك للأخطاء قبل حدوثها!`,
+                    followUp: 'هل تريد معرفة المزيد عن روبوتات المختبرات أو اكتشاف الأدوية؟'
+                },
+                
+                // الطب والبيولوجيا
+                'طب': {
+                    response: `🩺 <strong>الذكاء الاصطناعي في الطب - مستقبل الرعاية الصحية!</strong>
+                    <br><br>🏥 <strong>التطبيقات الرئيسية:</strong>
+                    <br>1. <strong>التشخيص الدقيق:</strong> يحلل الأشعة والتحاليل بدقة 99%
+                    <br>2. <strong>الجراحة الروبوتية:</strong> روبوت Da Vinci يجري عمليات بدقة ميكرونية
+                    <br>3. <strong>الطب الشخصي:</strong> يخطط علاجاً مخصصاً لكل مريض بناءً على جيناته
+                    <br>4. <strong>مراقبة المرضى:</strong> يتنبأ بالمضاعفات قبل حدوثها بساعات
+                    <br><br>📊 <strong>إحصائيات مذهلة:</strong>
+                    <br>• الذكاء الاصطناعي يشخص سرطان الجلد بدقة تفوق الأطباء البشر
+                    <br>• روبوتات الجراحة تقلل المضاعفات بنسبة 40%
+                    <br>• أنظمة الذكاء الاصطناعي تحلل أشعة الصدر في 2 ثانية
+                    <br><br>👨‍⚕️ <strong>لطلاب الطب:</strong> ستكون هذه الأدوات جزءاً من عملك المستقبلي!`,
+                    followUp: 'هل تريد معرفة المزيد عن الجراحة الروبوتية أو التشخيص الذكي؟'
+                },
+                
+                // الفضاء
+                'فضاء': {
+                    response: `🛰️ <strong>الذكاء الاصطناعي في الفضاء - عيوننا في الكون!</strong>
+                    <br><br>🌌 <strong>كيف يغير استكشاف الفضاء:</strong>
+                    <br>1. <strong>تحليل الصور الفضائية:</strong> يكتشف كواكب جديدة في بيانات التلسكوبات
+                    <br>2. <strong>المركبات المستقلة:</strong> روفرز المريخ تتخذ قراراتها بنفسها
+                    <br>3. <strong>التنبؤ بالطقس الفضائي:</strong> يحمي الأقمار الصناعية من العواصف الشمسية
+                    <br>4. <strong>التخطيط للمهمات:</strong> يخطط أفضل مسارات للرحلات الفضائية
+                    <br><br>🚀 <strong>مشاريع رائدة:</strong>
+                    <br>• مركبة Perseverance على المريخ تستخدم الذكاء الاصطناعي لاختيار الصخور للتحليل
+                    <br>• تلسكوب جيمس ويب الفضائي يستخدم الذكاء الاصطناعي لتحليل ضوء النجوم البعيدة
+                    <br>• مشروع SETI يستخدم الذكاء الاصطناعي للبحث عن حياة ذكية في الكون
+                    <br><br>👩‍🚀 <strong>لطلاب الفلك:</strong> أنت تدرس في عصر الاكتشافات الفضائية الكبرى!`,
+                    followUp: 'هل تريد معرفة المزيد عن مركبات المريخ أو تحليل الصور الفضائية؟'
+                },
+                
+                // البيئة
+                'بيئة': {
+                    response: `🌳 <strong>الذكاء الاصطناعي في البيئة - حارس كوكب الأرض!</strong>
+                    <br><br>🛡️ <strong>دوره في حماية البيئة:</strong>
+                    <br>1. <strong>مراقبة التلوث:</strong> يتتبع مصادر التلوث عبر الأقمار الصناعية
+                    <br>2. <strong>حماية الحيوانات:</strong> يتعرف على الأنواع المهددة عبر كاميرات المراقبة
+                    <br>3. <strong>الزراعة الذكية:</strong> يحدد احتياجات المياه والأسمدة بدقة
+                    <br>4. <strong>إدارة النفايات:</strong> يحسن عمليات التدوير ويقلل الهدر
+                    <br><br>📈 <strong>تأثير ملموس:</strong>
+                    <br>• أنظمة الذكاء الاصطناعي تنبأت بمواقع حرائق أستراليا 2020 قبل انتشارها
+                    <br>• روبوتات تنظيف المحيطات تجمع أطناناً من البلاستيك تلقائياً
+                    <br>• أنظمة مراقبة تتنبأ بموجات الجفاف قبل 6 أشهر
+                    <br><br>🌍 <strong>لطلاب العلوم البيئية:</strong> هذه التقنيات ستساعدك في إنقاذ الكوكب!`,
+                    followUp: 'هل تريد معرفة المزيد عن مراقبة التلوث أو حماية الحيوانات؟'
+                },
+                
+                // الروبوتات
+                'روبوت': {
+                    response: `🤖 <strong>الروبوتات في العلوم - الأيدي الذكية للبحث العلمي!</strong>
+                    <br><br>🛠️ <strong>أنواع الروبوتات العلمية:</strong>
+                    <br>1. <strong>روبوتات المختبر:</strong> تجري تجارب كيميائية وبيولوجية بدقة نانوية
+                    <br>2. <strong>الروبوتات الجراحية:</strong> تجري عمليات معقدة عبر فتحات صغيرة
+                    <br>3. <strong>روبوتات الاستكشاف:</strong> تتحمل ظروف الفضاء وأعماق المحيطات
+                    <br>4. <strong>روبوتات المراقبة:</strong> تجمع بيانات بيئية من أماكن خطرة
+                    <br><br>⚡ <strong>مميزاتها:</strong>
+                    <br>• الدقة: تصل إلى مستوى الميكرون (أصغر من عرض شعرة الإنسان)
+                    <br>• التحمل: تعمل 24 ساعة دون تعب
+                    <br>• السلامة: تعمل في بيئات خطرة على البشر
+                    <br>• التكرار: تجري نفس التجربة آلاف المرات بنفس الدقة
+                    <br><br>🔬 <strong>لطلاب العلوم:</strong> ستجد هذه الروبوتات في مختبرات المستقبل!`,
+                    followUp: 'هل تريد معرفة المزيد عن روبوت معين أو تطبيق محدد؟'
+                },
+                
+                // المستقبل
+                'مستقبل': {
+                    response: `🚀 <strong>مستقبل الذكاء الاصطناعي في العلوم - ما ينتظرنا!</strong>
+                    <br><br>🔮 <strong>توقعات 2030:</strong>
+                    <br>1. <strong>المختبرات الذكية بالكامل:</strong> روبوتات تجري كل التجارب
+                    <br>2. <strong>اكتشاف الأدوية في أيام:</strong> بدلاً من سنوات
+                    <br>3. <strong>التشخيص المنزلي:</strong> أجهزة صغيرة تشخص الأمراض في المنزل
+                    <br>4. <strong>زراعة الكواكب:</strong> روبوتات تزرع نباتات على المريخ
+                    <br><br>🎓 <strong>مهارات المستقبل:</strong>
+                    <br>• البرمجة ستصبح مثل القراءة والكتابة
+                    <br>• فهم الذكاء الاصطناعي سيكون ضرورياً لكل عالم
+                    <br>• العمل مع الروبوتات سيكون مهارة أساسية
+                    <br><br>💫 <strong>نصيحتي لك:</strong> ابدأ بتعلم أساسيات البرمجة وفهم كيفية عمل الذكاء الاصطناعي!`,
+                    followUp: 'هل تريد نصائح لتعلم الذكاء الاصطناعي أو الروبوتات؟'
+                },
+                
+                // الدراسة والتعلم
+                'درس': {
+                    response: `📚 <strong>كيف يفيدك الذكاء الاصطناعي في دراستك للعلوم؟</strong>
+                    <br><br>🎯 <strong>طرق الاستفادة:</strong>
+                    <br>1. <strong>شرح المفاهيم الصعبة:</strong> يقدم أمثلة وتشبيهات تناسب مستواك
+                    <br>2. <strong>تجارب افتراضية:</strong> تتيح لك إجراء تجارب خطيرة أو مكلفة افتراضياً
+                    <br>3. <strong>تمارين مخصصة:</strong> يخلق أسئلة تناسب نقاط ضعفك وقوتك
+                    <br>4. <strong>تصور البيانات:</strong> يحول البيانات المعقدة إلى رسومات تفاعلية
+                    <br><br>💡 <strong>نصائح عملية:</strong>
+                    <br>• ابحث عن تطبيقات ذكاء اصطناعي في مادتك المفضلة
+                    <br>• جرب برامج المحاكاة العلمية
+                    <br>• تابع قنوات على يوتيوب تشرح العلوم بالذكاء الاصطناعي
+                    <br>• شارك في مسابقات البرمجة والروبوتات
+                    <br><br>🌟 <strong>تذكر:</strong> أنت تدرس في أفضل عصر للعلوم!`,
+                    followUp: 'هل تريد مصادر تعليمية أو تطبيقات مفيدة؟'
+                },
+                
+                // شكر
+                'شكر': {
+                    response: `😊 <strong>العفو! سعيد لأنني استطعت مساعدتك.</strong>
+                    <br><br>🌱 <strong>نصيحة أخيرة:</strong>
+                    <br>العلوم والتكنولوجيا تتطور بسرعة مذهلة. الفضول والتعلم المستهلّك هما سر النجاح في هذا العصر.
+                    <br><br>🔍 <strong>استمر في الاستكشاف:</strong>
+                    <br>• جرب اللعبة التفاعلية في هذه الصفحة
+                    <br>• اختبر معلوماتك في قسم الاختبار
+                    <br>• استكشف أقسام الموقع الأخرى
+                    <br><br>🚀 <strong>مستقبلك يبدأ اليوم!</strong>
+                    <br>كل سؤال تسأله يقربك خطوة من فهم هذا العالم الرائع.`,
+                    followUp: 'هل لديك أي سؤال آخر؟ أنا هنا لمساعدتك دائماً!'
+                }
+            };
+            
+            // البحث عن أفضل تطابق
+            for (const [keyword, data] of Object.entries(responses)) {
+                if (lowerMsg.includes(keyword)) {
+                    let fullResponse = data.response;
+                    
+                    // إضافة سؤال متابعة
+                    if (data.followUp) {
+                        fullResponse += `<br><br>❓ <strong>${data.followUp}</strong>`;
+                    }
+                    
+                    return fullResponse;
+                }
+            }
+            
+            // إضافة ردود تفاعلية للأخطاء الشائعة
+            const clarificationPatterns = [
+                { pattern: /(مين|من) (هو|هي)/, response: "أنا مساعد ذكي متخصص في شرح تطبيقات الذكاء الاصطناعي والروبوتات في العلوم المختلفة." },
+                { pattern: /(وش|ايش|ماذا) (تعمل|تفعل)/, response: "أجيب على أسئلتك عن العلوم والتكنولوجيا، وأربط بين ما تدرسه وبين التطبيقات الحديثة في العالم الحقيقي." },
+                { pattern: /(وين|اين) (أجد|أحصل)/, response: "يمكنك العثور على معلومات أكثر في: 1) قسم البطاقات العلمية في هذه الصفحة 2) الأقسام الأخرى في الموقع 3) المواقع التعليمية المتخصصة." },
+                { pattern: /(لماذا|ليه) (مهم|ضروري)/, response: "فهم الذكاء الاصطناعي أصبح ضرورياً لأن: 1) سيغير جميع المهن 2) يساعد في حل مشكلات العالم 3) يفتح فرص عمل جديدة." },
+                { pattern: /(ازاي|كيف) (أبدأ|أتعلم)/, response: "لتبدأ في تعلم الذكاء الاصطناعي: 1) ابدأ ببرمجة بسيطة 2) شاهد فيديوهات تعليمية 3) جرب أدوات بسيطة 4) انضم لمجتمعات تعلم." }
+            ];
+
+            for (const item of clarificationPatterns) {
+                if (item.pattern.test(lowerMsg)) {
+                    return `🤔 <strong>سؤال ممتاز!</strong>
+                    <br><br>${item.response}
+                    <br><br>💡 <strong>نصيحة:</strong> جرب أن تسأل عن مجال علمي محدد لتحصل على إجابة أكثر تفصيلاً!`;
+                }
+            }
+            
+            // إذا لم يتم العثور على تطابق
+            return `🤔 <strong>أرى أن سؤالك مثير للاهتمام!</strong>
+            <br><br>للأسف، لم أتعرف على سؤالك تماماً. لكن دعني أساعدك:
+            <br><br>🔍 <strong>جرب أن تسألني عن:</strong>
+            <br>• "كيف يساعد الذكاء الاصطناعي في الطب؟"
+            <br>• "ما دور الروبوتات في الكيمياء؟"
+            <br>• "كيف يستخدم الذكاء الاصطناعي في الفضاء؟"
+            <br>• "ما أهمية الذكاء الاصطناعي للبيئة؟"
+            <br><br>💡 <strong>نصيحة:</strong> يمكنك استخدام كلمات مثل: كيمياء، طب، فضاء، بيئة، روبوت، مستقبل، درس
+            <br><br>أو ببساطة قل: "ما فهمت" وسأشرح أكثر! 😊`;
+        }
+
+        // إدارة الدردشة
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatBox = document.getElementById('chat-box');
+            const chatInput = document.getElementById('chat-input');
+            const sendButton = document.getElementById('send-button');
+            const questionButtons = document.querySelectorAll('.question-btn');
+            
+            // إرسال الرسالة
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                // إضافة رسالة المستخدم
+                addMessage(message, 'user');
+                
+                // مسح حقل الإدخال
+                chatInput.value = '';
+                
+                // الحصول على رد البوت (مع محاكاة التأخير لتبدو طبيعية)
+                setTimeout(() => {
+                    const reply = getBotReply(message);
+                    addMessage(reply, 'bot');
+                }, 500);
+            }
+            
+            // إضافة رسالة للدردشة
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                
+                const time = new Date().toLocaleTimeString('ar-EG', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+                
+                messageDiv.innerHTML = `
+                    <div class="message-content">${text}</div>
+                    <span class="message-time">${time}</span>
+                `;
+                
+                chatBox.appendChild(messageDiv);
+                
+                // التمرير للأسفل
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+            
+            // أحداث الإدخال
+            sendButton.addEventListener('click', sendMessage);
+            
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+            
+            // أحداث أزرار الأسئلة السريعة
+            questionButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const question = this.getAttribute('data-question');
+                    chatInput.value = question;
+                    sendMessage();
+                });
+            });
+            
+            // إضافة رسالة ترحيبية إضافية
+            setTimeout(() => {
+                addMessage('💡 <strong>تلميح:</strong> يمكنك أن تسألني عن أي مفهوم علمي صعب، وسأحاول شرحه بطريقة سهلة وممتعة!', 'bot');
+            }, 3000);
+        });
+
+        // ========== القائمة المتحركة للجوال ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('.nav');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    nav.classList.toggle('active');
+                    this.setAttribute('aria-expanded', nav.classList.contains('active'));
+                    
+                    // تحويل الأشرطة إلى X عند فتح القائمة
+                    const spans = this.querySelectorAll('span');
+                    if (nav.classList.contains('active')) {
+                        spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
+                        spans[1].style.opacity = '0';
+                        spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                    } else {
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    }
+                });
+                
+                // إغلاق القائمة عند النقر على رابط
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function() {
+                        nav.classList.remove('active');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        
+                        const spans = menuToggle.querySelectorAll('span');
+                        spans[0].style.transform = 'none';
+                        spans[1].style.opacity = '1';
+                        spans[2].style.transform = 'none';
+                    });
+                });
+            }
+        });
+
+        // ========== النشرة البريدية ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.getElementById('newsletter-form');
+            
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const emailInput = this.querySelector('input[type="email"]');
+                    const email = emailInput.value.trim();
+                    
+                    if (email) {
+                        // هنا يمكنك إضافة كود الإرسال الفعلي
+                        alert('شكراً لك! تم الاشتراك في النشرة البريدية بنجاح.');
+                        emailInput.value = '';
+                    }
+                });
+            }
+        });
+
+        // ========== التنقل السلس ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // جميع روابط التنقل الداخلية
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // تجاهل روابط الفوتر إذا كانت "#"
+                    if (href === '#') return;
+                    
+                    e.preventDefault();
+                    
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // ========== تحميل الصفحة ==========
+        window.addEventListener('load', function() {
+            // إخفاء مؤشر التحميل (إذا كان موجوداً)
+            const loader = document.getElementById('page-loader');
+            if (loader) {
+                loader.style.display = 'none';
+            }
+            
+            // إضافة تأثير ظهور تدريجي للمحتوى
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

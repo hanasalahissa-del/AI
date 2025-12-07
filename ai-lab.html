@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المختبر الافتراضي بالذكاء الاصطناعي | AI Robotics Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* أنماط خاصة بصفحة المختبر الافتراضي */
+        :root {
+            --transition: all 0.3s ease;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --danger-color: #e74c3c;
+            --info-color: #3498db;
+        }
+        
+        /* قسم المختبر الافتراضي */
+        .ai-lab-section {
+            padding: 100px 20px;
+            background: var(--bg-color);
+            min-height: 100vh;
+        }
+        
+        .ai-lab-header {
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .ai-lab-header h1 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #0a3d62, #00a8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .ai-lab-header p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* شبكة التجارب */
+        .experiments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .experiment-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .experiment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .experiment-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 30px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .experiment-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .experiment-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .experiment-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .experiment-body {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* أشكال مختلفة للتجارب */
+        .medical-experiment .experiment-header {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+        }
+        
+        .environmental-experiment .experiment-header {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+        }
+        
+        .chemistry-experiment .experiment-header {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+        
+        /* محاكاة الذكاء الاصطناعي */
+        .ai-simulation {
+            background: rgba(0, 168, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(0, 168, 255, 0.2);
+        }
+        
+        .ai-thinking {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .ai-thinking i {
+            font-size: 2rem;
+            color: #00a8ff;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        
+        .ai-thinking p {
+            margin: 0;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .ai-result {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 20px;
+            border-left: 5px solid #00a8ff;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: none;
+        }
+        
+        .ai-result.show {
+            display: block;
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .result-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .result-title i {
+            color: var(--success-color);
+        }
+        
+        .result-content {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .ai-suggestion {
+            background: rgba(46, 204, 113, 0.1);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            border-right: 3px solid #27ae60;
+        }
+        
+        .ai-suggestion h4 {
+            color: #27ae60;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* نماذج الإدخال */
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .symptoms-grid, .pollution-grid, .chemistry-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .symptoms-grid, .pollution-grid, .chemistry-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .checkbox-item, .radio-item {
+            background: var(--bg-color);
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 168, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .checkbox-item:hover, .radio-item:hover {
+            border-color: #00a8ff;
+            background: rgba(0, 168, 255, 0.05);
+        }
+        
+        .checkbox-item input, .radio-item input {
+            margin: 0;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+        
+        .checkbox-item label, .radio-item label {
+            margin: 0;
+            cursor: pointer;
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        /* أزرار التحميل */
+        .loading-bar {
+            height: 5px;
+            background: rgba(0, 168, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #00a8ff, #0a3d62);
+            width: 0%;
+            transition: width 2s ease;
+        }
+        
+        /* أزرار التحكم */
+        .control-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .ai-analyze-btn {
+            background: linear-gradient(135deg, #0a3d62, #00a8ff);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .ai-analyze-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
+            background: linear-gradient(135deg, #00a8ff, #0a3d62);
+        }
+        
+        .ai-analyze-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .reset-btn {
+            background: transparent;
+            color: var(--text-color);
+            border: 2px solid rgba(0, 168, 255, 0.3);
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .reset-btn:hover {
+            background: rgba(0, 168, 255, 0.1);
+            border-color: #00a8ff;
+        }
+        
+        /* تنبيهات */
+        .alert {
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: slideIn 0.3s ease;
+        }
+        
+        .alert i {
+            font-size: 1.5rem;
+        }
+        
+        .alert-info {
+            background: rgba(52, 152, 219, 0.1);
+            border-right: 4px solid #3498db;
+            color: #3498db;
+        }
+        
+        .alert-success {
+            background: rgba(46, 204, 113, 0.1);
+            border-right: 4px solid #27ae60;
+            color: #27ae60;
+        }
+        
+        .alert-warning {
+            background: rgba(243, 156, 18, 0.1);
+            border-right: 4px solid #f39c12;
+            color: #f39c12;
+        }
+        
+        .alert-danger {
+            background: rgba(231, 76, 60, 0.1);
+            border-right: 4px solid #e74c3c;
+            color: #e74c3c;
+        }
+        
+        /* مقياس التلوث */
+        .pollution-meter {
+            height: 20px;
+            background: linear-gradient(90deg, #27ae60, #f1c40f, #e74c3c);
+            border-radius: 10px;
+            margin: 15px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pollution-level {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 0%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: width 1s ease;
+        }
+        
+        .meter-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        /* الأنابيب الكيميائية */
+        .test-tubes {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .test-tube {
+            width: 80px;
+            height: 120px;
+            border-radius: 0 0 10px 10px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .test-tube:hover {
+            transform: translateY(-10px);
+            border-color: #00a8ff;
+        }
+        
+        .test-tube.selected {
+            border-color: #e74c3c;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+        }
+        
+        .test-tube .liquid {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .tube-1 .liquid {
+            background: linear-gradient(to top, #e74c3c, #c0392b);
+            height: 60%;
+        }
+        
+        .tube-2 .liquid {
+            background: linear-gradient(to top, #3498db, #2980b9);
+            height: 40%;
+        }
+        
+        .tube-3 .liquid {
+            background: linear-gradient(to top, #9b59b6, #8e44ad);
+            height: 80%;
+        }
+        
+        .tube-label {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        /* تجاوب */
+        @media (max-width: 1200px) {
+            .experiments-grid {
+                grid-template-columns: 1fr;
+                max-width: 800px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .ai-lab-section {
+                padding: 60px 15px;
+            }
+            
+            .ai-lab-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .control-buttons {
+                flex-direction: column;
+            }
+            
+            .test-tubes {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .test-tube {
+                width: 60px;
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .ai-lab-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .experiment-header {
+                padding: 20px;
+            }
+            
+            .experiment-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- لوحة إمكانية الوصول -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <button id="accessibility-toggle" class="accessibility-toggle" aria-label="فتح إعدادات إمكانية الوصول">
+            <i class="fa-solid fa-universal-access"></i>
+        </button>
+        <div class="accessibility-options">
+            <h3>إعدادات الوصول</h3>
+            <div class="option-group">
+                <label>حجم الخط:</label>
+                <div class="buttons">
+                    <button id="font-decrease" class="font-btn">أ-</button>
+                    <button id="font-default" class="font-btn active">أ</button>
+                    <button id="font-increase" class="font-btn">أ+</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباين الألوان:</label>
+                <div class="buttons">
+                    <button id="contrast-default" class="contrast-btn active" data-theme="default">افتراضي</button>
+                    <button id="contrast-high" class="contrast-btn" data-theme="high-contrast">تباين عالي</button>
+                    <button id="contrast-dark" class="contrast-btn" data-theme="dark">مظلم</button>
+                </div>
+            </div>
+            <div class="option-group">
+                <label>تباعد الأسطر:</label>
+                <div class="buttons">
+                    <button id="spacing-normal" class="spacing-btn active" data-spacing="normal">عادي</button>
+                    <button id="spacing-wide" class="spacing-btn" data-spacing="wide">واسع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الرأس -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-size: 1.5rem; font-weight: 800; white-space: nowrap;">
+                AI Robotics Tech
+            </a>
+                
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                     <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link">الشروحات</a></li>
+                    <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- قسم المختبر الافتراضي -->
+    <section class="ai-lab-section">
+        <div class="container">
+            <div class="ai-lab-header" data-aos="fade-up">
+                <h1>🧪 المختبر الافتراضي بالذكاء الاصطناعي</h1>
+                <p>أجرِ تجارب علمية افتراضية باستخدام الذكاء الاصطناعي. اختر التجربة، اضبط المتغيرات، وشاهد كيف يحلل الذكاء الاصطناعي النتائج ويقدم التوصيات!</p>
+            </div>
+
+            <!-- تنبيه مهم -->
+            <div class="alert alert-info" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>ملاحظة هامة:</strong> هذه التجارب هي محاكاة تعليمية ولا تغني عن الاستشارة الطبية أو المهنية المتخصصة.
+                </div>
+            </div>
+
+            <!-- شبكة التجارب -->
+            <div class="experiments-grid">
+                <!-- التجربة 1: التشخيص الطبي -->
+                <div class="experiment-card medical-experiment" data-aos="fade-up" data-aos-delay="200">
+                    <div class="experiment-header">
+                        <div class="experiment-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                        <h2 class="experiment-title">التشخيص الطبي الافتراضي</h2>
+                        <p class="experiment-subtitle">محاكاة تشخيص الأمراض باستخدام الذكاء الاصطناعي</p>
+                    </div>
+                    
+                    <div class="experiment-body">
+                        <div class="ai-simulation">
+                            <div class="alert alert-info">
+                                <i class="fas fa-user-md"></i>
+                                <div>
+                                    <strong>التعليمات:</strong> اختر الأعراض التي يعاني منها المريض الافتراضي
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>الأعراض المختارة:</label>
+                                <div class="symptoms-grid" id="symptoms-grid">
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="fever" value="حمى">
+                                        <label for="fever">حمى</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="cough" value="سعال">
+                                        <label for="cough">سعال</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="headache" value="صداع">
+                                        <label for="headache">صداع</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="fatigue" value="إرهاق">
+                                        <label for="fatigue">إرهاق</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="breathing" value="صعوبة تنفس">
+                                        <label for="breathing">صعوبة تنفس</label>
+                                    </div>
+                                    <div class="checkbox-item">
+                                        <input type="checkbox" id="nausea" value="غثيان">
+                                        <label for="nausea">غثيان</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="loading-bar" id="medical-loading">
+                                <div class="loading-progress"></div>
+                            </div>
+                            
+                            <div class="ai-result" id="medical-result">
+                                <h3 class="result-title">
+                                    <i class="fas fa-brain"></i>
+                                    نتيجة تحليل الذكاء الاصطناعي
+                                </h3>
+                                <div class="result-content" id="medical-diagnosis">
+                                    <!-- سيتم إضافة النتيجة هنا -->
+                                </div>
+                                <div class="ai-suggestion" id="medical-suggestion">
+                                    <!-- سيتم إضافة التوصيات هنا -->
+                                </div>
+                            </div>
+                            
+                            <div class="control-buttons">
+                                <button class="ai-analyze-btn" id="analyze-medical">
+                                    <i class="fas fa-robot"></i>
+                                    تحليل الذكاء الاصطناعي للحالة
+                                </button>
+                                <button class="reset-btn" id="reset-medical">
+                                    <i class="fas fa-redo"></i>
+                                    إعادة التعيين
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التجربة 2: تحليل التلوث البيئي -->
+                <div class="experiment-card environmental-experiment" data-aos="fade-up" data-aos-delay="300">
+                    <div class="experiment-header">
+                        <div class="experiment-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h2 class="experiment-title">تحليل التلوث البيئي</h2>
+                        <p class="experiment-subtitle">تقييم مستوى التلوث وتقديم حلول ذكية</p>
+                    </div>
+                    
+                    <div class="experiment-body">
+                        <div class="ai-simulation">
+                            <div class="alert alert-info">
+                                <i class="fas fa-globe-asia"></i>
+                                <div>
+                                    <strong>التعليمات:</strong> حدد مستوى كل عامل تلوث
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>مستوى الدخان والغازات:</label>
+                                <select class="pollution-select" id="smoke-level">
+                                    <option value="low">منخفض</option>
+                                    <option value="medium" selected>متوسط</option>
+                                    <option value="high">مرتفع</option>
+                                    <option value="very-high">مرتفع جداً</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>كمية النفايات الصناعية:</label>
+                                <select class="pollution-select" id="waste-level">
+                                    <option value="low">منخفضة</option>
+                                    <option value="medium">متوسطة</option>
+                                    <option value="high" selected>مرتفعة</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>عدد المصانع في المنطقة:</label>
+                                <select class="pollution-select" id="factories-level">
+                                    <option value="low">قليلة (1-3)</option>
+                                    <option value="medium" selected>متوسطة (4-7)</option>
+                                    <option value="high">كثيرة (8+)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="pollution-meter">
+                                <div class="pollution-level" id="pollution-indicator"></div>
+                            </div>
+                            <div class="meter-labels">
+                                <span>منخفض</span>
+                                <span>متوسط</span>
+                                <span>مرتفع</span>
+                                <span>خطير</span>
+                            </div>
+                            
+                            <div class="loading-bar" id="pollution-loading">
+                                <div class="loading-progress"></div>
+                            </div>
+                            
+                            <div class="ai-result" id="pollution-result">
+                                <h3 class="result-title">
+                                    <i class="fas fa-brain"></i>
+                                    تحليل الذكاء الاصطناعي للتلوث
+                                </h3>
+                                <div class="result-content" id="pollution-analysis">
+                                    <!-- سيتم إضافة النتيجة هنا -->
+                                </div>
+                                <div class="ai-suggestion" id="pollution-suggestion">
+                                    <!-- سيتم إضافة التوصيات هنا -->
+                                </div>
+                            </div>
+                            
+                            <div class="control-buttons">
+                                <button class="ai-analyze-btn" id="analyze-pollution">
+                                    <i class="fas fa-robot"></i>
+                                    تحليل مستوى التلوث بالـ AI
+                                </button>
+                                <button class="reset-btn" id="reset-pollution">
+                                    <i class="fas fa-redo"></i>
+                                    إعادة التعيين
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التجربة 3: الروبوت المخبري -->
+                <div class="experiment-card chemistry-experiment" data-aos="fade-up" data-aos-delay="400">
+                    <div class="experiment-header">
+                        <div class="experiment-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h2 class="experiment-title">الروبوت المخبري الذكي</h2>
+                        <p class="experiment-subtitle">تحليل العينات الكيميائية باستخدام الروبوتات</p>
+                    </div>
+                    
+                    <div class="experiment-body">
+                        <div class="ai-simulation">
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <div>
+                                    <strong>تحذير:</strong> التجارب الكيميائية تتطلب معدات وقائية خاصة
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>اختر أنبوب الاختبار للتحليل:</label>
+                                <div class="test-tubes">
+                                    <div class="test-tube tube-1" data-tube="1">
+                                        <div class="liquid"></div>
+                                        <div class="tube-label">الأنبوب 1</div>
+                                    </div>
+                                    <div class="test-tube tube-2" data-tube="2">
+                                        <div class="liquid"></div>
+                                        <div class="tube-label">الأنبوب 2</div>
+                                    </div>
+                                    <div class="test-tube tube-3" data-tube="3">
+                                        <div class="liquid"></div>
+                                        <div class="tube-label">الأنبوب 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>نوع التحليل المطلوب:</label>
+                                <div class="chemistry-grid">
+                                    <div class="radio-item">
+                                        <input type="radio" id="ph-test" name="analysis-type" value="ph" checked>
+                                        <label for="ph-test">اختبار درجة الحموضة (pH)</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="toxicity-test" name="analysis-type" value="toxicity">
+                                        <label for="toxicity-test">اختبار السمية</label>
+                                    </div>
+                                    <div class="radio-item">
+                                        <input type="radio" id="composition-test" name="analysis-type" value="composition">
+                                        <label for="composition-test">تحليل التركيب الكيميائي</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="loading-bar" id="chemistry-loading">
+                                <div class="loading-progress"></div>
+                            </div>
+                            
+                            <div class="ai-result" id="chemistry-result">
+                                <h3 class="result-title">
+                                    <i class="fas fa-robot"></i>
+                                    تقرير الروبوت المخبري الذكي
+                                </h3>
+                                <div class="result-content" id="chemistry-analysis">
+                                    <!-- سيتم إضافة النتيجة هنا -->
+                                </div>
+                                <div class="ai-suggestion" id="chemistry-suggestion">
+                                    <!-- سيتم إضافة التوصيات هنا -->
+                                </div>
+                            </div>
+                            
+                            <div class="control-buttons">
+                                <button class="ai-analyze-btn" id="analyze-chemistry">
+                                    <i class="fas fa-vial"></i>
+                                    حلّل العينة بالروبوت الذكي
+                                </button>
+                                <button class="reset-btn" id="reset-chemistry">
+                                    <i class="fas fa-redo"></i>
+                                    إعادة التعيين
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نصائح وتعليمات -->
+            <div class="alert alert-success" data-aos="fade-up" style="margin-top: 40px;">
+                <i class="fas fa-lightbulb"></i>
+                <div>
+                    <strong>كيف يعمل الذكاء الاصطناعي في هذه التجارب؟</strong>
+                    <p style="margin-top: 10px; font-size: 0.95rem;">
+                        يقوم الذكاء الاصطناعي بمحاكاة عمليات التفكير والتحليل بناءً على البيانات المدخلة. 
+                        في هذه التجربة، يتم استخدام خوارزميات مبسطة تقوم بتحليل الأنماط والعلاقات بين المتغيرات 
+                        لتقديم التشخيص أو التحليل المناسب، مع الأخذ بعين الاعتبار أفضل الممارسات العلمية.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <span>AI Robotics Tech</span>
+                    </div>
+                    <p class="footer-description">منصة تعليمية تقدم تجارب افتراضية باستخدام الذكاء الاصطناعي للمختبرات العلمية</p>
+                    <div class="social-links">
+                        <a href="https://twitter.com/AlNaqiraSchool" aria-label="تابعنا على تويتر" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/alnaqira_school" aria-label="تابعنا على إنستغرام" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/c/AlNaqiraSchool" aria-label="تابعنا على يوتيوب" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="mailto:stem@alnaqira.edu.kw" aria-label="راسلنا على البريد"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                     <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link">الشروحات</a></li>
+                    <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>التجارب الافتراضية</h3>
+                    <ul>
+                        <li><a href="#medical-experiment">التشخيص الطبي</a></li>
+                        <li><a href="#environmental-experiment">تحليل التلوث</a></li>
+                        <li><a href="#chemistry-experiment">الروبوت المخبري</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>هل لديك اقتراح؟</h3>
+                    <p>نرحب باقتراحاتك لتجارب افتراضية جديدة</p>
+                    <a href="contact.html" class="btn btn-primary" style="margin-top: 10px; padding: 10px 20px;">
+                        <i class="fas fa-lightbulb"></i> اقترح تجربة جديدة
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 مدرسة النقيرة الثانوية للبنات - جميع الحقوق محفوظة | المختبر الافتراضي بالذكاء الاصطناعي</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- مكتبة الانيميشن -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- JavaScript للمختبر الافتراضي -->
+    <script>
+        // تهيئة AOS للرسوم المتحركة
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // ========== بيانات التشخيص الطبي ==========
+        const medicalDiagnoses = {
+            mild: {
+                title: "التهاب تنفسي خفيف",
+                description: "بناءً على الأعراض المدخلة، يرجح الذكاء الاصطناعي وجود التهاب تنفسي خفيف. الأعراض تشير إلى حالة غير خطيرة ولكنها تحتاج للرعاية.",
+                suggestion: "ينصح بالراحة، شرب السوائل الدافئة، واستخدام خافض للحرارة إذا لزم الأمر. إذا استمرت الأعراض أكثر من 3 أيام، يجب مراجعة الطبيب."
+            },
+            moderate: {
+                title: "عدوى فيروسية متوسطة",
+                description: "الذكاء الاصطناعي يحلل الأعراض ويستنتج وجود عدوى فيروسية متوسطة الحدة. قد تحتاج لمراقبة دقيقة.",
+                suggestion: "يوصى بعزل المريض، الراحة التامة، ومراقبة درجة الحرارة. يجب التواصل مع الطبيب لتقييم الحالة بشكل دقيق."
+            },
+            severe: {
+                title: "حالة تحتاج تقييم طبي عاجل",
+                description: "تحليل الذكاء الاصطناعي يشير إلى أعراض مقلقة تستدعي التقييم الطبي الفوري. بعض الأعراض قد تشير لحالة أكثر خطورة.",
+                suggestion: "<strong>يجب مراجعة الطبيب فوراً أو التوجه لأقرب مركز رعاية صحية.</strong> لا تتجاهل الأعراض وخصوصاً صعوبة التنفس."
+            },
+            covid: {
+                title: "احتمالية الإصابة بعدوى تنفسية",
+                description: "مجموعة الأعراض المدخلة تتطابق مع أعراض أمراض تنفسية متعددة بما فيها الإنفلونزا والتهاب الجهاز التنفسي.",
+                suggestion: "ينصح بإجراء فحص طبي للتأكد، ارتداء الكمامة، والعزل الوقائي حتى التأكد من التشخيص."
+            }
+        };
+
+        // ========== بيانات التلوث البيئي ==========
+        const pollutionLevels = {
+            low: {
+                level: 25,
+                description: "نسبة التلوث منخفضة. جودة الهواء جيدة نسبياً.",
+                suggestion: "حافظ على هذه المستويات بالتشجير وتقليل استخدام السيارات."
+            },
+            medium: {
+                level: 50,
+                description: "مستوى تلوث متوسط. يحتاج لمراقبة وتحسين.",
+                suggestion: "اقتراح زراعة أشجار إضافية وتشجيع استخدام وسائل النقل العام."
+            },
+            high: {
+                level: 75,
+                description: "مستوى تلوث مرتفع. يؤثر على صحة السكان.",
+                suggestion: "يجب تقليل الانبعاثات الصناعية ووضع قيود على المصانع الملوثة."
+            },
+            veryHigh: {
+                level: 95,
+                description: "مستوى تلوث خطير. خطر على الصحة العامة والبيئة.",
+                suggestion: "<strong>حالة طوارئ بيئية.</strong> يجب اتخاذ إجراءات فورية لتقليل التلوث وإغلاق المصانع الملوثة مؤقتاً."
+            }
+        };
+
+        // ========== بيانات التجارب الكيميائية ==========
+        const chemicalAnalyses = {
+            1: {
+                name: "محلول حمضي قوي",
+                ph: 2.5,
+                toxicity: "مرتفعة",
+                composition: "حمض هيدروكلوريك مخفف",
+                warning: "مادة خطرة، تتطلب معدات وقائية خاصة"
+            },
+            2: {
+                name: "محلول متعادل",
+                ph: 7.0,
+                toxicity: "منخفضة",
+                composition: "محلول ملحي",
+                warning: "آمن للاستخدام المخبري تحت إشراف"
+            },
+            3: {
+                name: "محلول قاعدي متوسط",
+                ph: 9.5,
+                toxicity: "متوسطة",
+                composition: "هيدروكسيد الصوديوم",
+                warning: "يسبب حروقاً، التعامل بحذر"
+            }
+        };
+
+        // ========== DOM Elements ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            // العناصر العامة
+            const medicalResult = document.getElementById('medical-result');
+            const pollutionResult = document.getElementById('pollution-result');
+            const chemistryResult = document.getElementById('chemistry-result');
+            
+            // ========== التجربة 1: التشخيص الطبي ==========
+            const analyzeMedicalBtn = document.getElementById('analyze-medical');
+            const resetMedicalBtn = document.getElementById('reset-medical');
+            const medicalLoading = document.getElementById('medical-loading');
+            const medicalDiagnosisEl = document.getElementById('medical-diagnosis');
+            const medicalSuggestionEl = document.getElementById('medical-suggestion');
+            
+            analyzeMedicalBtn.addEventListener('click', function() {
+                // جمع الأعراض المختارة
+                const selectedSymptoms = Array.from(document.querySelectorAll('#symptoms-grid input:checked'))
+                    .map(checkbox => checkbox.value);
+                
+                if (selectedSymptoms.length === 0) {
+                    alert('الرجاء اختيار عرض واحد على الأقل');
+                    return;
+                }
+                
+                // محاكاة تحميل الذكاء الاصطناعي
+                simulateAIThinking(medicalLoading, function() {
+                    // تحليل الأعراض
+                    let diagnosisKey = 'mild';
+                    
+                    if (selectedSymptoms.includes('صعوبة تنفس')) {
+                        diagnosisKey = 'severe';
+                    } else if (selectedSymptoms.length >= 4) {
+                        diagnosisKey = 'moderate';
+                    } else if (selectedSymptoms.includes('حمى') && selectedSymptoms.includes('سعال')) {
+                        diagnosisKey = 'covid';
+                    }
+                    
+                    const diagnosis = medicalDiagnoses[diagnosisKey];
+                    
+                    // عرض النتيجة
+                    medicalDiagnosisEl.innerHTML = `
+                        <p><strong>التشخيص:</strong> ${diagnosis.title}</p>
+                        <p>${diagnosis.description}</p>
+                    `;
+                    
+                    medicalSuggestionEl.innerHTML = `
+                        <h4><i class="fas fa-hand-point-left"></i> توصية الذكاء الاصطناعي:</h4>
+                        <p>${diagnosis.suggestion}</p>
+                    `;
+                    
+                    medicalResult.classList.add('show');
+                    
+                    // تمرير لأسفل لعرض النتيجة
+                    medicalResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                });
+            });
+            
+            resetMedicalBtn.addEventListener('click', function() {
+                // إعادة تعيين الأعراض
+                document.querySelectorAll('#symptoms-grid input').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                
+                // إخفاء النتيجة
+                medicalResult.classList.remove('show');
+                medicalLoading.style.display = 'none';
+            });
+            
+            // ========== التجربة 2: تحليل التلوث ==========
+            const analyzePollutionBtn = document.getElementById('analyze-pollution');
+            const resetPollutionBtn = document.getElementById('reset-pollution');
+            const pollutionLoading = document.getElementById('pollution-loading');
+            const pollutionAnalysisEl = document.getElementById('pollution-analysis');
+            const pollutionSuggestionEl = document.getElementById('pollution-suggestion');
+            const pollutionIndicator = document.getElementById('pollution-indicator');
+            
+            // تحديث مؤشر التلوث عند تغيير القيم
+            document.querySelectorAll('.pollution-select').forEach(select => {
+                select.addEventListener('change', updatePollutionIndicator);
+            });
+            
+            function updatePollutionIndicator() {
+                const smoke = document.getElementById('smoke-level').value;
+                const waste = document.getElementById('waste-level').value;
+                const factories = document.getElementById('factories-level').value;
+                
+                let totalScore = 0;
+                
+                // حساب النقاط
+                const scores = {
+                    'low': 25,
+                    'medium': 50,
+                    'high': 75,
+                    'very-high': 95
+                };
+                
+                totalScore = (scores[smoke] + scores[waste] + scores[factories]) / 3;
+                
+                // تحديث المؤشر
+                pollutionIndicator.style.width = totalScore + '%';
+            }
+            
+            // تهيئة المؤشر أول مرة
+            updatePollutionIndicator();
+            
+            analyzePollutionBtn.addEventListener('click', function() {
+                const smoke = document.getElementById('smoke-level').value;
+                const waste = document.getElementById('waste-level').value;
+                const factories = document.getElementById('factories-level').value;
+                
+                // محاكاة تحميل الذكاء الاصطناعي
+                simulateAIThinking(pollutionLoading, function() {
+                    // تحديد مستوى التلوث بناءً على القيم
+                    let pollutionKey = 'low';
+                    let pollutionLevel = 0;
+                    
+                    if (smoke === 'very-high' || waste === 'high' || factories === 'high') {
+                        pollutionKey = 'veryHigh';
+                        pollutionLevel = 95;
+                    } else if (smoke === 'high' || waste === 'medium' || factories === 'medium') {
+                        pollutionKey = 'high';
+                        pollutionLevel = 75;
+                    } else if (smoke === 'medium' || waste === 'low' || factories === 'low') {
+                        pollutionKey = 'medium';
+                        pollutionLevel = 50;
+                    } else {
+                        pollutionKey = 'low';
+                        pollutionLevel = 25;
+                    }
+                    
+                    const analysis = pollutionLevels[pollutionKey];
+                    
+                    // عرض النتيجة
+                    pollutionAnalysisEl.innerHTML = `
+                        <p><strong>مستوى التلوث:</strong> ${pollutionLevel}%</p>
+                        <p>${analysis.description}</p>
+                        <div class="pollution-meter" style="margin: 15px 0;">
+                            <div class="pollution-level" style="width: ${pollutionLevel}%"></div>
+                        </div>
+                    `;
+                    
+                    pollutionSuggestionEl.innerHTML = `
+                        <h4><i class="fas fa-seedling"></i> اقتراحات الذكاء الاصطناعي:</h4>
+                        <p>${analysis.suggestion}</p>
+                        <p style="margin-top: 10px; font-size: 0.9rem;">
+                            <i class="fas fa-lightbulb"></i>
+                            اقتراح إضافي: إنشاء نظام مراقبة بيئية ذكي باستخدام أجهزة استشعار IoT
+                        </p>
+                    `;
+                    
+                    pollutionResult.classList.add('show');
+                    
+                    // تمرير لأسفل لعرض النتيجة
+                    pollutionResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                });
+            });
+            
+            resetPollutionBtn.addEventListener('click', function() {
+                // إعادة تعيين القيم الافتراضية
+                document.getElementById('smoke-level').value = 'medium';
+                document.getElementById('waste-level').value = 'high';
+                document.getElementById('factories-level').value = 'medium';
+                
+                // تحديث المؤشر
+                updatePollutionIndicator();
+                
+                // إخفاء النتيجة
+                pollutionResult.classList.remove('show');
+                pollutionLoading.style.display = 'none';
+            });
+            
+            // ========== التجربة 3: الروبوت المخبري ==========
+            const analyzeChemistryBtn = document.getElementById('analyze-chemistry');
+            const resetChemistryBtn = document.getElementById('reset-chemistry');
+            const chemistryLoading = document.getElementById('chemistry-loading');
+            const chemistryAnalysisEl = document.getElementById('chemistry-analysis');
+            const chemistrySuggestionEl = document.getElementById('chemistry-suggestion');
+            const testTubes = document.querySelectorAll('.test-tube');
+            
+            let selectedTube = 1;
+            
+            // اختيار الأنبوب
+            testTubes.forEach(tube => {
+                tube.addEventListener('click', function() {
+                    // إزالة التحديد السابق
+                    testTubes.forEach(t => t.classList.remove('selected'));
+                    
+                    // تحديد الأنبوب الجديد
+                    this.classList.add('selected');
+                    selectedTube = parseInt(this.getAttribute('data-tube'));
+                });
+            });
+            
+            // تحديد الأنبوب الأول افتراضياً
+            testTubes[0].classList.add('selected');
+            
+            analyzeChemistryBtn.addEventListener('click', function() {
+                const analysisType = document.querySelector('input[name="analysis-type"]:checked').value;
+                const chemical = chemicalAnalyses[selectedTube];
+                
+                if (!chemical) {
+                    alert('الرجاء اختيار أنبوب اختبار');
+                    return;
+                }
+                
+                // محاكاة تحميل الذكاء الاصطناعي
+                simulateAIThinking(chemistryLoading, function() {
+                    let analysisResult = '';
+                    
+                    switch(analysisType) {
+                        case 'ph':
+                            analysisResult = `
+                                <p><strong>نوع العينة:</strong> ${chemical.name}</p>
+                                <p><strong>درجة الحموضة (pH):</strong> ${chemical.ph}</p>
+                                <p><strong>الوسط:</strong> ${chemical.ph < 7 ? 'حمضي' : chemical.ph > 7 ? 'قاعدي' : 'متعادل'}</p>
+                            `;
+                            break;
+                        case 'toxicity':
+                            analysisResult = `
+                                <p><strong>نوع العينة:</strong> ${chemical.name}</p>
+                                <p><strong>مستوى السمية:</strong> ${chemical.toxicity}</p>
+                                <p><strong>التقييم:</strong> ${chemical.toxicity === 'مرتفعة' ? 'خطيرة - التعامل مع حذر' : 
+                                                                 chemical.toxicity === 'متوسطة' ? 'متوسطة الخطورة' : 
+                                                                 'آمنة نسبياً'}</p>
+                            `;
+                            break;
+                        case 'composition':
+                            analysisResult = `
+                                <p><strong>نوع العينة:</strong> ${chemical.name}</p>
+                                <p><strong>التركيب الكيميائي:</strong> ${chemical.composition}</p>
+                                <p><strong>التوصيف:</strong> ${chemical.name.includes('حمضي') ? 'مادة أكالة' : 
+                                                                chemical.name.includes('قاعدي') ? 'مادة كاوية' : 
+                                                                'محلول ملحي'}</p>
+                            `;
+                            break;
+                    }
+                    
+                    chemistryAnalysisEl.innerHTML = analysisResult;
+                    
+                    chemistrySuggestionEl.innerHTML = `
+                        <h4><i class="fas fa-robot"></i> تقرير الروبوت المخبري:</h4>
+                        <p><strong>تحذير:</strong> ${chemical.warning}</p>
+                        <p style="margin-top: 10px;">
+                            <i class="fas fa-vial"></i>
+                            <strong>إجراءات السلامة المقترحة:</strong> 
+                            ${chemical.toxicity === 'مرتفعة' ? 'ارتداء قفازات وكمامات ونظارات واقية، العمل في غرفة تهوية جيدة' :
+                              chemical.toxicity === 'متوسطة' ? 'ارتداء قفازات ونظارات واقية' :
+                              'ارتداء قفازات وقاية أساسية'}
+                        </p>
+                    `;
+                    
+                    chemistryResult.classList.add('show');
+                    
+                    // تمرير لأسفل لعرض النتيجة
+                    chemistryResult.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                });
+            });
+            
+            resetChemistryBtn.addEventListener('click', function() {
+                // إعادة تعيين الأنبوب الأول
+                testTubes.forEach(t => t.classList.remove('selected'));
+                testTubes[0].classList.add('selected');
+                selectedTube = 1;
+                
+                // إعادة تعيين نوع التحليل
+                document.getElementById('ph-test').checked = true;
+                
+                // إخفاء النتيجة
+                chemistryResult.classList.remove('show');
+                chemistryLoading.style.display = 'none';
+            });
+            
+            // ========== دالة محاكاة تحميل الذكاء الاصطناعي ==========
+            function simulateAIThinking(loadingElement, callback) {
+                loadingElement.style.display = 'block';
+                const progressBar = loadingElement.querySelector('.loading-progress');
+                
+                // إعادة تعيين شريط التقدم
+                progressBar.style.width = '0%';
+                
+                // محاكاة تحليل الذكاء الاصطناعي
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 10;
+                    progressBar.style.width = progress + '%';
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        setTimeout(() => {
+                            loadingElement.style.display = 'none';
+                            callback();
+                        }, 300);
+                    }
+                }, 100);
+            }
+            
+            // ========== لوحة إمكانية الوصول ==========
+            setupAccessibility();
+        });
+
+        // ========== إعدادات إمكانية الوصول ==========
+        function setupAccessibility() {
+            const accessibilityPanel = document.getElementById('accessibility-panel');
+            const accessibilityToggle = document.getElementById('accessibility-toggle');
+            
+            accessibilityToggle.addEventListener('click', function() {
+                accessibilityPanel.classList.toggle('open');
+                this.setAttribute('aria-expanded', accessibilityPanel.classList.contains('open'));
+            });
+            
+            // إعدادات حجم الخط
+            const fontDecrease = document.getElementById('font-decrease');
+            const fontDefault = document.getElementById('font-default');
+            const fontIncrease = document.getElementById('font-increase');
+            
+            fontDecrease.addEventListener('click', function() {
+                setActiveButton(this, [fontDefault, fontIncrease]);
+                document.body.classList.remove('large-font', 'larger-font');
+                document.body.classList.add('small-font');
+            });
+            
+            fontDefault.addEventListener('click', function() {
+                setActiveButton(this, [fontDecrease, fontIncrease]);
+                document.body.classList.remove('small-font', 'large-font', 'larger-font');
+            });
+            
+            fontIncrease.addEventListener('click', function() {
+                setActiveButton(this, [fontDecrease, fontDefault]);
+                document.body.classList.remove('small-font', 'larger-font');
+                document.body.classList.add('large-font');
+            });
+            
+            // إعدادات التباين
+            const contrastButtons = document.querySelectorAll('.contrast-btn');
+            contrastButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const theme = this.getAttribute('data-theme');
+                    setActiveButton(this, contrastButtons);
+                    
+                    // إزالة جميع سمات التباين
+                    document.body.classList.remove('high-contrast', 'dark');
+                    
+                    // إضافة السمة المختارة
+                    if (theme !== 'default') {
+                        document.body.classList.add(theme);
+                    }
+                });
+            });
+            
+            // إعدادات التباعد
+            const spacingButtons = document.querySelectorAll('.spacing-btn');
+            spacingButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const spacing = this.getAttribute('data-spacing');
+                    setActiveButton(this, spacingButtons);
+                    
+                    // إزالة جميع سمات التباعد
+                    document.body.classList.remove('wide-spacing');
+                    
+                    // إضافة السمة المختارة
+                    if (spacing === 'wide') {
+                        document.body.classList.add('wide-spacing');
+                    }
+                });
+            });
+            
+            function setActiveButton(activeButton, otherButtons) {
+                activeButton.classList.add('active');
+                otherButtons.forEach(btn => btn.classList.remove('active'));
+            }
+        }
+    </script>
+</body>
+</html>

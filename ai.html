@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الذكاء الاصطناعي - AI Space Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- لوحة إمكانية الوصول -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <button id="accessibility-toggle" class="accessibility-toggle" aria-label="فتح إعدادات إمكانية الوصول">
+            <i class="fa-solid fa-universal-access"></i>
+        </button>
+
+        <div class="accessibility-options">
+            <h3>إعدادات الوصول</h3>
+
+            <div class="option-group">
+                <label>حجم الخط:</label>
+                <div class="buttons">
+                    <button id="font-decrease" class="font-btn">أ-</button>
+                    <button id="font-default" class="font-btn active">أ</button>
+                    <button id="font-increase" class="font-btn">أ+</button>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <label>تباين الألوان:</label>
+                <div class="buttons">
+                    <button id="contrast-default" class="contrast-btn active" data-theme="default">افتراضي</button>
+                    <button id="contrast-high" class="contrast-btn" data-theme="high-contrast">تباين عالي</button>
+                    <button id="contrast-dark" class="contrast-btn" data-theme="dark">مظلم</button>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <label>تباعد الأسطر:</label>
+                <div class="buttons">
+                    <button id="spacing-normal" class="spacing-btn active" data-spacing="normal">عادي</button>
+                    <button id="spacing-wide" class="spacing-btn" data-spacing="wide">واسع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- الرأس -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+
+                <a href="index.html" style="text-decoration: none; color: var(--primary-color); font-size: 1.5rem; font-weight: 800; white-space: nowrap;">
+                AI Robotics Tech
+            </a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                     <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link active">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link active">الشروحات</a></li>
+                      <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link"> بوابة التواصل</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <main>
+        <!-- قسم البطل -->
+        <section class="hero-ai">
+            <div class="container-ai">
+                <div class="hero-content" data-aos="fade-left">
+                    <h1 class="hero-title">الذكاء الاصطناعي: ثورة التكنولوجيا الحديثة</h1>
+                    <p class="hero-description">استكشف عالم الذكاء الاصطناعي المتقدم وتعلم الآلة وكيفية تحويلها لمختلف
+                        الصناعات والمجالات</p>
+                    <div class="hero-buttons" data-aos="fade-up">
+                        <a href="#applications" class="btn btn-primary">التطبيقات العملية</a>
+                        <a href="#technologies" class="btn btn-secondary">أحدث التقنيات</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/ai.png" alt="الذكاء الاصطناعي" />
+                </div>
+            </div>
+        </section>
+
+
+        <!-- قسم مقدمة الذكاء الاصطناعي -->
+        <section class="intro-section">
+            <div class="container">
+                <div class="section-header" data-aos="fade-up">
+                    <h2>ما هو الذكاء الاصطناعي؟</h2>
+                    <p>الذكاء الاصطناعي يحاكي القدرات الذهنية البشرية وأنماط عملها، ويتم تطبيقه على الآلات والبرامج
+                        الحاسوبية</p>
+                </div>
+                <div class="content-grid">
+                    <div class="content-text">
+                        <h3>تطور الذكاء الاصطناعي عبر الزمن</h3>
+                        <p>شهد الذكاء الاصطناعي تطوراً مذهلاً من مجرد أفكار نظرية إلى تقنيات عملية تغير شكل العالم من
+                            حولنا. بدأ كمجال أكاديمي في الخمسينات وأصبح الآن جزءاً أساسياً من حياتنا اليومية.</p>
+
+                        <div class="feature-list">
+                            <div class="feature-item" data-aos="fade-left">
+                                <span class="feature-icon"><i class="fa fa-brain"></i></span>
+                                <div>
+                                    <h4>التعلم العميق</h4>
+                                    <p>تقنيات الشبكات العصبية المتقدمة التي تحاكي عمل الدماغ البشري</p>
+                                </div>
+                            </div>
+                            <div class="feature-item" data-aos="fade-left" data-aos-delay="100">
+                                <span class="feature-icon"><i class="fa fa-chart-line"></i></span>
+                                <div>
+                                    <h4>تحليل البيانات</h4>
+                                    <p>القدرة على معالجة كميات هائلة من البيانات واستخراج الأنماط</p>
+                                </div>
+                            </div>
+                            <div class="feature-item" data-aos="fade-left" data-aos-delay="200">
+                                <span class="feature-icon"><i class="fa fa-robot"></i></span>
+                                <div>
+                                    <h4>الروبوتات الذكية</h4>
+                                    <p>أنظمة قادرة على التفاعل مع البيئة واتخاذ القرارات المستقلة</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-visual" data-aos="fade-right">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-year">1950</div>
+                                <div class="timeline-content">
+                                    <h4>ولادة الذكاء الاصطناعي</h4>
+                                    <p>آلان تورينغ يطرح اختبار تورينغ كمعيار للذكاء</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">1980</div>
+                                <div class="timeline-content">
+                                    <h4>أنظمة الخبراء</h4>
+                                    <p>ظهور الأنظمة القائمة على المعرفة والخبرة البشرية</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2010</div>
+                                <div class="timeline-content">
+                                    <h4>ثورة التعلم العميق</h4>
+                                    <p>تطور الشبكات العصبية والتعلم الآلي المتقدم</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2023</div>
+                                <div class="timeline-content">
+                                    <h4>الذكاء الاصطناعي التوليدي</h4>
+                                    <p>نماذج لغوية كبيرة قادرة على الإبداع والإنتاج</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم التطبيقات -->
+        <section id="applications" class="applications-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">تطبيقات الذكاء الاصطناعي</h2>
+                <div class="applications-grid">
+                    <div class="application-card" data-aos="zoom-in">
+                        <div class="app-icon"><i class="fa fa-hospital"></i></div>
+                        <h3>الرعاية الصحية</h3>
+                        <p>تشخيص الأمراض، اكتشاف الأدوية، والجراحة الروبوتية الدقيقة</p>
+                        <ul class="app-features">
+                            <li>تحليل الصور الطبية</li>
+                            <li>التشخيص المساعد</li>
+                            <li>تطوير الأدوية</li>
+                        </ul>
+                    </div>
+                    <div class="application-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="app-icon"><i class="fa fa-car"></i></div>
+                        <h3>المركبات الذاتية</h3>
+                        <p>سيارات وطائرات بدون طيار قادرة على الملاحة والقيادة الذاتية</p>
+                        <ul class="app-features">
+                            <li>الرؤية الحاسوبية</li>
+                            <li>اتخاذ القرارات</li>
+                            <li>التعلم المعزز</li>
+                        </ul>
+                    </div>
+                    <div class="application-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="app-icon"><i class="fa fa-lightbulb"></i></div>
+                        <h3>المساعدات الذكية</h3>
+                        <p>مساعدات افتراضية تفهم اللغة الطبيعية وتقدم المساعدة الذكية</p>
+                        <ul class="app-features">
+                            <li>معالجة اللغة</li>
+                            <li>التعرف على الكلام</li>
+                            <li>الفهم السياقي</li>
+                        </ul>
+                    </div>
+                    <div class="application-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="app-icon"><i class="fa fa-dollar-sign"></i></div>
+                        <h3>الخدمات المالية</h3>
+                        <p>اكتشاف الاحتيال، التداول الآلي، وتقييم المخاطر المالية</p>
+                        <ul class="app-features">
+                            <li>تحليل الأنماط</li>
+                            <li>التنبؤ بالسوق</li>
+                            <li>إدارة المحافظ</li>
+                        </ul>
+                    </div>
+                    <div class="application-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="app-icon"><i class="fa fa-cogs"></i></div>
+                        <h3>الصناعة 4.0</h3>
+                        <p>المصانع الذكية والروبوتات المتقدمة وأتمتة العمليات الصناعية</p>
+                        <ul class="app-features">
+                            <li>الصيانة التنبؤية</li>
+                            <li>التحكم الذكي</li>
+                            <li>تحسين الجودة</li>
+                        </ul>
+                    </div>
+                    <div class="application-card" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="app-icon"><i class="fa fa-graduation-cap"></i></div>
+                        <h3>التعليم الذكي</h3>
+                        <p>أنظمة تعلم مخصصة وتقييم ذكي وتجارب تعليمية تفاعلية</p>
+                        <ul class="app-features">
+                            <li>التعلم التكيفي</li>
+                            <li>تقييم آلي</li>
+                            <li>محتوى مخصص</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم التقنيات -->
+        <section id="technologies" class="technologies-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">أحدث تقنيات الذكاء الاصطناعي</h2>
+                <div class="tech-tabs" data-aos="zoom-in">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="machine-learning">التعلم الآلي</button>
+                        <button class="tab-button" data-tab="deep-learning">التعلم العميق</button>
+                        <button class="tab-button" data-tab="nlp">معالجة اللغة</button>
+                        <button class="tab-button" data-tab="computer-vision">الرؤية الحاسوبية</button>
+                        <button class="tab-button" data-tab="generative-ai">الذكاء التوليدي</button>
+                        <button class="tab-button" data-tab="reinforcement">التعلم المعزز</button>
+                    </div>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="machine-learning">
+                            <div class="tech-content">
+                                <div class="tech-info">
+                                    <h3>التعلم الآلي</h3>
+                                    <p>تقنية تمكن الأنظمة من التعلم والتطور من البيانات دون برمجة صريحة. يستخدم
+                                        خوارزميات إحصائية لبناء نماذج تنبؤية من البيانات المدخلة.</p>
+                                    <div class="tech-features">
+                                        <div class="tech-feature">
+                                            <h4>التعلم بالإشراف</h4>
+                                            <p>تدريب النماذج على بيانات معلمة مسبقاً للتنبؤ بالقيم المستقبلية</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>التعلم غير الإشرافي</h4>
+                                            <p>اكتشاف الأنماط والعلاقات في البيانات غير المعلمة</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>التعلم شبه الإشرافي</h4>
+                                            <p>مزيج بين البيانات المعلمة وغير المعلمة لتحسين الدقة</p>
+                                        </div>
+                                    </div>
+                                    <div class="tech-applications">
+                                        <h4>التطبيقات العملية:</h4>
+                                        <ul>
+                                            <li>أنظمة التوصية في المتاجر الإلكترونية</li>
+                                            <li>كشف الاحتيال في المعاملات المالية</li>
+                                            <li>تحليل المشاعر في وسائل التواصل الاجتماعي</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tech-visual">
+                                    <div class="ml-diagram">
+                                        <div class="data-input"><i class="fa fa-chart-line"></i> بيانات الإدخال</div>
+                                        <div class="algorithm"><i class="fa fa-code"></i> الخوارزمية</div>
+                                        <div class="model"><i class="fa fa-cube"></i> النموذج</div>
+                                        <div class="prediction"><i class="fa fa-eye"></i> التنبؤ</div>
+                                        <div class="feedback"><i class="fa fa-sync-alt"></i> التغذية الراجعة</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="deep-learning">
+                            <div class="tech-content">
+                                <div class="tech-info">
+                                    <h3>التعلم العميق</h3>
+                                    <p>نوع متقدم من التعلم الآلي يستخدم شبكات عصبية متعددة الطبقات لمحاكاة عمل الدماغ
+                                        البشري. يتفوق في معالجة البيانات المعقدة مثل الصور والصوت والنصوص.</p>
+                                    <div class="tech-features">
+                                        <div class="tech-feature">
+                                            <h4>الشبكات التلافيفية</h4>
+                                            <p>مثالية لمعالجة الصور والرؤية الحاسوبية والتعرف على الأنماط</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>الشبكات المتكررة</h4>
+                                            <p>مناسبة للبيانات المتسلسلة مثل النصوص والسلاسل الزمنية</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>المحولات</h4>
+                                            <p>أحدث التقنيات في معالجة اللغة والتفوق في فهم السياق</p>
+                                        </div>
+                                    </div>
+                                    <div class="tech-applications">
+                                        <h4>التطبيقات العملية:</h4>
+                                        <ul>
+                                            <li>المركبات ذاتية القيادة</li>
+                                            <li>التشخيص الطبي من الصور</li>
+                                            <li>الترجمة الآلية الفورية</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tech-visual">
+                                    <div class="neural-network">
+                                        <div class="input-layer">
+                                            <div class="neuron"></div>
+                                            <div class="neuron"></div>
+                                            <div class="neuron"></div>
+                                        </div>
+                                        <div class="hidden-layer">
+                                            <div class="neuron"></div>
+                                            <div class="neuron"></div>
+                                            <div class="neuron"></div>
+                                            <div class="neuron"></div>
+                                        </div>
+                                        <div class="output-layer">
+                                            <div class="neuron"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="nlp">
+                            <div class="tech-content">
+                                <div class="tech-info">
+                                    <h3>معالجة اللغة الطبيعية</h3>
+                                    <p>فرع من الذكاء الاصطناعي يركز على تفاعل الحاسوب مع اللغة البشرية. يمكن الأنظمة من
+                                        فهم وتفسير وتوليد النص البشري.</p>
+                                    <div class="tech-features">
+                                        <div class="tech-feature">
+                                            <h4>نماذج اللغة الكبيرة</h4>
+                                            <p>نماذج متقدمة قادرة على فهم السياق وإنتاج نصوص متماسكة</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>تحليل المشاعر</h4>
+                                            <p>تحديد المشاعر والمواقف من النصوص المكتوبة</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>التعرف على الكيانات</h4>
+                                            <p>استخراج المعلومات المهمة مثل الأسماء والتواريخ من النص</p>
+                                        </div>
+                                    </div>
+                                    <div class="tech-applications">
+                                        <h4>التطبيقات العملية:</h4>
+                                        <ul>
+                                            <li>المساعدات الذكية مثل ChatGPT</li>
+                                            <li>تلخيص النصوص تلقائياً</li>
+                                            <li>الترجمة بين اللغات المختلفة</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tech-visual">
+                                    <div class="nlp-diagram">
+                                        <div class="text-input"><i class="fa fa-file-alt"></i> النص المدخل</div>
+                                        <div class="tokenization"><i class="fa fa-cut"></i> التجزئة</div>
+                                        <div class="embedding"><i class="fa fa-calculator"></i> التمثيل العددي</div>
+                                        <div class="processing"><i class="fa fa-cogs"></i> المعالجة</div>
+                                        <div class="text-output"><i class="fa fa-check-circle"></i> الناتج</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="computer-vision">
+                            <div class="tech-content">
+                                <div class="tech-info">
+                                    <h3>الرؤية الحاسوبية</h3>
+                                    <p>مجال يهدف إلى تمكين الحواسيب من فهم العالم المرئي. يستخدم خوارزميات لاستخراج
+                                        المعلومات من الصور ومقاطع الفيديو.</p>
+                                    <div class="tech-features">
+                                        <div class="tech-feature">
+                                            <h4>التعرف على الوجوه</h4>
+                                            <p>تحديد هوية الأشخاص من خلال ملامح وجوههم</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>كشف الأشياء</h4>
+                                            <p>تحديد وتمييز الأشياء المختلفة في الصور</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>التجزئة الدلالية</h4>
+                                            <p>تقسيم الصورة إلى مناطق ذات معنى</p>
+                                        </div>
+                                    </div>
+                                    <div class="tech-applications">
+                                        <h4>التطبيقات العملية:</h4>
+                                        <ul>
+                                            <li>أنظمة المراقبة الأمنية الذكية</li>
+                                            <li>التشخيص الطبي من الأشعة</li>
+                                            <li>السيارات ذاتية القيادة</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tech-visual">
+                                    <div class="vision-diagram">
+                                        <div class="image-input"><i class="fa fa-image"></i> الصورة المدخلة</div>
+                                        <div class="feature-extraction"><i class="fa fa-search"></i> استخراج الميزات
+                                        </div>
+                                        <div class="object-detection"><i class="fa fa-eye"></i> كشف الأشياء</div>
+                                        <div class="classification"><i class="fa fa-tags"></i> التصنيف</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="generative-ai">
+                            <div class="tech-content">
+                                <div class="tech-info">
+                                    <h3>الذكاء الاصطناعي التوليدي</h3>
+                                    <p>تقنية متقدمة تمكن الأنظمة من إنشاء محتوى جديد وأصلي يشبه المحتوى البشري، بما في
+                                        ذلك النصوص والصور والموسيقى.</p>
+                                    <div class="tech-features">
+                                        <div class="tech-feature">
+                                            <h4>النماذج التوليدية</h4>
+                                            <p>إنشاء محتوى جديد من خلال تعلم توزيع البيانات الأصلية</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>محولات التوليد</h4>
+                                            <p>نماذج متقدمة لتوليد النصوص والصور بجودة عالية</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>الشبكات الخصومية</h4>
+                                            <p>نظام من شبكتين تتنافسان لتحسين جودة المخرجات</p>
+                                        </div>
+                                    </div>
+                                    <div class="tech-applications">
+                                        <h4>التطبيقات العملية:</h4>
+                                        <ul>
+                                            <li>توليد الصور الفنية من النصوص</li>
+                                            <li>إنشاء المحتوى الإبداعي</li>
+                                            <li>تطوير الأدوية والمواد الجديدة</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tech-visual">
+                                    <div class="generative-diagram">
+                                        <div class="prompt-input"><i class="fa fa-comment-dots"></i> النص الموجه</div>
+                                        <div class="latent-space"><i class="fa fa-globe"></i> الفضاء الكامن</div>
+                                        <div class="generation-process"><i class="fa fa-sync-alt"></i> عملية التوليد
+                                        </div>
+                                        <div class="generated-output"><i class="fa fa-check"></i> المخرجات المولدة</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="reinforcement">
+                            <div class="tech-content">
+                                <div class="tech-info">
+                                    <h3>التعلم المعزز</h3>
+                                    <p>نوع من التعلم الآلي حيث يتعلم العامل (Agent) من خلال التفاعل مع البيئة والحصول
+                                        على مكافآت مقابل الأفعال الصحيحة.</p>
+                                    <div class="tech-features">
+                                        <div class="tech-feature">
+                                            <h4>Q-Learning</h4>
+                                            <p>خوارزمية تتعلم القيمة المتوقعة للإجراءات في حالات مختلفة</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>الشبكات العصبية العميقة</h4>
+                                            <p>دمج التعلم المعزز مع الشبكات العصبية للمشاكل المعقدة</p>
+                                        </div>
+                                        <div class="tech-feature">
+                                            <h4>التعلم من السياسات</h4>
+                                            <p>تحسين استراتيجية اتخاذ القرارات مباشرة</p>
+                                        </div>
+                                    </div>
+                                    <div class="tech-applications">
+                                        <h4>التطبيقات العملية:</h4>
+                                        <ul>
+                                            <li>ألعاب الفيديو الذكية</li>
+                                            <li>الروبوتات والتحكم الآلي</li>
+                                            <li>إدارة الموارد والطاقة</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="tech-visual">
+                                    <div class="rl-diagram">
+                                        <div class="agent"><i class="fa fa-robot"></i> العامل</div>
+                                        <div class="action"><i class="fa fa-bullseye"></i> الإجراء</div>
+                                        <div class="environment"><i class="fa fa-globe"></i> البيئة</div>
+                                        <div class="reward"><i class="fa fa-star"></i> المكافأة</div>
+                                        <div class="state"><i class="fa fa-chart-bar"></i> الحالة</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم مستقبل الذكاء الاصطناعي -->
+        <section class="future-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">مستقبل الذكاء الاصطناعي</h2>
+                <p data-aos="fade-up">يتجه الذكاء الاصطناعي نحو أنظمة أكثر ذكاءً واستقلالية، مع تركيز متزايد على
+                    الأخلاقيات والشفافية
+                    والتعاون بين الإنسان والآلة</p>
+
+                <div class="future-content">
+
+                    <div class="future-image" data-aos="fade-left">
+                        <img src="images/slazzer-preview-ejilw.png" alt="AI futuriste">
+                    </div>
+
+
+                    <div class="future-trends">
+                        <div class="trend-card" data-aos="zoom-in-up">
+                            <h3>الذكاء الاصطناعي التوليدي</h3>
+                            <p>أنظمة قادرة على إنشاء محتوى أصلي من نصوص وصور وموسيقى</p>
+                        </div>
+                        <div class="trend-card" data-aos="zoom-in-up" data-aos-delay="100">
+                            <h3>التعلم الموحد</h3>
+                            <p>تدوير النماذج على البيانات المحلية مع الحفاظ على الخصوصية</p>
+                        </div>
+                        <div class="trend-card" data-aos="zoom-in-up" data-aos-delay="200">
+                            <h3>الذكاء الاصطناعي التفسيري</h3>
+                            <p>نماذج قابلة للتفسير تقدم شفافية في عملية اتخاذ القرار</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <!-- قسم اختبار الذكاء الاصطناعي -->
+<section id="ai-quiz-section" class="quiz-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <h2>اختبر فهمك في الذكاء الاصطناعي</h2>
+            <p>اختبر معلوماتك في الذكاء الاصطناعي والروبوتات من خلال هذا الاختبار التفاعلي</p>
+        </div>
+
+        <div class="quiz-wrapper" data-aos="zoom-in">
+            <!-- معلومات الاختبار -->
+            <div class="quiz-info">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="quiz-progress"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="current-question">1</span> / <span id="total-questions">10</span>
+                    </div>
+                </div>
+                <div class="score-display" id="score-display">
+                    النتيجة: <span>0</span>/10
+                </div>
+            </div>
+
+            <!-- منطقة السؤال -->
+            <div class="question-area">
+                <h3 id="question-text" class="question-text"></h3>
+                <div id="options-container" class="options-grid"></div>
+            </div>
+
+            <!-- زر التالي -->
+            <div class="quiz-controls">
+                <button id="next-question-btn" class="btn btn-primary">
+                    السؤال التالي <i class="fas fa-arrow-left"></i>
+                </button>
+                <button id="submit-quiz-btn" class="btn btn-secondary" style="display: none;">
+                    عرض النتيجة النهائية
+                </button>
+            </div>
+
+            <!-- منطقة النتيجة -->
+            <div id="result-area" class="result-area" style="display: none;">
+                <div class="result-header">
+                    <h3>نتيجة الاختبار</h3>
+                    <div class="final-score">
+                        <span id="final-score">0</span>/10
+                    </div>
+                </div>
+                
+                <div class="result-message">
+                    <p id="result-message"></p>
+                    <div class="recommendation">
+                        <h4>التوصيات:</h4>
+                        <ul id="recommendations-list"></ul>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button id="restart-quiz-btn" class="btn btn-primary">
+                        <i class="fas fa-redo"></i> إعادة الاختبار
+                    </button>
+                    <button id="review-answers-btn" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i> مراجعة الإجابات
+                    </button>
+                </div>
+            </div>
+
+            <!-- مراجعة الإجابات -->
+            <div id="review-area" class="review-area" style="display: none;">
+                <h3>مراجعة الإجابات</h3>
+                <div id="review-list"></div>
+                <button id="back-to-result-btn" class="btn btn-primary">
+                    العودة للنتيجة
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- عنصر صوتي -->
+<audio id="correct-sound" preload="auto">
+    <source src="sounds/صحيحة.mp3" type="audio/mpeg">
+</audio>
+<audio id="wrong-sound" preload="auto">
+    <source src="sounds/خطاء.mp3" type="audio/mpeg">
+</audio>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+
+                        <span>AI Space Tech</span>
+                    </div>
+                    <p class="footer-description">منصة متخصصة في استكشاف التقاطع بين الذكاء الاصطناعي وتكنولوجيا الفضاء
+                        وآثارهما على مستقبل البشرية</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="تابعنا على تويتر"><span class="icon"><i
+                                    class="fab fa-twitter"></i></span></a>
+                        <a href="#" aria-label="تابعنا على فيسبوك"><span class="icon"><i
+                                    class="fab fa-facebook"></i></span></a>
+                        <a href="#" aria-label="تابعنا على لينكد إن"><span class="icon"><i
+                                    class="fab fa-linkedin"></i></span></a>
+                        <a href="#" aria-label="تابعنا على يوتيوب"><span class="icon"><i
+                                    class="fab fa-youtube"></i></span></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                       <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                     <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link">الشروحات</a></li>
+                    <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                </ul>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>الموارد</h3>
+                    <ul>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="#">الأبحاث</a></li>
+                        <li><a href="#">الفعاليات</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>اشترك في نشرتنا</h3>
+                    <p>ابق على اطلاع بأحدث التطورات في الذكاء الاصطناعي وتكنولوجيا الفضاء</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">اشترك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Space Tech. جميع الحقوق محفوظة.</p>
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/script.js"></script>
+    <script src="js/ai-script.js"></script>
+
+    <!-- مكتبة الانيميشن -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script src="js/animation.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI & Robotics Tech - الذكاء الاصطناعي والروبوتات</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- رابط الايقونات-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- رابط مكتبة الانيميشن  -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- لوحة إمكانية الوصول -->
+    <div id="accessibility-panel" class="accessibility-panel">
+        <button id="accessibility-toggle" class="accessibility-toggle" aria-label="فتح إعدادات إمكانية الوصول">
+            <i class="fa-solid fa-universal-access"></i>
+        </button>
+
+        <div class="accessibility-options">
+            <h3>إعدادات الوصول</h3>
+
+            <div class="option-group">
+                <label>حجم الخط:</label>
+                <div class="buttons">
+                    <button id="font-decrease" class="font-btn">أ-</button>
+                    <button id="font-default" class="font-btn active">أ</button>
+                    <button id="font-increase" class="font-btn">أ+</button>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <label>تباين الألوان:</label>
+                <div class="buttons">
+                    <button id="contrast-default" class="contrast-btn active" data-theme="default">افتراضي</button>
+                    <button id="contrast-high" class="contrast-btn" data-theme="high-contrast">تباين عالي</button>
+                    <button id="contrast-dark" class="contrast-btn" data-theme="dark">مظلم</button>
+                </div>
+            </div>
+
+            <div class="option-group">
+                <label>تباعد الأسطر:</label>
+                <div class="buttons">
+                    <button id="spacing-normal" class="spacing-btn active" data-spacing="normal">عادي</button>
+                    <button id="spacing-wide" class="spacing-btn" data-spacing="wide">واسع</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- الرأس -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+
+                <a href="index.html"
+                    style="text-decoration: none; color: var(--primary-color); font-size: 1.5rem; font-weight: 800; white-space: nowrap;">
+                    AI Robotics Tech
+                </a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                    <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                    <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                    <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                    <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                    <li><a href="science.html" class="nav-link active">AI في العلوم</a></li>
+                    <li><a href="tutorials.html" class="nav-link active">الشروحات</a></li>
+                    <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                    <li><a href="contact.html" class="nav-link"> بوابة التواصل</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="فتح القائمة">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- القسم الرئيسي -->
+    <main>
+        <section>
+            <div class="container-hero">
+                <div class="content-section">
+                    <h1 class="main-heading">
+                        مستقبل
+                        <span class="highlight">الذكاء الاصطناعي</span>
+                        و
+                        <span class="highlight">الروبوتات الذكية</span>
+                    </h1>
+
+                    <p class="sub-text">
+                        اكتشف كيف يتقاطع الذكاء الاصطناعي مع أحدث الابتكارات في عالم الروبوتات. من الأجهزة الذكية التي
+                        تعمل في المصانع إلى الروبوتات المساعدة في المنازل والمستشفيات، يفتح الذكاء الاصطناعي آفاقاً
+                        جديدة في تصميم وتطوير الآلات الذكية.
+                    </p>
+
+                    <a href="#" class="cta-button">
+                        اكتشف المزيد الآن
+                    </a>
+                </div>
+
+                <div class="image-grid">
+                    <div class="image-card card-large">
+                        <img src="images/Ai-fut.jpeg" alt="روبوت صناعي ذكي">
+                    </div>
+
+                    <div class="image-card card-small-top">
+                        <img src="images/DOCTOR.jpg" alt="روبوت طبي">
+                    </div>
+
+                    <div class="image-card card-small-bottom">
+                        <img src="images/HOME.jpg" alt="روبوت منزلي">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الميزات -->
+        <section class="features">
+            <div class="container-feature">
+                <h2 class="section-title" data-aos="fade-up">استكشف عالم التكنولوجيا المتقدمة</h2>
+
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>الذكاء الاصطناعي</h3>
+                        <p>اكتشف أحدث التطورات في الذكاء الاصطناعي والتعلم الآلي وتطبيقاتها في حياتنا اليومية.</p>
+                        <a href="ai.html" class="feature-link">اكتشف المزيد →</a>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>الروبوتات الذكية</h3>
+                        <p>تعرف على آخر الابتكارات في مجال الروبوتات وتطبيقاتها في الصناعة والطب والحياة اليومية.</p>
+                        <a href="robotics.html" class="feature-link">اكتشف المزيد →</a>
+                    </div>
+
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>التقاطع بينهما</h3>
+                        <p>كيف يتقاطع الذكاء الاصطناعي مع الروبوتات لتطوير آلات ذكية مستقلة؟</p>
+                        <a href="intersection.html" class="feature-link">اكتشف المزيد →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stats-content">
+                    <h2 class="stats-title" data-aos="fade-left">البيانات تتحدث: نظرة رقمية على تطور الذكاء الاصطناعي
+                        والروبوتات</h2>
+                    <div class="stats-grid">
+                        <div class="stat-item" data-aos="fade-up">
+                            <div class="stat-circle">
+                                <img src="images/RR.jpg" alt="روبوت صناعي">
+                            </div>
+                            <div class="stat-text">
+                                <h3>2.7M+</h3>
+                                <p>روبوت صناعي</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                            <div class="stat-circle">
+                                <img src="images/EE.jpg" alt="خوارزمية ذكية">
+                            </div>
+                            <div class="stat-text">
+                                <h3>89+</h3>
+                                <p>خوارزمية ذكية</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                            <div class="stat-circle">
+                                <img src="images/DOCTOR.jpg" alt="روبوت طبي">
+                            </div>
+                            <div class="stat-text">
+                                <h3>15K+</h3>
+                                <p>روبوت طبي</p>
+                            </div>
+                        </div>
+
+                        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                            <div class="stat-circle">
+                                <img src="images/HOME.jpg" alt="روبوت منزلي">
+                            </div>
+                            <div class="stat-text">
+                                <h3>50M+</h3>
+                                <p>روبوت منزلي</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-image" data-aos="fade-up">
+                    <img src="images/sss.jpg" alt="روبوتات ذكية">
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم آخر المستجدات (مع النوافذ المنبثقة) -->
+        <section class="blog-preview">
+            <div class="container">
+                <h2 class="section-title">آخر المستجدات</h2>
+                <div class="blog-grid">
+                    <article class="blog-card" data-aos="fade-up">
+                        <div class="blog-image">
+                            <img src="images/eew.jpg" alt="الذكاء الاصطناعي في الروبوتات">
+                        </div>
+                        <div class="blog-content">
+                            <h3>الذكاء الاصطناعي في الروبوتات المتقدمة</h3>
+                            <p>كيف يساعد الذكاء الاصطناعي في تطوير روبوتات ذكية قادرة على التعلم والتكيف مع البيئات
+                                المختلفة</p>
+                            <button class="blog-link read-more-btn" data-article="ai-robotics">اقرأ المزيد</button>
+                        </div>
+                    </article>
+                    <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="blog-image">
+                            <img src="images/ww.jpg" alt="الروبوتات الجراحية">
+                        </div>
+                        <div class="blog-content">
+                            <h3>الروبوتات الجراحية الذكية</h3>
+                            <p>التطورات الحديثة في الروبوتات المدعومة بالذكاء الاصطناعي لتحسين الدقة في العمليات
+                                الجراحية</p>
+                            <button class="blog-link read-more-btn" data-article="surgical-robots">اقرأ المزيد</button>
+                        </div>
+                    </article>
+                    <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="blog-image">
+                            <img src="images/aa.jpg" alt="مستقبل الروبوتات">
+                        </div>
+                        <div class="blog-content">
+                            <h3>مستقبل الروبوتات الذكية</h3>
+                            <p>كيف سيغير الذكاء الاصطناعي مستقبل الروبوتات في الصناعة والخدمات والحياة اليومية</p>
+                            <button class="blog-link read-more-btn" data-article="future-robotics">اقرأ المزيد</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- نافذة المقال المنبثقة -->
+        <div id="article-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 id="modal-title">عنوان المقال</h2>
+                    <button class="close-modal" aria-label="إغلاق النافذة">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="article-meta">
+                        <span class="article-date" id="modal-date">1 يناير 2024</span>
+                        <span class="article-category" id="modal-category">التقنية</span>
+                    </div>
+                    <div class="article-image">
+                        <img id="modal-image" src="" alt="صورة المقال">
+                    </div>
+                    <div class="article-content" id="modal-content">
+                        <p>محتويات المقال ستظهر هنا...</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary close-modal">إغلاق</button>
+                    <button class="btn btn-primary" id="share-article">مشاركة المقال</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم لماذا هذا الموقع -->
+        <section class="why-section">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">لماذا هذا الموقع؟</h2>
+                <p class="why-text" data-aos="fade-up" data-aos-delay="100">
+                    هذا الموقع يجمع بين أحدث تقنيات الذكاء الاصطناعي وتصميم عصري لتقديم محتوى تقني بطريقة
+                    سلسة وممتعة للزائر، مع تجربة مستخدم مريحة وواجهة جذابة تركز على مستقبل الذكاء الاصطناعي والروبوتات.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+
+                        <span>AI Robotics Tech</span>
+                    </div>
+                    <p class="footer-description">منصة متخصصة في استكشاف التقاطع بين الذكاء الاصطناعي والروبوتات الذكية
+                        وآثارهما على مستقبل الصناعة والحياة اليومية</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="تابعنا على تويتر"><span class="icon"><i
+                                    class="fab fa-twitter"></i></span></a>
+                        <a href="#" aria-label="تابعنا على فيسبوك"><span class="icon"><i
+                                    class="fab fa-facebook"></i></span></a>
+                        <a href="#" aria-label="تابعنا على لينكد إن"><span class="icon"><i
+                                    class="fab fa-linkedin"></i></span></a>
+                        <a href="#" aria-label="تابعنا على يوتيوب"><span class="icon"><i
+                                    class="fab fa-youtube"></i></span></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                        <li><a href="ai.html" class="nav-link">الذكاء الاصطناعي</a></li>
+                        <li><a href="robotics.html" class="nav-link">الروبوتات</a></li>
+                        <li><a href="intersection.html" class="nav-link">حيث يلتقيان</a></li>
+                        <li><a href="tools.html" class="nav-link active">أدوات الذكاء الاصطناعي</a></li>
+                        <li><a href="science.html" class="nav-link">AI في العلوم</a></li>
+                        <li><a href="tutorials.html" class="nav-link">الشروحات</a></li>
+                        <li><a href="ai-lab.html" class="nav-link active">المختبر الافتراضي</a></li>
+                        <li><a href="contact.html" class="nav-link">اتصل بنا</a></li>
+                    </ul>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>الموارد</h3>
+                    <ul>
+                        <li><a href="#">المدونة</a></li>
+                        <li><a href="#">الأبحاث</a></li>
+                        <li><a href="#">الفعاليات</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>اشترك في نشرتنا</h3>
+                    <p>ابق على اطلاع بأحدث التطورات في الذكاء الاصطناعي والروبوتات</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="بريدك الإلكتروني" required>
+                        <button type="submit">اشترك</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Robotics Tech. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+
+    <!-- مكتبة الانيميشن -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- إضافة JavaScript للنوافذ المنبثقة -->
+    <script>
+        // تهيئة AOS للرسوم المتحركة
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // البيانات الخاصة بالمقالات
+        const articlesData = {
+            'ai-robotics': {
+                title: 'الذكاء الاصطناعي في الروبوتات المتقدمة',
+                date: '15 مارس 2024',
+                category: 'الذكاء الاصطناعي',
+                image: 'images/ai-robotics.jpg',
+                content: `
+                    <p>تعتبر الروبوتات المدعومة بالذكاء الاصطناعي واحدة من أكثر الابتكارات تقدماً في عالم التكنولوجيا. هذه الأنظمة لا تقوم فقط بتنفيذ المهام المبرمجة مسبقاً، بل تمتلك القدرة على التعلم والتكيف مع البيئات المختلفة.</p>
+                    
+                    <h4>مميزات الروبوتات الذكية:</h4>
+                    <ul>
+                        <li><strong>التعلم الذاتي:</strong> قدرة الروبوت على تحسين أدائه من خلال التجربة والخطأ</li>
+                        <li><strong>التكيف البيئي:</strong> تعديل السلوك حسب التغيرات في البيئة المحيطة</li>
+                        <li><strong>اتخاذ القرارات:</strong> تحليل البيانات واتخاذ قرارات مستقلة</li>
+                        <li><strong>التعاون البشري:</strong> العمل بسلاسة مع البشر في نفس البيئة</li>
+                    </ul>
+                    
+                    <h4>التطبيقات العملية:</h4>
+                    <p>تستخدم الروبوتات الذكية في العديد من المجالات منها:</p>
+                    <ol>
+                        <li><strong>الصناعة:</strong> خطوط إنتاج ذكية تتمتع بمرونة عالية</li>
+                        <li><strong>الطب:</strong> روبوتات جراحية تقدم دقة لا متناهية</li>
+                        <li><strong>الخدمات:</strong> روبوتات تقديم الخدمات في الفنادق والمطاعم</li>
+                        <li><strong>الاستكشاف:</strong> روبوتات للبحث والإنقاذ في البيئات الخطرة</li>
+                    </ol>
+                    
+                    <p>مع استمرار تطور تقنيات الذكاء الاصطناعي، نتوقع ظهور جيل جديد من الروبوتات التي ستغير شكل الصناعة والحياة اليومية بشكل جذري.</p>
+                `
+            },
+            'surgical-robots': {
+                title: 'الروبوتات الجراحية الذكية',
+                date: '10 فبراير 2024',
+                category: 'الروبوتات الطبية',
+                image: 'images/surgical-robot.jpg',
+                content: `
+                    <p>أحدثت الروبوتات الجراحية ثورة في عالم الطب، حيث توفر دقة غير مسبوقة وتقلل من المخاطر أثناء العمليات الجراحية المعقدة.</p>
+                    
+                    <h4>مميزات الروبوتات الجراحية:</h4>
+                    <ul>
+                        <li><strong>الدقة المتناهية:</strong> قدرة على إجراء حركات دقيقة تصل إلى الميكرون</li>
+                        <li><strong>تثبيت اليد:</strong> إلغاء الرعشة الطبيعية لليد البشرية</li>
+                        <li><strong>تكبير الرؤية:</strong> عرض تفاصيل الجراحة بتكبير عالي الدقة</li>
+                        <li><strong>الوصول المنظاري:</strong> عمليات جراحية طفيفة التوغل</li>
+                    </ul>
+                    
+                    <h4>أنظمة الروبوتات الجراحية الشهيرة:</h4>
+                    <div class="robot-systems">
+                        <div class="system-item">
+                            <h5>Da Vinci Surgical System</h5>
+                            <p>أشهر نظام روبوتي جراحي، يستخدم في عمليات القلب والمسالك البولية والنسائية</p>
+                        </div>
+                        <div class="system-item">
+                            <h5>MAKO Robotic-Arm</h5>
+                            <p>متخصص في جراحات العظام والمفاصل، وخاصة استبدال مفصل الركبة والورك</p>
+                        </div>
+                        <div class="system-item">
+                            <h5>CorPath GRX</h5>
+                            <p>روبوت متخصص في جراحات القلب والأوعية الدموية عن طريق التدخل عن بعد</p>
+                        </div>
+                    </div>
+                    
+                    <h4>فوائد للجراحين والمرضى:</h4>
+                    <div class="benefits-grid">
+                        <div class="benefit">
+                            <h5>للجراحين:</h5>
+                            <ul>
+                                <li>تخفيف الإجهاد الجسدي</li>
+                                <li>تحسين الرؤية الجراحية</li>
+                                <li>زيادة الدقة والتحكم</li>
+                            </ul>
+                        </div>
+                        <div class="benefit">
+                            <h5>للمرضى:</h5>
+                            <ul>
+                                <li>تقليل وقت التعافي</li>
+                                <li>ندوب أصغر</li>
+                                <li>تقليل خطر العدوى</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p>مع تطور الذكاء الاصطناعي، ستتمتع الروبوتات الجراحية مستقبلاً بقدرات تشخيصية وعلاجية أكثر تطوراً.</p>
+                `
+            },
+            'future-robotics': {
+                title: 'مستقبل الروبوتات الذكية',
+                date: '5 يناير 2024',
+                category: 'مستقبل التكنولوجيا',
+                image: 'images/future-robotics.jpg',
+                content: `
+                    <p>يشهد مجال الروبوتات تطوراً سريعاً مدفوعاً بالتقدم في الذكاء الاصطناعي، مما يفتح آفاقاً جديدة لمستقبل مليء بالإمكانيات.</p>
+                    
+                    <h4>الاتجاهات المستقبلية الرئيسية:</h4>
+                    <div class="future-trends">
+                        <div class="trend">
+                            <h5>الروبوتات الاجتماعية</h5>
+                            <p>روبوتات قادرة على التفاعل الاجتماعي الطبيعي مع البشر، وفهم المشاعر والتعبير عنها</p>
+                        </div>
+                        <div class="trend">
+                            <h5>الروبوتات القابلة للبرمجة</h5>
+                            <p>أنظمة يمكن للمستخدمين العاديين برمجتها لأداء مهام مخصصة دون حاجة لمتخصصين</p>
+                        </div>
+                        <div class="trend">
+                            <h5>الروبوتات البيولوجية</h5>
+                            <p>دمج المواد البيولوجية مع المكونات الإلكترونية لإنشاء روبوتات أكثر مرونة وتكيفاً</p>
+                        </div>
+                    </div>
+                    
+                    <h4>تأثير الروبوتات على سوق العمل:</h4>
+                    <table class="impact-table">
+                        <thead>
+                            <tr>
+                                <th>المجال</th>
+                                <th>التأثير المتوقع</th>
+                                <th>الفرص الجديدة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>الصناعة</td>
+                                <td>أتمتة 70% من المهام المتكررة</td>
+                                <td>وظائف صيانة وبرمجة الروبوتات</td>
+                            </tr>
+                            <tr>
+                                <td>الرعاية الصحية</td>
+                                <td>مساعدة في 40% من المهام التشخيصية</td>
+                                <td>تطوير أنظمة روبوتية متخصصة</td>
+                            </tr>
+                            <tr>
+                                <td>الخدمات</td>
+                                <td>تحسين كفاءة الخدمات بنسبة 60%</td>
+                                <td>تصميم تجارب تفاعلية جديدة</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>التحديات المستقبلية:</h4>
+                    <div class="challenges">
+                        <div class="challenge">
+                            <h5>التحديات الأخلاقية</h5>
+                            <ul>
+                                <li>مسؤولية القرارات الآلية</li>
+                                <li>الخصوصية والأمن</li>
+                                <li>التمييز في الخوارزميات</li>
+                            </ul>
+                        </div>
+                        <div class="challenge">
+                            <h5>التحديات التقنية</h5>
+                            <ul>
+                                <li>تطوير حواس بشرية بديلة</li>
+                                <li>تحسين استهلاك الطاقة</li>
+                                <li>التكامل مع البنية التحتية الحالية</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <p>سيكون مستقبل الروبوتات مليئاً بالإمكانيات، لكنه يتطلب تخطيطاً دقيقاً لضمان استفادة البشرية منها بشكل أخلاقي وآمن.</p>
+                `
+            }
+        };
+
+        // عناصر DOM
+        const modal = document.getElementById('article-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalDate = document.getElementById('modal-date');
+        const modalCategory = document.getElementById('modal-category');
+        const modalImage = document.getElementById('modal-image');
+        const modalContent = document.getElementById('modal-content');
+        const closeButtons = document.querySelectorAll('.close-modal');
+        const readMoreButtons = document.querySelectorAll('.read-more-btn');
+        const shareButton = document.getElementById('share-article');
+
+        // فتح النافذة المنبثقة
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const articleId = this.getAttribute('data-article');
+                const article = articlesData[articleId];
+
+                if (article) {
+                    modalTitle.textContent = article.title;
+                    modalDate.textContent = article.date;
+                    modalCategory.textContent = article.category;
+                    modalImage.src = article.image;
+                    modalImage.alt = article.title;
+                    modalContent.innerHTML = article.content;
+
+                    // عرض النافذة
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // إغلاق النافذة المنبثقة
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // إغلاق النافذة عند النقر خارجها
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // إغلاق النافذة بالزر Esc
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // مشاركة المقال
+        shareButton.addEventListener('click', function () {
+            const title = modalTitle.textContent;
+            const url = window.location.href;
+
+            if (navigator.share) {
+                navigator.share({
+                    title: title,
+                    text: 'اقرأ هذا المقال الممتع عن الذكاء الاصطناعي والروبوتات',
+                    url: url
+                });
+            } else {
+                // نسخ الرابط للحافظة
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('تم نسخ رابط المقال إلى الحافظة!');
+                });
+            }
+        });
+    </script>
+
+    <script src="js/animation.js"></script>
+</body>
+
+</html>
